@@ -1,0 +1,12 @@
+.hdr {
+  &__nav {
+    margin-right: 120px;
+    > .nav__list {
+      > .nav__list-item {
+        &:nth-last-child(n+2) {
+          margin-right: 110px;
+        }
+      }
+    }
+  }
+}

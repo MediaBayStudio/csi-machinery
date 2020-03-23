@@ -42,17 +42,17 @@ function enqueue_style($style_name, $widths) {
 // Подключаем свои стили и скрипты
 add_action('wp_enqueue_scripts', function() {
   $screen_widths = ['0', '420', '576', '768', '1024', '1440'];
-  wp_enqueue_style('style', get_stylesheet_uri());
+  wp_enqueue_style('theme-style', get_stylesheet_uri());
   enqueue_style('style', $screen_widths);
 
   // Подклчаем стили для разных страниц
-  if (is_page_template('index')) {
+  if (is_page_template('index.php')) {
     enqueue_style('index', $screen_widths);
   }
-  if (is_page_template('about')) {
+  if (is_page_template('about.php')) {
     enqueue_style('about', $screen_widths);
   }
-  if (is_page_template('catalog') || is_page_template('marine-engines') || is_page_template('marine-generators') || is_page_template('ground-generators') || is_page_template('single')) {
+  if (is_page_template('catalog.php') || is_page_template('marine-engines.php') || is_page_template('marine-generators.php') || is_page_template('ground-generators.php') || is_page_template('single.php')) {
     enqueue_style('catalog', $screen_widths);
   }
 
@@ -88,7 +88,7 @@ add_filter('script_loader_tag', function($html, $handle) {
 
 // Убираем лишнее в тегах style
 add_filter('style_loader_tag', function($html, $handle) {
-   return str_replace(" id='$handle-css'", '', $html);
+   return str_replace(" id='$handle-css' ", '', $html);
 }, 10, 2);
 
 
@@ -144,3 +144,27 @@ add_theme_support('title-tag');
 
 // Хук для создания опций
   add_action( 'admin_init','contatcs_options' );
+
+  add_action('after_setup_theme', 'regiser_site_menu');
+
+  function regiser_site_menu() {
+    register_nav_menu('header_menu', 'Меню в шапке сайта');
+    register_nav_menu('mobile_menu', 'Мобильное меню на сайте');
+    register_nav_menu('footer_menu', 'Меню в подвале сайта');
+  }
+
+  add_filter('nav_menu_css_class', function($classes, $item, $args, $depth) {
+    return ['nav__list-item'];
+  }, 10, 4);
+
+  add_filter('nav_menu_item_id', function($menu_id, $item, $args, $depth) {
+    return '';
+  }, 10, 4);
+
+add_action('init', function() {
+  remove_post_type_support('page', 'editor');
+  remove_post_type_support('page', 'thumbnail');
+  remove_post_type_support('page', 'revisions');
+  remove_post_type_support('page', 'comments');
+});
+

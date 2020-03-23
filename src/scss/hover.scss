@@ -1,0 +1,19 @@
+@import 'assets/colors';
+@import 'assets/variables';
+@import 'assets/mixins';
+
+.hdr__nav {
+  .nav__list-item {
+    &:hover {
+      border-bottom-color: currentColor;
+    }
+  }
+}
+
+.hdr__tel-block {
+  &:hover {
+    .tel-icon__path {
+      fill: $darkCyan;
+    }
+  }
+}

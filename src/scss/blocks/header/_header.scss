@@ -1,0 +1,12 @@
+.hdr {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  &__logo {
+    width: 150px;
+    height: 36px;
+  }
+
+  &__nav, &__tel-block {
+    display: none;
+  }
+}

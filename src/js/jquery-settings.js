@@ -1,6 +1,6 @@
-//=include components/jquery-settings/_utils.js
+let forms;
 
 document.addEventListener('DOMContentLoaded', function() {
-	//=include components/jquery-settings/_sliders.js
-	//=include components/jquery-settings/_forms.js
-	});
+  let form;
+  
+});

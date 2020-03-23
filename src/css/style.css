@@ -84,6 +84,7 @@ a:active, a:hover {
 }
 
 img {
+  max-width: 100%;
   border: 0;
   -ms-interpolation-mode: bicubic;
   vertical-align: middle;
@@ -165,26 +166,68 @@ textarea {
   padding: 0 20px;
 }
 
-@media (min-width: 419.98px) {
+@media (min-width: 575.98px) {
   .container {
     padding: 0 calc(50vw - 268px);
   }
 }
 
-@media (min-width: 575.98px) {
+@media (min-width: 767.98px) {
   .container {
     padding: 0 calc(50vw - 304px);
   }
 }
 
-@media (min-width: 767.98px) {
+@media (min-width: 1023.98px) {
   .container {
     padding: 0 calc(50vw - 412px);
   }
 }
 
-@media (min-width: 1023.98px) {
+@media (min-width: 1439.98px) {
   .container {
     padding: 0 calc(50vw - 600px);
   }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  font: bold 16px/100% Geometria;
+  background-color: #CAA45D;
+  color: #fff;
+  transition: background-color .5s, color .5s;
+}
+
+.btn_ol {
+  border: 2px solid #CAA45D;
+}
+
+.burger__svg {
+  pointer-events: none;
+  overflow: visible;
+}
+
+.burger__line {
+  stroke: #16656A;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.hdr {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.hdr__logo {
+  width: 150px;
+  height: 36px;
+}
+
+.hdr__nav, .hdr__tel-block {
+  display: none;
 }

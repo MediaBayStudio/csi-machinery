@@ -1,0 +1,9 @@
+.btn {
+  font: bold 16px/100% Geometria;
+  background-color: $gold;
+  color: $white;
+  transition: background-color .5s, color .5s;
+  &_ol {
+    border: 2px solid $gold;
+  }
+}

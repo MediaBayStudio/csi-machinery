@@ -1,0 +1,11 @@
+.burger {
+  &__svg {
+    pointer-events: none;
+    overflow: visible;
+  }
+  &__line {
+    stroke: $cyan;
+    stroke-width: 2;
+    stroke-linejoin: round;
+  }
+}

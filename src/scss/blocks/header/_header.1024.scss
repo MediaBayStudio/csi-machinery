@@ -1,0 +1,31 @@
+.hdr {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  &__tel-block {
+    margin: 0;
+  }
+  &__logo {
+    width: 210px;
+    height: 40px;
+  }
+  &__nav {
+    display: block;
+    margin: 0 60px 0 auto;
+    color: $darkCyan;
+    font: 16px/100% Geometria;
+    > .nav__list {
+      display: flex;
+      align-items: center;
+      > .nav__list-item {
+        border-bottom: 1px solid transparent;
+        transition: border-bottom-color .35s;
+        &:nth-last-child(n+2) {
+          margin-right: 45px;
+        }
+      }
+    }
+  }
+  .burger {
+    display: none;
+  }
+}

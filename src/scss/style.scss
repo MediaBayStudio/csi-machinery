@@ -6,6 +6,12 @@
 @import 'assets/mixins';
 @import 'assets/animations';
 
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 //blocks import
 @import 'blocks/buttons/buttons';
 @import 'blocks/breadcrumbs/breadcrumbs';
@@ -16,6 +22,7 @@
 @import 'blocks/mobile-menu/mobile-menu';
 @import 'blocks/sliders/sliders';
 @import 'blocks/header/header';
+@import '../layouts/mobile-menu/mobile-menu';
 @import '../layouts/about/about';
 @import '../layouts/partners/partners';
 @import '../layouts/contacts/contacts';

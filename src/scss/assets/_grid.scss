@@ -3,25 +3,25 @@
   padding: 0 20px;
 }
 
-@media (min-width: 419.98px) {
+@media (min-width: 575.98px) {
   .container {
     padding: 0 calc(50vw - 268px);
   }
 }
 
-@media (min-width: 575.98px) {
+@media (min-width: 767.98px) {
   .container {
     padding: 0 calc(50vw - 304px);
   }
 }
 
-@media (min-width: 767.98px) {
+@media (min-width: 1023.98px) {
   .container {
     padding: 0 calc(50vw - 412px);
   }
 }
 
-@media (min-width: 1023.98px) {
+@media (min-width: 1439.98px) {
   .container {
     padding: 0 calc(50vw - 600px);
   }
