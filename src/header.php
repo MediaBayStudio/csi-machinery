@@ -12,8 +12,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri() . "/favicon-32x32.png "?>">
   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri() . "/favicon-16x16.png" ?>">
   <link rel="manifest" href="<?php echo get_template_directory_uri() . "/site.webmanifest" ?>">
-  <link rel="mask-icon" href="<?php echo get_template_directory_uri() . "/safari-pinned-tab.svg" ?>" color="#16656a ">
-  <meta name="msapplication-TileColor" content="#16656a">
+  <link rel="mask-icon" href="<?php echo get_template_directory_uri() . "/safari-pinned-tab.svg" ?>" color="#16656A ">
+  <meta name="msapplication-TileColor" content="#16656A">
   <meta name="theme-color" content="#000000">
 
   <?php wp_head(); ?>

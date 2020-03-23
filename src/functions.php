@@ -61,7 +61,7 @@ add_action('wp_enqueue_scripts', function() {
   // Подключаем скрипты
   $scripts = ['slick.min', 'jquery.validate.min', 'lazyload.min', 'simpleMenu.min', 'simplePopup.min', 'main'];
   foreach ($scripts as $script_name) {
-    wp_enqueue_script("{$script_name}-script", get_template_directory_uri() . "./js/{$script_name}.js", [], null);
+    wp_enqueue_script("{$script_name}", get_template_directory_uri() . "/js/{$script_name}.js", [], null);
   }
 
   // Отключаем стандартные jquery, jquery-migrate
@@ -90,3 +90,57 @@ add_filter('script_loader_tag', function($html, $handle) {
 add_filter('style_loader_tag', function($html, $handle) {
    return str_replace(" id='$handle-css'", '', $html);
 }, 10, 2);
+
+
+add_theme_support('title-tag');
+
+      /* Contact Form 7 */
+// Отключаем весь css-файл CF7
+  add_filter('wpcf7_load_css', '__return_false');
+
+// Отключаем генерацию некоторых лишнех тегов
+  add_filter('wpcf7_autop_or_not', '__return_false');
+
+    /* Настройка контактов в панели настройки->общее */
+// Создание нужных полей
+  function contatcs_options() {
+    add_settings_field('tel', 'Телефон', 'display_tel', 'general');
+    register_setting('general', 'contacts_tel');
+
+    add_settings_field('address', 'Адрес', 'display_address', 'general');
+    register_setting('general', 'contacts_address');
+    
+    add_settings_field('email', 'E-mail', 'display_email', 'general');
+    register_setting('general', 'contacts_email');
+
+    add_settings_field('coords', 'Координаты маркера на карте', 'display_coords', 'general');
+    register_setting('general', 'contacts_coords');
+
+    add_settings_field('zoom', 'Увеличение карты', 'display_zoom', 'general');
+    register_setting('general', 'contacts_zoom');
+  }
+
+// Функции вывода нужных полей
+  function display_tel() {
+    echo "<input type='text' name='contacts_tel' value='" . esc_attr(get_option('contacts_tel')) . "'>";
+  }
+
+  function display_address() {
+    echo "<input type='text' name='contacts_address' value='" . esc_attr(get_option('contacts_address')) . "'>";  
+  }
+
+  function display_email() {
+    echo "<input type='text' name='contacts_email' value='" . esc_attr(get_option('contacts_email')) . "'>";  
+  }
+
+  function display_coords() {
+    echo "<input type='text' name='contacts_coords' value='" . esc_attr(get_option('contacts_coords')) . "'>";  
+  }
+
+  function display_zoom() {
+    echo "<input type='text' name='contacts_zoom' value='" . esc_attr(get_option('contacts_zoom')) . "'>";  
+  }
+
+
+// Хук для создания опций
+  add_action( 'admin_init','contatcs_options' );
