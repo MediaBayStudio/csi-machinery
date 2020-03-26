@@ -1,0 +1,20 @@
+.partners {
+  &-block {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    &__img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      object-position: center;
+      margin: auto;
+    }
+    > .slick-list {
+      overflow: hidden;
+    }
+  }
+  &__dots {
+    margin: 20px auto 0;
+  }
+}

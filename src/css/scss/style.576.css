@@ -1,0 +1,23 @@
+.mobile-menu {
+  padding-top: 20px;
+  padding-bottom: 120px;
+}
+
+.mobile-menu__logo {
+  width: 180px;
+  height: 40px;
+}
+
+.mobile-menu__nav {
+  margin-top: 70px;
+}
+
+.mobile-menu__nav > .nav__list .sub-menu {
+  margin-bottom: 40px;
+}
+
+.hdr__tel-block {
+  display: inline-flex;
+  margin: 0 50px 0 auto;
+  transition: opacity .35s;
+}

@@ -1,3 +1,24 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.index-hero {
+  &__slide {
+    padding: 65px 40px 90px;
+  }
+}
+
+.preview-catalog {
+  &__link {
+    width: 385px;
+    height: 385px;
+    padding: 40px;
+    overflow: hidden;
+    &-img {
+      width: 330px;
+      height: 250px;
+      right: -60px;
+    }
+  }
+}

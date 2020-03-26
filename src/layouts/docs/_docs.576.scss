@@ -1,3 +1,15 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.docs {
+  &-block {
+    justify-content: space-between;
+  }
+}
+
+.doc {
+  &:nth-child(odd) {
+    margin-right: 0;
+  }
+}

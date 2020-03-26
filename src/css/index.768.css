@@ -1,0 +1,54 @@
+.preview-catalog {
+  font-size: 20px;
+}
+
+.preview-catalog__link {
+  width: 191px;
+  height: 191px;
+  padding: 15px 20px;
+}
+
+.preview-catalog__link-img {
+  width: 140px;
+  height: 100px;
+}
+
+.preview-catalog__link-title {
+  max-width: 250px;
+}
+
+.feat {
+  width: 183px;
+  display: inline-flex;
+}
+
+.feat__title {
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+
+.feat__descr {
+  max-width: 183px;
+}
+
+.feat-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.feat:nth-last-child(n+2) {
+  margin-right: 0;
+}
+
+.faq__descr {
+  margin: 20px 0 45px;
+}
+
+.faq__answer {
+  font-size: 16px;
+}
+
+.doc {
+  margin-top: 45px;
+}

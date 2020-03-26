@@ -1,3 +1,20 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.preview-catalog {
+  font-size: 20px;
+  &__link {
+    width: 191px;
+    height: 191px;
+    padding: 15px 20px;
+    &-img {
+      width: 140px;
+      height: 100px;
+    }
+    &-title {
+      max-width: 250px;
+    }
+  }
+}

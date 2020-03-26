@@ -3,7 +3,7 @@
   padding-bottom: 30px;
 }
 
-.hdr__tel-block {
+.hdr__tel {
   margin: 0;
 }
 
@@ -35,4 +35,18 @@
 
 .hdr .burger {
   display: none;
+}
+
+.about-sect__title {
+  margin-bottom: 50px;
+}
+
+.about-sect__img {
+  width: 260px;
+  height: 355px;
+  margin: -80px 0 0 50px;
+}
+
+.about-sect__descr {
+  font-size: 16px;
 }

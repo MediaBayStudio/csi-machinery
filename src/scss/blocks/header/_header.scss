@@ -1,12 +1,17 @@
 .hdr {
   padding-top: 15px;
   padding-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  &.fixed {
+    background-color: $white;
+  }
   &__logo {
     width: 150px;
     height: 36px;
   }
 
-  &__nav, &__tel-block {
+  &__nav, &__tel {
     display: none;
   }
 }

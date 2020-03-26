@@ -1,0 +1,110 @@
+.field {
+  display: inline-flex;
+  position: relative;
+  font: lighter 14px/100% Geometria;
+  color: $grey;
+  &__inp {
+    border: none;
+    border-bottom: 1px solid $grey;
+    color: $cyan;
+    transition: border-bottom-color .4s, color .4s;
+    &::placeholder {
+      color: rgba(0,0,0,0);
+    }
+    &:focus {
+      border-bottom-color: $cyan;
+    }
+    &.invalid {
+      color: $error;
+      border-bottom-color: $error;
+      ~ .field__error {
+        opacity: 1;
+      }
+    }
+  }
+  &__text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-shadow: 0 0 .5px;
+    transition: top .5s, font-size .5s, text-shadow .5s;
+  }
+  &__error {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: inline-block;
+    width: 16px;
+    height: 14px;
+    background: url('../img/icon-error.svg') center/contain no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+  }
+}
+
+.field__inp:focus ~ .field__text,
+.field__text.focused {
+  top: -14px;
+  font-size: 10px;
+  text-shadow: 0 0 0;
+}
+
+
+.check {
+  position: relative;
+  display: grid;
+  font: 12px/140% Geometria;
+  color: #616161;
+  cursor: pointer;
+  &__inp {
+    grid-row: 1;
+    grid-column: 1;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    &:checked {
+      ~ .check__pseudo-inp::after {
+        opacity: 1;
+      }
+    }
+  }
+  &__pseudo-inp {
+    grid-row: 1;
+    grid-column: 1;
+    align-self: start;
+    margin-right: 10px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 1px solid $darkCyan;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: url('../img/check.svg') center/contain no-repeat;
+      opacity: 0;
+      transition: opacity .4s;
+    }
+  }
+  &__text {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: start;
+  }
+  &__link {
+    line-height: 100%;
+    border-bottom: 1px solid;
+  }
+}

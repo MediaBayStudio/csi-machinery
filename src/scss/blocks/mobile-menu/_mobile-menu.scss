@@ -9,3 +9,53 @@
     stroke-linejoin: round;
   }
 }
+
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 20px 50px responsive('320->768', '20->80');
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  width: responsive('320->576', '245->375');
+  max-width: 375px;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  max-height: 100vh;
+  max-height: calc(var(--vh, 1vh) * 100);
+  background-color: $white;
+  z-index: 2;
+  &.active {
+    display: flex;
+  }
+  &__logo {
+    width: 150px;
+    height: 33px;
+  }
+  &__tel {
+    margin-bottom: 20px;
+    color: $cyan;
+    font: 14px/100% Geometria;
+  }
+  &__nav {
+    margin: 70px 0 auto;
+    > .nav__list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font: bold 16px/100% Geometria;
+      color: $darkCyan;
+      .sub-menu {
+        margin: 20px 0 35px;
+        font-weight: lighter;
+        color: #616161;
+        > .nav__list-item {
+          max-width: 200px;
+          display: inline-block;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

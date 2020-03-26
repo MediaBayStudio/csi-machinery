@@ -3,7 +3,9 @@
   /*
     Template Name: Главная
   */
-  
+
+  require 'layouts/_info.php';
+
   get_header();
 
   require 'layouts/index-hero/_index-hero.php';

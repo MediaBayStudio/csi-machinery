@@ -1,3 +1,31 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.docs {
+  &-block {
+    max-width: none;
+    justify-content: space-between;
+    align-self: center;
+    margin: 0;
+    padding-right: 20px;
+  }
+}
+
+.doc {
+   margin: 0;
+   flex-flow: column;
+   align-items: flex-start;
+   &:nth-last-child(n+2) {
+    margin-right: 55px;
+   }
+  &__img {
+    width: 56px;
+    height: 60px;
+  }
+  &__title {
+    max-width: 108px;
+    margin: 15px 0 0 0
+  }
+}

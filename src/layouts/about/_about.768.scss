@@ -1,0 +1,20 @@
+.about-sect {
+  &__title {
+    margin-bottom: 40px;
+  }
+  &__link-wrap {
+    margin: 30px 0 0;
+  }
+  &__descr {
+    font-size: 14px;
+  }
+  &__img {
+    width: 190px;
+    height: 280px;
+    margin-left: 45px;
+  }
+  &__content-wrap {
+    display: flex;
+    align-items: flex-start;
+  }
+}

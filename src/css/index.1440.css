@@ -1,0 +1,71 @@
+.index-hero__slide {
+  padding: 65px 40px 90px;
+}
+
+.preview-catalog__link {
+  width: 385px;
+  height: 385px;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.preview-catalog__link-img {
+  width: 330px;
+  height: 250px;
+  right: -60px;
+}
+
+.feat {
+  width: 305px;
+}
+
+.feat:nth-last-child(n+2) {
+  margin-right: 100px;
+}
+
+.feat__img {
+  width: 70px;
+  height: 82px;
+}
+
+.feat__title {
+  margin-top: 25px;
+}
+
+.feat-block {
+  justify-content: flex-start;
+}
+
+.faq-sect__descr {
+  margin-right: 125px;
+  max-width: 280px;
+}
+
+.docs-block {
+  max-width: none;
+  justify-content: space-between;
+  -ms-grid-row-align: center;
+  align-self: center;
+  margin: 0;
+  padding-right: 20px;
+}
+
+.doc {
+  margin: 0;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.doc:nth-last-child(n+2) {
+  margin-right: 55px;
+}
+
+.doc__img {
+  width: 56px;
+  height: 60px;
+}
+
+.doc__title {
+  max-width: 108px;
+  margin: 15px 0 0 0;
+}

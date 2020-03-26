@@ -1,19 +1,9 @@
 .hdr {
   &__tel {
-    &-block {
-      display: inline-flex;
-      align-items: center;
-      justify-content: flex-start;
-      margin: 0 50px 0 auto;
-      font: 14px/100% Geometria;
-      color: $cyan;
-    }
-    &-icon {
-      margin-right: 5px;
-    }
+    display: inline-flex;
+    margin: 0 50px 0 auto;
+    transition: opacity .35s;
+    color: $cyan;
+    font: 14px/100% Geometria;
   }
-}
-
-.tel-icon__path {
-  transition: fill .35s;
 }

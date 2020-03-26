@@ -17,3 +17,16 @@
     }
   }
 }
+
+.preview-catalog__link {
+  &:hover {
+    border-color: currentColor;
+    > .preview-catalog__link-title {
+      text-decoration-color: currentColor
+    }
+    > .preview-catalog__link-img {
+      right: -45px;
+      transition-delay: .05s;
+    }
+  }
+}

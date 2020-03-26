@@ -1,0 +1,16 @@
+.mobile-menu {
+  padding-top: 20px;
+  padding-bottom: 120px;
+  &__logo {
+    width: 180px;
+    height: 40px;
+  }
+  &__nav {
+    margin-top: 70px;
+    > .nav__list {
+      .sub-menu {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

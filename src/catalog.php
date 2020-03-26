@@ -1,7 +1,7 @@
 <?php
 
   /*
-    Template Name: Каталог категории
+    Template Name: Каталог
   */
   
   get_header();

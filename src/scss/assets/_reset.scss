@@ -28,6 +28,10 @@ input {
 	padding: 0;
 }
 
+path {
+	transition: fill .35s, stroke .35s;
+}
+
 button, a {
 	background: none;
 	border: none;

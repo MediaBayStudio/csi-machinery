@@ -1,0 +1,46 @@
+.index-hero {
+  padding-top: 25px;
+}
+
+.index-hero__slide {
+  padding: 40px;
+}
+
+.index-hero__slide-logo {
+  width: 73px;
+  height: 100px;
+}
+
+.index-hero__slide-title {
+  max-width: 355px;
+  font-size: 26px;
+}
+
+.index-hero__dots {
+  right: 20px;
+  bottom: 20px;
+}
+
+.preview-catalog {
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.preview-catalog__link {
+  width: 170px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.preview-catalog__link-img {
+  width: 105px;
+  height: 95px;
+}
+
+.docs-block {
+  justify-content: space-between;
+}
+
+.doc:nth-child(odd) {
+  margin-right: 0;
+}

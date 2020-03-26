@@ -1,16 +1,30 @@
-.hdr__tel-block {
+.mobile-menu {
+  padding-top: 20px;
+  padding-bottom: 120px;
+}
+
+.mobile-menu__logo {
+  width: 180px;
+  height: 40px;
+}
+
+.mobile-menu__nav {
+  margin-top: 70px;
+}
+
+.mobile-menu__nav > .nav__list .sub-menu {
+  margin-bottom: 40px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+}
+
+.hdr__tel {
   display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
   margin: 0 50px 0 auto;
-  font: 14px/100% Geometria;
+  transition: opacity .35s;
   color: #16656A;
-}
-
-.hdr__tel-icon {
-  margin-right: 5px;
-}
-
-.tel-icon__path {
-  transition: fill .35s;
+  font: 14px/100% Geometria;
 }

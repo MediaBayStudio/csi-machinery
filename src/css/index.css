@@ -1,0 +1,242 @@
+.index-hero {
+  padding-top: 0;
+}
+
+.index-hero__slider {
+  color: #fff;
+  position: relative;
+}
+
+.index-hero__slider .dot {
+  background-color: rgba(202, 224, 225, 0.1);
+}
+
+.index-hero__slider.slick-slider > .slick-list {
+  overflow: hidden;
+}
+
+.index-hero__slider.slick-slider .index-hero__slide {
+  margin: 0;
+}
+
+.index-hero__dots {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.index-hero__slide {
+  width: 100%;
+  height: calc((100vw - 320px)/(575 - 320)*(500 - 280) + 280px);
+  max-height: 460px;
+  margin: auto;
+  padding: 15px 12px 45px;
+  background: url("../img/img-placeholder.svg") center/cover no-repeat, url("#") center/cover no-repeat;
+}
+
+.index-hero__slide-title {
+  max-width: 260px;
+  margin-top: auto;
+  font: bold 24px/140% Geometria;
+}
+
+.index-hero__slide-logo {
+  width: 34px;
+  height: 47px;
+}
+
+.index-hero__preview-catalog {
+  margin-top: 20px;
+}
+
+.preview-catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font: bold 18px/140% Geometria;
+  color: #103F45;
+}
+
+.preview-catalog__link {
+  width: 280px;
+  height: 150px;
+  padding: 20px;
+  position: relative;
+  background-color: #E4EBEC;
+  border: 1px solid transparent;
+  transition: border-color .5s;
+}
+
+.preview-catalog__link:nth-last-child(n+2) {
+  margin-bottom: 20px;
+}
+
+.preview-catalog__link-title {
+  display: inline-block;
+  max-width: 120px;
+  position: relative;
+  -webkit-text-decoration: underline transparent;
+  text-decoration: underline transparent;
+  transition: -webkit-text-decoration-color .5s .05s;
+  transition: text-decoration-color .5s .05s;
+  transition: text-decoration-color .5s .05s, -webkit-text-decoration-color .5s .05s;
+  z-index: 1;
+}
+
+.preview-catalog__link-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 135px;
+  height: 95px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -o-object-position: right bottom;
+  object-position: right bottom;
+  font-size: 12px;
+  line-height: 120%;
+  transition: right .5s .25s;
+}
+
+.feat {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.feat:nth-last-child(n+2) {
+  margin-right: 20px;
+}
+
+.feat__img {
+  width: 47px;
+  height: 60px;
+  -o-object-fit: contain;
+  object-fit: contain;
+  -o-object-position: bottom;
+  object-position: bottom;
+}
+
+.feat__title {
+  margin: 15px 0;
+  font: 500 16px/140% Geometria;
+  color: #103F45;
+}
+
+.feat__descr {
+  max-width: 220px;
+  font: 14px/140% Geometria;
+  color: #4D4D4D;
+}
+
+.feat-block {
+  overflow: hidden;
+}
+
+.feat__dots {
+  margin-top: 30px;
+}
+
+.faq {
+  display: flex;
+  align-items: flex-start;
+  transition: padding .5s;
+}
+
+.faq:nth-child(n+2) {
+  margin-top: 10px;
+}
+
+.faq.active {
+  padding-bottom: 10px;
+}
+
+.faq.active .faq__symbol::before {
+  content: '-';
+}
+
+.faq.active .faq__question {
+  margin-bottom: 15px;
+}
+
+.faq-sect__descr {
+  margin: 25px 0 30px;
+  font: 16px/140% Geometria;
+  color: #4D4D4D;
+}
+
+.faq__text-block {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.faq__question {
+  transition: margin .5s;
+  text-align: left;
+}
+
+.faq__answer {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  font: normal 14px/140% Geometria;
+  color: #4D4D4D;
+  transition: max-height .5s;
+}
+
+.faq__symbol {
+  margin-right: 10px;
+  min-width: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq__symbol::before {
+  content: '+';
+  font: inherit;
+}
+
+.faq__question,
+.faq__symbol {
+  color: #16656A;
+  font: 500 16px/140% Geometria;
+}
+
+.faq-sect,
+.faq__block,
+.faq,
+.faq__answer {
+  will-change: height, max-height;
+}
+
+.docs-sect__descr {
+  margin-top: 25px;
+  font: normal 16px/140% Geometria;
+  color: #4D4D4D;
+}
+
+.docs-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.doc {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 35px;
+}
+
+.doc:nth-child(odd) {
+  margin-right: calc((100vw - 320px)/(576 - 320)*(110 - 40) + 40px);
+}
+
+.doc__title {
+  margin-top: 20px;
+  max-width: 108px;
+  font: 14px/140% Geometria;
+  color: #C4C4C4;
+}

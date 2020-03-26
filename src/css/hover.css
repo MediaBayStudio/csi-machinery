@@ -5,3 +5,17 @@
 .hdr__tel-block:hover .tel-icon__path {
   fill: #103F45;
 }
+
+.preview-catalog__link:hover {
+  border-color: currentColor;
+}
+
+.preview-catalog__link:hover > .preview-catalog__link-title {
+  -webkit-text-decoration-color: currentColor;
+  text-decoration-color: currentColor;
+}
+
+.preview-catalog__link:hover > .preview-catalog__link-img {
+  right: -45px;
+  transition-delay: .05s;
+}

@@ -1,3 +1,24 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.feat {
+  width: 183px;
+  display: inline-flex;
+  &__title {
+    display: flex;
+    align-items: center;
+    height: 44px;
+  }
+  &__descr {
+    max-width: 183px;
+  }
+  &-block {
+    display: flex;
+    justify-content: space-between;
+  }
+  &:nth-last-child(n+2) {
+    margin-right: 0;
+  }
+}

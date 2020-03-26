@@ -1,3 +1,21 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.feat {
+  width: 262px;
+  &__img {
+    width: 60px;
+    height: 60px;
+  }
+  &__title {
+    margin-top: 20px;
+    height: auto;
+    font-size: 18px;
+    line-height: 100%;
+  }
+  &__descr {
+    max-width: 100%;
+    font-size: 16px;
+  }
+}

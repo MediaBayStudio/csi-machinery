@@ -59,7 +59,7 @@ add_action('wp_enqueue_scripts', function() {
   enqueue_style('hover', '');
 
   // Подключаем скрипты
-  $scripts = ['slick.min', 'jquery.validate.min', 'lazyload.min', 'simpleMenu.min', 'simplePopup.min', 'main'];
+  $scripts = ['slick.min', 'jquery.validate.min', 'lazyload.min', 'simpleMenu.min', 'simplePopup.min', 'jquery-settings', 'main'];
   foreach ($scripts as $script_name) {
     wp_enqueue_script("{$script_name}", get_template_directory_uri() . "/js/{$script_name}.js", [], null);
   }
@@ -76,7 +76,7 @@ add_action('wp_enqueue_scripts', function() {
 
 // Убираем лишнее в тегах script
 add_filter('script_loader_tag', function($html, $handle) {
-  $scripts = ['slick.min', 'jquery.validate.min', 'lazyload.min', 'simpleMenu.min', 'simplePopup.min', 'main'];
+  $scripts = ['slick.min', 'jquery.validate.min', 'lazyload.min', 'simpleMenu.min', 'simplePopup.min', 'jquery-settings', 'main'];
 
   foreach($scripts as $script) {
     if ($script === $handle) {
@@ -93,6 +93,7 @@ add_filter('style_loader_tag', function($html, $handle) {
 
 
 add_theme_support('title-tag');
+add_theme_support('post-thumbnails');
 
       /* Contact Form 7 */
 // Отключаем весь css-файл CF7
@@ -161,10 +162,99 @@ add_theme_support('title-tag');
     return '';
   }, 10, 4);
 
+
+add_action('admin_head', function() {
+  print
+  '<style>
+    .term-description-wrap {display:none}
+  </style>';
+});
+
+
+
+
 add_action('init', function() {
   remove_post_type_support('page', 'editor');
-  remove_post_type_support('page', 'thumbnail');
+  // add_post_type_support('page', 'thumbnail');
   remove_post_type_support('page', 'revisions');
   remove_post_type_support('page', 'comments');
+
+  register_taxonomy('post_tag', ['post'], [
+    'public'=> false,
+  ]);
+  register_taxonomy('category', ['post'], [
+    'public' => false
+  ]);
+
+  register_taxonomy('about_company', ['page'], [
+    'label'                 => '', // определяется параметром $labels->name
+    'labels'                => [
+      'name'              => 'О компании',
+      'singular_name'     => 'О компании',
+      'search_items'      => 'Найти',
+      'all_items'         => 'Все',
+      'view_item '        => 'Показать',
+      'parent_item'       => 'Родитель',
+      'parent_item_colon' => 'Родитель:',
+      'edit_item'         => 'Изменить',
+      'update_item'       => 'Обносить',
+      'add_new_item'      => 'Добавить',
+      'new_item_name'     => 'Добавить',
+      'menu_name'         => 'О компании',
+    ],
+    'hierarchical'          => false,
+    'meta_box_cb'           => false
+  ]);
+
+  register_post_type('partners_company', [
+    'label'  => null,
+    'labels' => [
+      'name'               => 'Партнеры',
+      'singular_name'      => 'Партнер',
+      'add_new'            => 'Добавить партнера',
+      'add_new_item'       => 'Добавление партнера',
+      'edit_item'          => 'Редактирование партнера',
+      'new_item'           => 'Новый партнер',
+      'view_item'          => 'Смотреть партнера',
+      'search_items'       => 'Искать партнера',
+      'not_found'          => 'Не найдено',
+      'not_found_in_trash' => 'Не найдено в корзине',
+      'parent_item_colon'  => '',
+      'menu_name'          => 'Партнеры',
+    ],
+    'description'         => '',
+    'public'              => true,
+    'show_in_menu'        => null,
+    'show_in_rest'        => null,
+    'rest_base'           => null,
+    'menu_position'       => null,
+    'menu_icon'           => null, 
+    'hierarchical'        => false,
+    'supports'            => ['title'],
+    'taxonomies'          => [],
+    'has_archive'         => false,
+    'rewrite'             => true,
+    'query_var'           => true,
+  ]);
+
+  // register_taxonomy('partners_company', ['page'], [
+  //   'label'                 => '', // определяется параметром $labels->name
+  //   'labels'                => [
+  //     'name'              => 'Партнеры',
+  //     'singular_name'     => 'Партнеры',
+  //     'search_items'      => 'Найти',
+  //     'all_items'         => 'Все',
+  //     'view_item '        => 'Показать',
+  //     'parent_item'       => 'Родитель',
+  //     'parent_item_colon' => 'Родитель:',
+  //     'edit_item'         => 'Изменить',
+  //     'update_item'       => 'Обносить',
+  //     'add_new_item'      => 'Добавить',
+  //     'new_item_name'     => 'Добавить',
+  //     'menu_name'         => 'Партнеры',
+  //   ],
+  //   'hierarchical'          => false,
+  //   'meta_box_cb'           => false
+  // ]);
 });
 

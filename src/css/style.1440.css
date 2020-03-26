@@ -5,3 +5,8 @@
 .hdr__nav > .nav__list > .nav__list-item:nth-last-child(n+2) {
   margin-right: 110px;
 }
+
+.about-sect__img {
+  width: 390px;
+  height: 320px;
+}

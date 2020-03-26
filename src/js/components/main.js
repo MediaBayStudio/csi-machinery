@@ -7,9 +7,13 @@ document.addEventListener('DOMContentLoaded', function() {
     clearMedia: true
   });
 
+  hdr = document.querySelector('.hdr');
+  overlay = document.querySelector('.overlay');
+
   //=include main/_menu.js
   //=include main/_popups.js
   //=include main/_fixHdr.js
   //=include main/_catalog.js
+  //=include main/_dropdownText.js
 
 });
