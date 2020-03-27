@@ -1,0 +1,38 @@
+.categories-block {
+  justify-content: space-between;
+}
+
+.category {
+  max-width: 262px;
+}
+
+.category__title {
+  font-size: 21px;
+}
+
+.category__descr:nth-child(n+2) {
+  margin-bottom: 20px;
+}
+
+.category:nth-last-child(n+2) {
+  margin-bottom: 0;
+}
+
+.category.marine-engine {
+  width: 100%;
+  max-width: none;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+.category.marine-engine > .category__title {
+  max-width: none;
+}
+
+.category.marine-engine > .category__img {
+  right: 0;
+}
+
+.category.marine-engine > .category__btn {
+  margin-top: 55px;
+}

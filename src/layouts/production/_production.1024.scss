@@ -1,3 +1,16 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.production-sect {
+  &__descr {
+    max-width: 545px;
+    font-size: 16px;
+  }
+  &__img {
+    width: 260px;
+    height: 645px;
+    margin-top: 0;
+  }
+}

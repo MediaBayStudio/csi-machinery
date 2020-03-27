@@ -1,0 +1,17 @@
+.production-sect {
+  display: block;
+}
+
+.production-sect__descr {
+  max-width: 400px;
+  font-size: 14px;
+}
+
+.production-sect__img {
+  width: 191px;
+  height: 620px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  margin-top: 70px;
+  float: right;
+}

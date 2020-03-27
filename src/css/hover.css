@@ -19,3 +19,23 @@
   right: -45px;
   transition-delay: .05s;
 }
+
+.doc:hover > .doc__img {
+  opacity: 1;
+}
+
+.doc:hover > .doc__title {
+  -webkit-text-decoration-color: currentColor;
+  text-decoration-color: currentColor;
+}
+
+.ftr__nav a:hover,
+.copyright__private-policy-link:hover {
+  color: #CAA45D;
+  -webkit-text-decoration-color: #CAA45D;
+  text-decoration-color: #CAA45D;
+}
+
+.check__link:hover {
+  color: #CAA45D;
+}

@@ -30,3 +30,26 @@
     }
   }
 }
+
+
+.doc {
+  &:hover {
+    > .doc__img {
+      opacity: 1;
+    }
+    > .doc__title {
+      text-decoration-color: currentColor
+    }
+  }
+}
+
+
+.ftr__nav a:hover,
+.copyright__private-policy-link:hover {
+  color: $gold;
+  text-decoration-color: $gold;
+}
+
+.check__link:hover {
+  color: $gold;
+}

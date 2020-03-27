@@ -44,9 +44,16 @@
   }
 }
 
+.ftr__nav a,
+.copyright__private-policy-link{
+  text-decoration: underline solid transparent;
+  transition: color .35s, text-decoration-color .35s;
+}
+
 div.tel__icon,
 div.email__icon,
 div.address__icon, {
+  flex-shrink: 0;
   width: 10px;
   height: 10px;
   background: url('../img/icon-phone.svg') center/contain no-repeat;
@@ -61,7 +68,8 @@ div.address__icon {
 }
 
 .preview-catalog__link-img,
-.about-sect__img {
+.about-sect__img,
+.production-sect__img {
   &.lazy {
     background: url('../img/img-placeholder.svg') center/90% 90% no-repeat;
   }

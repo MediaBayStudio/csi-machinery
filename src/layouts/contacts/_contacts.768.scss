@@ -1,0 +1,12 @@
+.contacts-sect {
+  padding: 65px calc(50vw - 304px) 0;
+  &__map {
+    margin-left: calc((50vw - 304px) * -1);
+  }
+}
+
+.contacts-form {
+  .field__inp {
+    width: 285px;
+  }
+}

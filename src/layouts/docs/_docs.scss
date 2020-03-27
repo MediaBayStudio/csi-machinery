@@ -30,12 +30,15 @@
     margin-right: responsive('320->576', '40->110');
   }
   &__img {
-    
+    opacity: .3;
+    transition: opacity .4s;
   }
   &__title {
     margin-top: 20px;
     max-width: 108px;
     font: 14px/140% Geometria;
     color: #C4C4C4;
+    text-decoration: underline solid transparent;
+    transition: text-decoration-color .4s;
   }
 }

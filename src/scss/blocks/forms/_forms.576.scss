@@ -1,0 +1,17 @@
+.check {
+  font-size: 14px;
+  &__pseudo-inp {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.field {
+  font-size: 16px;
+}
+
+.field__inp:focus ~ .field__text,
+.field__text.focused {
+  top: -16px;
+  font-size: 12px;
+}

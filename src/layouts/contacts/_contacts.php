@@ -1,7 +1,7 @@
-<section class="contacts-sect container sect">
+<section class="contacts-sect sect">
   <h2 class="contacts-sect__title sect-title">Контакты</h2>
-  <div class="contacts-form contacts-sect__form">
-    <?php echo do_shortcode('[contact-form-7 id="5" title="Форма в секции Контакты"]'); ?>
+  <div class="contacts-form-wrapper">
+    <?php echo do_shortcode('[contact-form-7 id="5" title="Форма в секции Контакты" html_class="contacts-form contacts-sect__form"]'); ?>
   </div>
   <div class="contacts-sect__info contacts-info">
     <a href="tel:<?php echo $tel_dry; ?>" class="tel contacts-info__tel">

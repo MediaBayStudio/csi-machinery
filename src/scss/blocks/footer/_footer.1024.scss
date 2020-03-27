@@ -1,0 +1,28 @@
+.ftr {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  &__top {
+    max-width: 160px;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 0;
+  }
+  &__copyright {
+    > .copyright__text {
+      margin: 30px 0 5px;
+    }
+  }
+  &__logo {
+    height: 35px;
+  }
+  &__middle {
+    max-width: 400px;
+    flex-shrink: 0;
+    margin: 6px 0 0;
+  }
+  &__bottom {
+    max-width: 160px;
+    margin: 6px 0 0;
+  }
+}

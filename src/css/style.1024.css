@@ -50,3 +50,79 @@
 .about-sect__descr {
   font-size: 16px;
 }
+
+.contacts-sect {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 65px calc(50vw - 412px) 0;
+}
+
+.contacts-sect__title {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.contacts-sect__form {
+  max-width: 545px;
+  margin: 0;
+}
+
+.contacts-sect__map {
+  flex-shrink: 0;
+  margin: 50px 0 0 calc((50vw - 412px) * -1);
+}
+
+.contacts-sect__info {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.contacts-info__email {
+  margin: 25px 0 35px;
+}
+
+.contacts-info__address {
+  max-width: 230px;
+}
+
+.contacts-form-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.contacts-form .field__inp {
+  width: 260px;
+}
+
+.ftr {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.ftr__top {
+  max-width: 160px;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.ftr__copyright > .copyright__text {
+  margin: 30px 0 5px;
+}
+
+.ftr__logo {
+  height: 35px;
+}
+
+.ftr__middle {
+  max-width: 400px;
+  flex-shrink: 0;
+  margin: 6px 0 0;
+}
+
+.ftr__bottom {
+  max-width: 160px;
+  margin: 6px 0 0;
+}

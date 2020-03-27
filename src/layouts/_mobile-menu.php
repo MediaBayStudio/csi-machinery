@@ -11,12 +11,12 @@
       'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
     ]);
   ?>
-  <a href="tel:<?php echo $tel_dry; ?>" class="tel-block mobile-menu__tel-block">
-    <div class="tel-block__icon"></div>
-    <span class="tel-block__number"><?php echo $tel; ?></span>
+  <a href="tel:<?php echo $tel_dry; ?>" class="tel mobile-menu__tel">
+    <div class="tel__icon"></div>
+    <span class="tel__number"><?php echo $tel; ?></span>
   </a>
-  <a href="mailto:<?php echo $email; ?>" class="email-block mobile-menu__email-block">
-    <div class="email-block__icon"></div>
-    <span class="email-block__address"><?php echo $email; ?></span>
+  <a href="mailto:<?php echo $email; ?>" class="email mobile-menu__email">
+    <div class="email__icon"></div>
+    <span class="email__address"><?php echo $email; ?></span>
   </a>
 </aside>

@@ -1,3 +1,61 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.categories-block {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  padding-bottom: 35px;
+}
+
+.category {
+  max-width: 295px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: $aliceBlue;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  &:nth-last-child(n+2) {
+    margin-bottom: 20px;
+  }
+  &__img {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    right: -50px;
+    bottom: 0;
+  }
+  &__title {
+    margin-bottom: 20px;
+    max-width: 225px;
+    font: bold 18px/140% Geometria;
+    color: $darkCyan;
+    z-index: 1;
+  }
+  &__descr {
+    max-width: 100%;
+    font: normal 14px/140% Geometria;
+    color: $darkGrey;
+    z-index: 1;
+  }
+  &__btn {
+    margin-top: 75px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 184px;
+    height: 50px;
+    z-index: 1;
+  }
+}
+
+.marine-engine {
+  order: -1;
+  > .category__title {
+    max-width: 120px;
+  }
+}

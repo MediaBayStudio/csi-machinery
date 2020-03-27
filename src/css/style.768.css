@@ -55,3 +55,23 @@
 .partners__dots {
   margin-bottom: 30px;
 }
+
+.contacts-sect {
+  padding: 65px calc(50vw - 304px) 0;
+}
+
+.contacts-sect__map {
+  margin-left: calc((50vw - 304px) * -1);
+}
+
+.contacts-form .field__inp {
+  width: 285px;
+}
+
+.ftr__nav .nav__list-item:nth-child(4), .ftr__nav .nav__list-item:nth-child(5), .ftr__nav .nav__list-item:nth-child(6) {
+  margin-left: 100px;
+}
+
+.ftr__bottom {
+  margin-left: 60px;
+}

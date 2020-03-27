@@ -14,7 +14,7 @@
     desktop: true
   });
 
-  let hdrTelBlock = hdr.querySelector('.hdr__tel-block');
+  let hdrTelBlock = hdr.querySelector('.hdr__tel');
 
   menu.addEventListener('beforeopen', function() {
     hdrTelBlock.classList.add('disabled');
@@ -36,5 +36,7 @@
   overlay.addEventListener('click', function() {
     menu.close();  
   });
+  
+  
 
 })();

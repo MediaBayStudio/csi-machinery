@@ -4,7 +4,6 @@
       $index_hero_fields = get_field('index_hero_fields');
       $index_hero_slides = $index_hero_fields['slides_repeater'];
       
-      // var_dump($index_hero_fields);
       for ($i = 0; $i < count($index_hero_slides); $i++) { 
         $slide = $index_hero_slides[$i]['slide'];
 
@@ -27,19 +26,19 @@
   </div>
   <div class="index-hero__preview-catalog preview-catalog">
   <?php
-    $index_hero_links = $index_hero_fields['links_repeater'];
+    $index_hero_links = $index_hero_fields['links'];
 
-    foreach ($index_hero_links as $page) {
-      $page_id = $page['link']->ID;
-      $page_title = get_the_title($page_id);
-      $page_url = get_the_permalink($page_id);
-      $img_url = get_the_post_thumbnail_url($page_id);
-      $img_alt = $page_title;
+    foreach ($index_hero_links as $link) {
+      $term_id = $link->term_id;
+      $term_title = $link->name;;
+      $img = get_field('category_img', 'post_category_' . $term_id);
+      $img_url = $img['url'];
+      $img_alt = $term_title;
 
       echo
       "
-        <a href='$page_url' class='preview-catalog__link'>
-          <strong class='preview-catalog__link-title'>$page_title</strong>
+        <a href='#' class='preview-catalog__link disabled' data-id='$term_id'>
+          <strong class='preview-catalog__link-title'>$term_title</strong>
           <img src='#' data-src='$img_url' alt='$img_alt' class='preview-catalog__link-img lazy'>
         </a>
       ";

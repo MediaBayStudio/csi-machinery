@@ -33,7 +33,7 @@ function enqueue_style($style_name, $widths) {
         $media = $width - 0.02;
       wp_enqueue_style("{$style_name}-{$width}px", get_template_directory_uri() . "/css/{$style_name}.{$width}.css", [], null, "(min-width: {$media}px)");
       } else {
-        wp_enqueue_style("{$style_name}", get_template_directory_uri() . "/css/{$style_name}.css", [], null);
+        wp_enqueue_style("{$style_name}-page", get_template_directory_uri() . "/css/{$style_name}.css", [], null);
       }
     }
   }
@@ -52,7 +52,7 @@ add_action('wp_enqueue_scripts', function() {
   if (is_page_template('about.php')) {
     enqueue_style('about', $screen_widths);
   }
-  if (is_page_template('catalog.php') || is_page_template('marine-engines.php') || is_page_template('marine-generators.php') || is_page_template('ground-generators.php') || is_page_template('single.php')) {
+  if (is_page_template('catalog.php') || is_page_template('catalog-categories.php') ||is_page_template('single.php')) {
     enqueue_style('catalog', $screen_widths);
   }
 
@@ -237,24 +237,57 @@ add_action('init', function() {
     'query_var'           => true,
   ]);
 
-  // register_taxonomy('partners_company', ['page'], [
-  //   'label'                 => '', // определяется параметром $labels->name
-  //   'labels'                => [
-  //     'name'              => 'Партнеры',
-  //     'singular_name'     => 'Партнеры',
-  //     'search_items'      => 'Найти',
-  //     'all_items'         => 'Все',
-  //     'view_item '        => 'Показать',
-  //     'parent_item'       => 'Родитель',
-  //     'parent_item_colon' => 'Родитель:',
-  //     'edit_item'         => 'Изменить',
-  //     'update_item'       => 'Обносить',
-  //     'add_new_item'      => 'Добавить',
-  //     'new_item_name'     => 'Добавить',
-  //     'menu_name'         => 'Партнеры',
-  //   ],
-  //   'hierarchical'          => false,
-  //   'meta_box_cb'           => false
-  // ]);
+  register_post_type('post', [
+    'label'  => null,
+    'labels' => [
+      'name'               => 'Товары',
+      'singular_name'      => 'Товар',
+      'add_new'            => 'Добавить товар',
+      'add_new_item'       => 'Добавление товара',
+      'edit_item'          => 'Редактирование товара',
+      'new_item'           => 'Новый товар',
+      'view_item'          => 'Смотреть товар',
+      'search_items'       => 'Искать товар',
+      'not_found'          => 'Не найдено',
+      'not_found_in_trash' => 'Не найдено в корзине',
+      'parent_item_colon'  => '',
+      'menu_name'          => 'Товары',
+    ],
+    'description'         => '',
+    'public'              => true,
+    'show_in_menu'        => null, // показывать ли в меню адмнки
+    'show_in_rest'        => null, // добавить в REST API. C WP 4.7
+    'rest_base'           => null, // $post_type. C WP 4.7
+    'menu_position'       => null,
+    'menu_icon'           => null, 
+    'hierarchical'        => false,
+    'supports'            => ['title', 'thumbnail'],
+    'taxonomies'          => [],
+    'has_archive'         => false,
+    'rewrite'             => true,
+    'query_var'           => true,
+  ]);
+  remove_post_type_support('post', 'editor');
+
+  register_taxonomy('post_category', ['post'], [
+    'label'                 => '', // определяется параметром $labels->name
+    'labels'                => [
+      'name'              => 'Категории',
+      'singular_name'     => 'Категория',
+      'search_items'      => 'Найти',
+      'all_items'         => 'Все',
+      'view_item '        => 'Показать',
+      'parent_item'       => 'Родитель',
+      'parent_item_colon' => 'Родитель:',
+      'edit_item'         => 'Изменить',
+      'update_item'       => 'Обносить',
+      'add_new_item'      => 'Добавить',
+      'new_item_name'     => 'Добавить',
+      'menu_name'         => 'Категории',
+    ],
+    'hierarchical'          => false,
+    'meta_box_cb'           => false
+  ]);
+
 });
 

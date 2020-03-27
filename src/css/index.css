@@ -234,9 +234,19 @@
   margin-right: calc((100vw - 320px)/(576 - 320)*(110 - 40) + 40px);
 }
 
+.doc__img {
+  opacity: .3;
+  transition: opacity .4s;
+}
+
 .doc__title {
   margin-top: 20px;
   max-width: 108px;
   font: 14px/140% Geometria;
   color: #C4C4C4;
+  -webkit-text-decoration: underline solid transparent;
+  text-decoration: underline solid transparent;
+  transition: -webkit-text-decoration-color .4s;
+  transition: text-decoration-color .4s;
+  transition: text-decoration-color .4s, -webkit-text-decoration-color .4s;
 }

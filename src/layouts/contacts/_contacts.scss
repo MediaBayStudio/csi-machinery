@@ -1,9 +1,17 @@
 .contacts-sect {
+  padding: 45px calc(50vw - 140px) 0;
   &__title {
     margin-bottom: 25px;
   }
   &__form {
     margin-bottom: 65px;
+  }
+
+  &__map {
+    margin: 20px 0 0 calc((50vw - 140px) * -1);
+    width: 100vw;
+    height: 120px;
+    background-color: $lightCyan;
   }
 }
 
@@ -37,18 +45,9 @@
   color: $darkGrey;
   &__address {
     max-width: 230px;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto 1fr;
-    > .address__icon {
-      grid-row: 1;
-      grid-column: 1;
-      align-self: start;
-    }
+    align-items: flex-start;
     > .address__text {
-      grid-row: 1;
-      grid-column: 2;
-      align-self: start;
+      margin-top: -4px;
     }
   }
   &__email {

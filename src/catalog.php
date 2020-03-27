@@ -1,7 +1,11 @@
 <?php
 
   /*
-    Template Name: Каталог
+    Template Name: Каталог товары
   */
   
   get_header();
+
+
+
+  get_footer();

@@ -1,0 +1,48 @@
+.contacts-sect {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: auto 1fr;
+  padding: 65px calc(50vw - 600px);
+  &__title {
+    width: auto;
+    grid-row: 1;
+    grid-column: 1;
+  }
+  &__form {
+    max-width: 590px;
+    grid-row: 2;
+    grid-column: 2;
+  }
+  &__map {
+    width: 490px;
+    height: 432px;
+    grid-row: 1/span 3;
+    grid-column: 2;
+    margin: 0 0 0 auto;
+  }
+  &__info {
+    display: grid;
+    grid-row: 3;
+    grid-column: 1;
+    margin: 85px 0 0;
+  }
+}
+
+.contacts-info {
+  &__email {
+    margin: 20px 0 0;
+  }
+  &__address {
+    max-width: 360px;
+  }
+}
+
+.contacts-form {
+  &-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+  .field__inp {
+    width: 285px;
+  }
+}

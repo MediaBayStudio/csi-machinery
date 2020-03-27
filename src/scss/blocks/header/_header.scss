@@ -1,10 +1,15 @@
 .hdr {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   position: relative;
   z-index: 1;
   &.fixed {
     background-color: $white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 3px 2px rgba(0,0,0,.05);
   }
   &__logo {
     width: 150px;

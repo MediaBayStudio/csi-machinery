@@ -1,0 +1,10 @@
+.production-sect__descr {
+  max-width: 545px;
+  font-size: 16px;
+}
+
+.production-sect__img {
+  width: 260px;
+  height: 645px;
+  margin-top: 0;
+}

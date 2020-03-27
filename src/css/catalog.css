@@ -1,0 +1,63 @@
+.categories-block {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  padding-bottom: 35px;
+}
+
+.category {
+  max-width: 295px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #E4EBEC;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.category:nth-last-child(n+2) {
+  margin-bottom: 20px;
+}
+
+.category__img {
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  right: -50px;
+  bottom: 0;
+}
+
+.category__title {
+  margin-bottom: 20px;
+  max-width: 225px;
+  font: bold 18px/140% Geometria;
+  color: #103F45;
+  z-index: 1;
+}
+
+.category__descr {
+  max-width: 100%;
+  font: normal 14px/140% Geometria;
+  color: #4D4D4D;
+  z-index: 1;
+}
+
+.category__btn {
+  margin-top: 75px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 184px;
+  height: 50px;
+  z-index: 1;
+}
+
+.marine-engine {
+  order: -1;
+}
+
+.marine-engine > .category__title {
+  max-width: 120px;
+}

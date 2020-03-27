@@ -1,0 +1,14 @@
+.ftr {
+  &__nav {
+    .nav__list-item {
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6) {
+        margin-left: 100px;
+      }
+    }
+  }
+  &__bottom {
+    margin-left: 60px;
+  }
+}

@@ -1,3 +1,24 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.production-sect {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  &__title {
+    margin-bottom: 40px;
+    line-height: 100%;
+  }
+  &__descr {
+    font: 16px/140% Geometria;
+    &:nth-of-type(n+2) {
+      margin-bottom: 30px;
+    }
+  }
+  &__img {
+    margin-top: 55px;
+    order: 10;
+  }
+}

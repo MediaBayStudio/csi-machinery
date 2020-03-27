@@ -1,3 +1,55 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.categories-block {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr auto;
+}
+
+.category {
+  padding: 40px 25px 40px 40px;
+  &__title {
+    font-size: 24px;
+    max-width: 320px;
+  }
+  &__btn {
+    margin-top: auto
+  }
+  &.marine-engine {
+    width: auto;
+    max-width: 400px;
+    margin: 0 20px 0 0;
+    > .category__title {
+      max-width: 150px;
+    }
+    > .category__img {
+      width: 275px;
+      height: 225px;
+    }
+  }
+  &.marine-generators {
+    margin-bottom: 20px;
+  }
+
+}
+
+.marine-generators {
+  grid-row: 1;
+  grid-column: 2;
+  height: 360px;
+  max-width: 432px;
+}
+
+.marine-engine {
+  grid-row: 1/span 2;
+  grid-column: 1;
+}
+
+.ground-generators {
+  grid-row: 2;
+  grid-column: 2;
+  height: 360px;
+  max-width: 432px;
+}

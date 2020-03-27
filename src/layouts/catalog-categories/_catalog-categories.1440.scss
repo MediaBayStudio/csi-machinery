@@ -1,3 +1,37 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.category {
+  &__img {
+    width: 285px;
+    height: 210px
+  }
+  &__descr {
+    max-width: 415px;
+    font-size: 16px;
+    &:nth-last-child(n+2) {
+      margin-bottom: 35px;
+    }
+  }
+  &__btn {
+    height: 50px;
+  }
+  &.marine-engine {
+    max-width: none;
+    width: 490px;
+    > .category__img {
+      width: 310px;
+      height: 240px;
+    }
+  }
+
+}
+
+.marine-generators,
+.ground-generators {
+  max-width: none;
+  width: 692px;
+  height: 355px;
+}

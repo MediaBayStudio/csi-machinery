@@ -1,3 +1,19 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.production-sect {
+  display: block;
+  &__descr {
+    max-width: 400px;
+    font-size: 14px;
+  }
+  &__img {
+    width: 191px;
+    height: 620px;
+    object-fit: cover;
+    margin-top: 70px;
+    float: right;
+  }
+}
