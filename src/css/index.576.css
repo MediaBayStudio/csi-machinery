@@ -24,17 +24,16 @@
 .preview-catalog {
   align-items: flex-start;
   justify-content: space-between;
+  font-size: 20px;
 }
 
 .preview-catalog__link {
-  width: 170px;
-  padding: 10px;
-  margin-bottom: 20px;
+  height: 190px;
 }
 
 .preview-catalog__link-img {
-  width: 105px;
-  height: 95px;
+  width: 200px;
+  height: 140px;
 }
 
 .docs-block {

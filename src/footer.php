@@ -29,15 +29,14 @@
     </a>
     <div class="dev ftr__dev">
       <span class="dev__text">Разработка &mdash;</span>
-      <a href="https://media-bay.ru/" rel="noopener noreferrer nofollow" target="_blank" class="dev__link" title="Перейти на сайт разработчика">
-        <img src="<?php echo get_template_directory_uri() . '/img/media-bay-logo.svg' ?>" alt="Логотип Media Bay" class="dev__logo">
-      </a>
+      <a href="https://media-bay.ru/" rel="noopener noreferrer nofollow" target="_blank" class="dev__link" title="Перейти на сайт разработчика">media bay</a>
     </div>
   </div>
 </footer>
 
 <?php
   require 'layouts/_overlay.php';
+  require 'layouts/_thanks-popup.php';
   wp_footer();
 ?>
 </body>

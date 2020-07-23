@@ -1,22 +1,36 @@
 .dot {
-  width: 8px;
-  height: 8px;
+  width: inherit;
+  height: inherit;
   background-color: $lightCyan;
-  transition: background-color .5s;
+  // transition: background-color .5s;
 }
 
 li.slick-active {
+  // ~ li:last-child
   > .dot {
-    background-color: $gold;
+    cursor: default;
+    // background-color: $gold;
   }
 }
 
 .dots {
   display: none;
-  >li {
+  position: relative;
+  > li {
+    display: flex;
+    width: 8px;
+    height: 8px;
     &:nth-last-child(n+2) {
-      margin-right: 10px;
+      margin-right: 8px;
     }
+  }
+  > .shadow-dot { // квадрат, который будет перемещаться
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $gold;
+    transition: transform .35s;
+    z-index: 1;
   }
 }
 

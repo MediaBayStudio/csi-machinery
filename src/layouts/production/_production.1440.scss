@@ -3,11 +3,14 @@
 @import '../../scss/assets/mixins';
 
 .production-sect {
+  padding-top: 20px;
+  padding-bottom: 50px;
   &__title {
-    margin-bottom: 55px;
+    margin-bottom: 50px;
   }
   &__descr {
     max-width: 750px;
+    margin-bottom: 25px;
   }
   &__img {
     width: 385px;

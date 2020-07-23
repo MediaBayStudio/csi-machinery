@@ -1,3 +1,53 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.catalog-hero-sect {
+  padding-top: 25px;
+  padding-bottom: 10px;
+  &__wrap {
+    padding: 20px;
+  }
+  &__title {
+    max-width: none;
+    margin: 100px 0 5px;
+    font-size: 24px;
+  }
+  &__descr {
+    line-height: 150%;
+    max-width: 380px;
+    &:nth-last-of-type(n+2) {
+      margin-bottom: 25px;
+    }
+  }
+  &__logo {
+    width: 38px;
+    height: 52px;
+  }
+}
+
+.catalog-categories {
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  &__link {
+    &::before {
+      width: 20px;
+      margin: 10px 7px 0 0;
+    }
+  }
+}
+
+.category {
+  &__prev {
+    margin-bottom: 0;
+  }
+  &-next {
+    flex-flow: row-reverse;
+    &::before {
+      margin: 10px 0 0 7px;
+    }
+  }
+}

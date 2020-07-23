@@ -6,33 +6,116 @@
   max-width: 262px;
 }
 
-.category__title {
-  font-size: 21px;
-}
-
-.category__descr:nth-child(n+2) {
-  margin-bottom: 20px;
-}
-
 .category:nth-last-child(n+2) {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
-.category.marine-engine {
-  width: 100%;
+.category:first-child {
   max-width: none;
-  flex-shrink: 0;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.category.marine-engine > .category__title {
+.category:first-child > .category__title {
   max-width: none;
 }
 
-.category.marine-engine > .category__img {
+.category:first-child > .category__img {
   right: 0;
 }
 
-.category.marine-engine > .category__btn {
+.category:first-child > .category__btn {
   margin-top: 55px;
+}
+
+.product-hero-sect {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+  grid-template-rows: auto 1fr;
+  -ms-grid-columns: auto 1fr;
+  grid-template-columns: auto 1fr;
+}
+
+.product-hero-sect__title {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-column-align: end;
+  justify-self: end;
+  padding-bottom: 15px;
+}
+
+.product-hero-sect__img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  grid-row: 1/span 2;
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-column-align: start;
+  justify-self: start;
+  margin-bottom: 0;
+}
+
+.product__list {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-column-align: end;
+  justify-self: end;
+  -ms-grid-row-align: start;
+  align-self: start;
+  max-width: none;
+  width: 100%;
+}
+
+.product__empty-descr {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-column-align: center;
+  justify-self: center;
+  font-size: 18px;
+}
+
+.product__table-wrap {
+  max-width: 100%;
+  margin-left: 0;
+  font-size: 9px;
+}
+
+.product__table-wrap::before, .product__table-wrap::after {
+  display: none;
+}
+
+.order-sect__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: none;
+}
+
+.order-sect__contacts-info {
+  max-width: 490px;
+  display: flex;
+  margin: 40px 0 0;
+}
+
+.other-products__title {
+  font-size: 18px;
+}
+
+.other-products__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.other-products__link {
+  display: inline-flex;
+  color: #C4C4C4;
+  border-bottom: 1px solid;
+  font: 16px/100% Geometria;
 }

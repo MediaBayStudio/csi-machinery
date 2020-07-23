@@ -1,5 +1,15 @@
+.about-sect {
+  padding-top: 40px;
+  padding-bottom: 0;
+}
+
+.about-sect__text-wrap {
+  margin-bottom: 45px;
+}
+
 .world-map {
   overflow: auto;
+  padding-bottom: 65px;
 }
 
 .world-map__img {
@@ -10,6 +20,7 @@
   display: flex;
   flex-flow: column;
   align-items: flex-start;
+  padding-top: 70px;
 }
 
 .production-sect__title {
@@ -19,13 +30,14 @@
 
 .production-sect__descr {
   font: 16px/140% Geometria;
-}
-
-.production-sect__descr:nth-of-type(n+2) {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 .production-sect__img {
-  margin-top: 55px;
+  width: 100%;
+  height: 380px;
+  margin-top: 45px;
   order: 10;
+  -o-object-fit: cover;
+  object-fit: cover;
 }

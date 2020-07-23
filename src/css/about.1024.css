@@ -1,6 +1,37 @@
+.about-sect {
+  padding-top: 40px;
+}
+
+.about-sect__img {
+  height: 305px;
+}
+
+.partners-block {
+  padding-top: 40px;
+  padding-bottom: 75px;
+}
+
+.contacts-sect {
+  padding-top: 60px;
+}
+
+.world-map {
+  padding-bottom: 80px;
+}
+
+.production-sect {
+  padding-bottom: 85px;
+}
+
+.production-sect__title {
+  margin-bottom: 35px;
+}
+
 .production-sect__descr {
+  margin-bottom: 20px;
   max-width: 545px;
   font-size: 16px;
+  line-height: 138%;
 }
 
 .production-sect__img {

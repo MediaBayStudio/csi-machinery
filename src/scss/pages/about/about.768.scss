@@ -2,6 +2,20 @@
 @import '../../assets/variables';
 @import '../../assets/mixins';
 
+.about-sect {
+  padding-top: 35px;
+  &__text-wrap {
+    margin-bottom: 0 ;
+  }
+  &__img {
+    height: 235px;
+  }
+}
+
+.partners__dots {
+  margin: 30px auto 0;
+}
+
 //blocks import
 @import '../../../layouts/world-map/world-map.768';
 @import '../../../layouts/production/production.768';

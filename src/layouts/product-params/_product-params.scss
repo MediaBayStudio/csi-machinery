@@ -1,3 +1,88 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.product-params-sect {
+  background-color: $white;
+  padding-bottom: 45px;
+  &__title {
+    margin-bottom: 30px;
+    padding-top: 5px;
+    font: bold 18px/100% Geometria;
+    border-top: 1px solid #E5E5E5;
+    color: $grey;
+  }
+}
+
+
+.product__table {
+  &-wrap {
+    width: 100vw;
+    margin: 15px 0 25px -20px;
+    display: flex;
+    position: relative;
+    overflow: auto;
+    background-color: $white;
+    font: 8px/100% Geometria;
+    text-align: center;
+    color: $darkGrey;
+    &::before, &::after {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      flex-shrink: 0;
+    }
+  }
+}
+.product-params {
+  &__table-title {
+    // margin-bottom: 15px;
+    // font: bold 16px/100% Geometria;
+    font: bold 16px/115% Geometria;
+    color: $cyan;
+  }
+  &__schemes {
+    padding-top: 25px;
+  }
+  &__scheme {
+    &-title {
+      // margin: 50px 0 25px;
+      margin-bottom: 25px;
+      font: bold 16px/100% Geometria;
+      color: $cyan;
+    }
+    &-img {
+      &:nth-of-type(n+2) {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  &__tables {
+    // margin-bottom: 25px;
+  }
+}
+
+.product__table-wrap {
+  caption {
+    display: none !important;
+  }
+  td {
+    border: 1px solid #C4C4C4 !important;
+    text-align: center !important;
+  }
+}
+
+.tablepress {
+  margin-bottom: 0 !important;
+}
+
+table.tablepress td,
+table.tablepress th {
+  padding-bottom: 5px;
+}
+
+.tablepress tbody tr:first-child td {
+  vertical-align: middle;
+}

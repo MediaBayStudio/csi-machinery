@@ -1,0 +1,13 @@
+.breadcrumbs {
+  padding-top: 25px;
+  padding-right: responsive('320->576', '20->285');
+  background-color: $white;
+  color: #616161;
+  font: 500 12px/140% Geometria;
+  &__link {
+    &.current {
+      pointer-events: none;
+      opacity: .5;
+    }
+  }
+}

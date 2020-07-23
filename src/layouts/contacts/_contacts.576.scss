@@ -1,5 +1,5 @@
 .contacts-sect {
-  padding: 45px calc(50vw - 268px) 0;
+  // padding: 45px calc(50vw - 268px) 0;
   &__form {
     display: flex;
     flex-wrap: wrap;
@@ -7,12 +7,17 @@
     margin-bottom: 50px;
   }
   &__map {
+    width: 100vw;
     margin: 45px 0 0 calc((50vw - 268px) * -1);
     height: 200px;
   }
 }
 
-.contacts-form {
+.contacts-form,
+.order-form {
+  .field {
+    width: auto;
+  }
   .field__inp {
     width: 260px;
   }
@@ -20,8 +25,9 @@
   .field-tel {
     margin-bottom: 50px;
   }
-  .field-email {
-    margin-bottom: 0;
+  .field-tel,
+  .field-msg {
+    margin-left: 0;
   }
   .check {
     max-width: 285px;
@@ -49,7 +55,8 @@
   &__email {
     grid-row: 2;
     grid-column: 1;
-    margin: 12px 0 0;
+    margin: 0;
+    // margin: 12px 0 0;
   }
   &__address {
     grid-row: 1/span 2;

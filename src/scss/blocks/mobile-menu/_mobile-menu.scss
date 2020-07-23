@@ -1,17 +1,73 @@
 .burger {
-  &__svg {
-    pointer-events: none;
+  width: 31px;
+  height: 18px;
+  position: relative;
+  // transition: transform 0.35s 0.30s;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    transform: scale(.965);
+  }
+  &__icon {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    fill: none;
     overflow: visible;
+    pointer-events: none;
+    position: relative;
   }
   &__line {
+    // fill: $cyan;
+    // fill-rule: evenodd;
+    // clip-rule: evenodd;
     stroke: $cyan;
-    stroke-width: 2;
+    stroke-width: 2.2;
     stroke-linejoin: round;
+  }
+  &__svg {
+    // display: flex;
+    position: absolute;
+    left: 0;
+    &.top {
+      top: 0;
+      transition: transform 0.25s, top 0.25s 0.25s;
+    }
+    &.middle {
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity 0.25s 0.25s;
+    }
+    &.bottom {
+      bottom: 0;
+      transition: transform 0.25s, bottom 0.25s 0.25s, width 0.5s
+    }
+  }
+  &.active {
+    // transform: rotate(-180deg);
+    > .burger__svg {
+      &.top {
+        top: 6px;
+        transform: rotate(45deg);
+        transition: top 0.5s, transform 0.5s 0.25s;
+      }
+      &.middle {
+        opacity: 0;
+      }
+      &.bottom {
+        width: 34px;
+        bottom: 6px;
+        transform: rotate(-45deg);
+        transition: bottom 0.5s, transform 0.5s 0.25s, width 0.5s
+      }
+    }
   }
 }
 
 .mobile-menu {
-  position: absolute;
+  // position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding: 10px 20px 50px responsive('320->768', '20->80');
@@ -33,13 +89,17 @@
     width: 150px;
     height: 33px;
   }
-  &__tel {
-    margin-bottom: 20px;
+  &__tel,
+  &__email {
     color: $cyan;
     font: 14px/100% Geometria;
+    margin-bottom: auto;
+  }
+  &__tel {
+    margin-bottom: 20px;
   }
   &__nav {
-    margin: 70px 0 auto;
+    margin: auto 0 auto;
     > .nav__list {
       display: flex;
       flex-direction: column;
@@ -53,7 +113,7 @@
         > .nav__list-item {
           max-width: 200px;
           display: inline-block;
-          margin-bottom: 20px;
+          margin-bottom: 25px;
         }
       }
     }

@@ -1,3 +1,25 @@
+(function(){'use strict';function a(a){this.time=a.time,this.target=a.target,this.rootBounds=a.rootBounds,this.boundingClientRect=a.boundingClientRect,this.intersectionRect=a.intersectionRect||i(),this.isIntersecting=!!a.intersectionRect;var b=this.boundingClientRect,c=b.width*b.height,d=this.intersectionRect,e=d.width*d.height;this.intersectionRatio=c?+(e/c).toFixed(4):this.isIntersecting?1:0}function b(a,b){var c=b||{};if("function"!=typeof a)throw new Error("callback must be a function");if(c.root&&1!=c.root.nodeType)throw new Error("root must be an Element");this._checkForIntersections=d(this._checkForIntersections.bind(this),this.THROTTLE_TIMEOUT),this._callback=a,this._observationTargets=[],this._queuedEntries=[],this._rootMarginValues=this._parseRootMargin(c.rootMargin),this.thresholds=this._initThresholds(c.threshold),this.root=c.root||null,this.rootMargin=this._rootMarginValues.map(function(a){return a.value+a.unit}).join(" ")}function c(){return window.performance&&performance.now&&performance.now()}function d(a,b){var c=null;return function(){c||(c=setTimeout(function(){a(),c=null},b))}}function e(a,b,c,d){"function"==typeof a.addEventListener?a.addEventListener(b,c,d||!1):"function"==typeof a.attachEvent&&a.attachEvent("on"+b,c)}function f(a,b,c,d){"function"==typeof a.removeEventListener?a.removeEventListener(b,c,d||!1):"function"==typeof a.detatchEvent&&a.detatchEvent("on"+b,c)}function g(a,b){var c=Math.max(a.top,b.top),d=Math.min(a.bottom,b.bottom),e=Math.max(a.left,b.left),f=Math.min(a.right,b.right),g=f-e,h=d-c;return 0<=g&&0<=h&&{top:c,bottom:d,left:e,right:f,width:g,height:h}}function h(a){var b;try{b=a.getBoundingClientRect()}catch(a){}return b?(b.width&&b.height||(b={top:b.top,right:b.right,bottom:b.bottom,left:b.left,width:b.right-b.left,height:b.bottom-b.top}),b):i()}function i(){return{top:0,bottom:0,left:0,right:0,width:0,height:0}}function j(a,b){for(var c=b;c;){if(c==a)return!0;c=k(c)}return!1}function k(a){var b=a.parentNode;return b&&11==b.nodeType&&b.host?b.host:b&&b.assignedSlot?b.assignedSlot.parentNode:b}if("object"==typeof window){if("IntersectionObserver"in window&&"IntersectionObserverEntry"in window&&"intersectionRatio"in window.IntersectionObserverEntry.prototype)return void("isIntersecting"in window.IntersectionObserverEntry.prototype||Object.defineProperty(window.IntersectionObserverEntry.prototype,"isIntersecting",{get:function(){return 0<this.intersectionRatio}}));var l=window.document,m=[];b.prototype.THROTTLE_TIMEOUT=100,b.prototype.POLL_INTERVAL=null,b.prototype.USE_MUTATION_OBSERVER=!0,b.prototype.observe=function(a){var b=this._observationTargets.some(function(b){return b.element==a});if(!b){if(!(a&&1==a.nodeType))throw new Error("target must be an Element");this._registerInstance(),this._observationTargets.push({element:a,entry:null}),this._monitorIntersections(),this._checkForIntersections()}},b.prototype.unobserve=function(a){this._observationTargets=this._observationTargets.filter(function(b){return b.element!=a}),this._observationTargets.length||(this._unmonitorIntersections(),this._unregisterInstance())},b.prototype.disconnect=function(){this._observationTargets=[],this._unmonitorIntersections(),this._unregisterInstance()},b.prototype.takeRecords=function(){var a=this._queuedEntries.slice();return this._queuedEntries=[],a},b.prototype._initThresholds=function(a){var b=a||[0];return Array.isArray(b)||(b=[b]),b.sort().filter(function(b,c,d){if("number"!=typeof b||isNaN(b)||0>b||1<b)throw new Error("threshold must be a number between 0 and 1 inclusively");return b!==d[c-1]})},b.prototype._parseRootMargin=function(a){var b=(a||"0px").split(/\s+/).map(function(a){var b=/^(-?\d*\.?\d+)(px|%)$/.exec(a);if(!b)throw new Error("rootMargin must be specified in pixels or percent");return{value:parseFloat(b[1]),unit:b[2]}});return b[1]=b[1]||b[0],b[2]=b[2]||b[0],b[3]=b[3]||b[1],b},b.prototype._monitorIntersections=function(){this._monitoringIntersections||(this._monitoringIntersections=!0,this.POLL_INTERVAL?this._monitoringInterval=setInterval(this._checkForIntersections,this.POLL_INTERVAL):(e(window,"resize",this._checkForIntersections,!0),e(l,"scroll",this._checkForIntersections,!0),this.USE_MUTATION_OBSERVER&&"MutationObserver"in window&&(this._domObserver=new MutationObserver(this._checkForIntersections),this._domObserver.observe(l,{attributes:!0,childList:!0,characterData:!0,subtree:!0}))))},b.prototype._unmonitorIntersections=function(){this._monitoringIntersections&&(this._monitoringIntersections=!1,clearInterval(this._monitoringInterval),this._monitoringInterval=null,f(window,"resize",this._checkForIntersections,!0),f(l,"scroll",this._checkForIntersections,!0),this._domObserver&&(this._domObserver.disconnect(),this._domObserver=null))},b.prototype._checkForIntersections=function(){var b=this._rootIsInDom(),d=b?this._getRootRect():i();this._observationTargets.forEach(function(e){var f=e.element,g=h(f),i=this._rootContainsTarget(f),j=e.entry,k=b&&i&&this._computeTargetAndRootIntersection(f,d),l=e.entry=new a({time:c(),target:f,boundingClientRect:g,rootBounds:d,intersectionRect:k});j?b&&i?this._hasCrossedThreshold(j,l)&&this._queuedEntries.push(l):j&&j.isIntersecting&&this._queuedEntries.push(l):this._queuedEntries.push(l)},this),this._queuedEntries.length&&this._callback(this.takeRecords(),this)},b.prototype._computeTargetAndRootIntersection=function(a,b){if("none"!=window.getComputedStyle(a).display){for(var c=h(a),d=c,e=k(a),f=!1;!f;){var i=null,j=1==e.nodeType?window.getComputedStyle(e):{};if("none"==j.display)return;if(e==this.root||e==l?(f=!0,i=b):e!=l.body&&e!=l.documentElement&&"visible"!=j.overflow&&(i=h(e)),i&&(d=g(i,d),!d))break;e=k(e)}return d}},b.prototype._getRootRect=function(){var a;if(this.root)a=h(this.root);else{var b=l.documentElement,c=l.body;a={top:0,left:0,right:b.clientWidth||c.clientWidth,width:b.clientWidth||c.clientWidth,bottom:b.clientHeight||c.clientHeight,height:b.clientHeight||c.clientHeight}}return this._expandRectByRootMargin(a)},b.prototype._expandRectByRootMargin=function(a){var b=this._rootMarginValues.map(function(b,c){return"px"==b.unit?b.value:b.value*(c%2?a.width:a.height)/100}),c={top:a.top-b[0],right:a.right+b[1],bottom:a.bottom+b[2],left:a.left-b[3]};return c.width=c.right-c.left,c.height=c.bottom-c.top,c},b.prototype._hasCrossedThreshold=function(a,b){var c=a&&a.isIntersecting?a.intersectionRatio||0:-1,d=b.isIntersecting?b.intersectionRatio||0:-1;if(c!==d)for(var e,f=0;f<this.thresholds.length;f++)if(e=this.thresholds[f],e==c||e==d||e<c!=e<d)return!0},b.prototype._rootIsInDom=function(){return!this.root||j(l,this.root)},b.prototype._rootContainsTarget=function(a){return j(this.root||l,a)},b.prototype._registerInstance=function(){0>m.indexOf(this)&&m.push(this)},b.prototype._unregisterInstance=function(){var a=m.indexOf(this);-1!=a&&m.splice(a,1)},window.IntersectionObserver=b,window.IntersectionObserverEntry=a}})();
+;(function () {
+  if (typeof window.CustomEvent === "function") return false;
+
+  function CustomEvent (event, params) {
+    params = params || {bubbles: false, cancelable: false, detail: null};
+    let evt = document.createEvent('CustomEvent');
+    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+    return evt;
+  }
+  CustomEvent.prototype = window.Event.prototype;
+  window.CustomEvent = CustomEvent;
+})();
+(function(ELEMENT) {
+  ELEMENT.matches = ELEMENT.matches || ELEMENT.mozMatchesSelector || ELEMENT.msMatchesSelector || ELEMENT.oMatchesSelector || ELEMENT.webkitMatchesSelector;
+  ELEMENT.closest = ELEMENT.closest || function closest(selector) {
+      if (!this) return null;
+      if (this.matches(selector)) return this;
+      if (!this.parentElement) {return null}
+      else return this.parentElement.closest(selector)
+    };
+}(Element.prototype));
 let lazy,
   menu,
   hdr,
@@ -6,10 +28,18 @@ let lazy,
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', vh + 'px');
   },
-  dropdownText = function(target) {
-    // remove class dropped
-  };
-  
+  toArray = function(array) {
+    let newArray = [];
+
+    for (let i = 0; i < array.length; i++) {
+      newArray.push(array[i]);
+    }
+
+    return newArray;
+  },
+  pageUtils = document.querySelector('#page-utils');
+
+document.head.removeChild(pageUtils);
 // vh units fix
 window.addEventListener('resize', setVh);
 setVh();
@@ -40,16 +70,59 @@ document.addEventListener('DOMContentLoaded', function() {
       desktop: true
     });
   
-    let hdrTelBlock = hdr.querySelector('.hdr__tel');
+    let hdrTelBlock = hdr.querySelector('.hdr__tel'),
+      mobileOverlay = document.querySelector('.mobile-menu-overlay'),
+      // from = 'M1.11133 2.99551C4.28726 1.86094 6.38895 1.00494 9.91892 1.00001C14.0263 0.994281 16.6546 3.1101 20.759 2.99551C24.3551 2.89511 25.8383 2.40557 28.8891 1.00001',
+      // to = 'M0 1.99534C9 1.99984 5.47003 2.00027 9 1.99534C13.1074 1.98961 14.5 1.99534 19.6477 1.99534C26.5 2 21.5 1.99999 28 1.9999';
+      from = 'M1 4.3C4.5498 2.9 6.57859 2.00555 10.5498 2C15.1413 2.24498 16.0498 3.90002 21.0501 4.30002C25.0498 4.40002 25.5498 3.90002 30.0501 2.15',
+      to = 'M1 1.30002C10.5908 1.31099 6.40379 1.30554 10.375 1.3C17 1.29075 13.7812 1.30005 21.0501 1.30005C26.1875 1.3 21.0501 1.30005 30 1.30005';
   
     menu.addEventListener('beforeopen', function() {
       hdrTelBlock.classList.add('disabled');
-      overlay.classList.add('active');
+      mobileOverlay.classList.add('active');
+  
+      let currentHdr = menu.parentElement.parentElement,
+        menuCaller = currentHdr.querySelector('.burger'),
+        paths = menuCaller.querySelectorAll('path');
+  
+        for (let i = 0; i < paths.length; i++) {
+  
+          let animate;
+  
+          if (paths[i].innerHTML === '') {
+            animate = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+            animate.setAttribute('attributeName', 'd');
+            animate.setAttribute('attributeType', 'XML');
+            animate.setAttribute('dur', '.35s');
+            animate.setAttribute('fill', 'freeze');
+            paths[i].appendChild(animate);
+          } else {
+            animate = paths[i].children[0];
+          }
+          
+          animate.setAttribute('from', from);
+          animate.setAttribute('to', to);
+  
+          animate.beginElement();
+        }
+  
     });
   
     menu.addEventListener('beforeclose', function() {
       hdrTelBlock.classList.remove('disabled');
-      overlay.style.animation = 'fadeOut .5s';
+      mobileOverlay.style.animation = 'fadeOut .5s';
+  
+      let currentHdr = menu.parentElement.parentElement,
+        menuCaller = currentHdr.querySelector('.burger'),
+        paths = menuCaller.querySelectorAll('path');
+  
+      for (let i = 0; i < paths.length; i++) {
+        let animate = paths[i].children[0];
+        animate.setAttribute('from', to);
+        animate.setAttribute('to', from);
+        animate.beginElement();
+      }
+  
     });
   
     overlay.addEventListener('animationend', function() {
@@ -59,11 +132,16 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   
-    overlay.addEventListener('click', function() {
+    mobileOverlay.addEventListener('animationend', function() {
+      if (event.animationName === 'fadeOut') {
+        mobileOverlay.classList.remove('active');
+        mobileOverlay.style.animation = '';
+      }
+    });
+  
+    mobileOverlay.addEventListener('click', function() {
       menu.close();  
     });
-    
-    
   
   })();
   
@@ -80,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function fixHdr() {
       if (pageYOffset > fixThreshold) {
-        if (menu.style && menu.classList.contains('active')) {
+        if (menu.style && (menu.classList.contains('active') || hdr.querySelector('.burger').classList.contains('closed'))) {
           return;
         }
         hdrParent.appendChild(hdrParent.replaceChild(hdrClone, hdr));
@@ -99,46 +177,268 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   })();
-  
   ;(function() {
-    let faqBlocks = document.querySelectorAll('.faq'),
-      dropdownText = function(elem, i) {
-        let answer = elem[i].nextElementSibling,
-          parentFaqBlock = faqBlocks[i],
-          answerHeight = answer.scrollHeight;
   
-        if (!parentFaqBlock.classList.contains('active')) {
+    let productsSect = document.querySelector('.catalog-products');
   
-          for (let j = 0; j < faqBlocks.length; j++) {
-            faqBlocks[j].classList.remove('active');
-            faqBlocks[j].querySelector('.faq__answer').style.maxHeight = '0px';
+    if (productsSect) {
+      let productsBlock = productsSect.querySelector('.catalog-products__wrap'),
+        loader = productsSect.querySelector('.loader'),
+        moreBtn = productsSect.querySelector('.catalog-products__more-btn'),
+        moreBtnLoader = moreBtn.querySelector('.loader'),
+  
+        paginationBlock = productsSect.querySelector('.catalog-products__pagination'),
+        paginationNumbersBlock = paginationBlock.querySelector('.pagination__numbers'),
+        paginationPrev = paginationNumbersBlock.previousElementSibling,
+        paginationNext = paginationNumbersBlock.nextElementSibling,
+  
+        productsCounter = productsSect.querySelector('.catalog-products__counter'),
+  
+        queryParam = productsSect.dataset.term,
+        postsPerPage = 0,
+        currentPage = 1,
+        pageProductsLength = 0,
+        products = [],
+        productsLength = 0,
+  
+        getPosts = function(postOffset, postsPerPage, callback) {
+          let xhr = new XMLHttpRequest(),
+            // date = `action=loadcatalog&termId=${queryParam}&postOffset=${postOffset}&postsPerPage=${postsPerPage}`;
+            date = 'action=loadcatalog&termId=' + queryParam + '&postOffset=' + postOffset + '&postsPerPage=' + postsPerPage;
+  
+          xhr.open('POST', SITEURL + '/wp-admin/admin-ajax.php');
+          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          xhr.send(date);
+  
+          xhr.addEventListener('readystatechange', function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              loader.style.animation = 'fadeOut .5s';
+              let response = JSON.parse(xhr.response);
+              if (response.error) {
+              productsBlock.insertAdjacentHTML('beforeend', '<p class="catalog-error">' + response.error + '<p>');
+                console.warn('errorText:' + response.errorText);
+              } else {
+                if (response.products) {
+                  if (!productsLength) {
+                    (productsLength = response.length);
+                  }
+                  callback && callback(response.products);
+                } else {
+                  productsBlock.insertAdjacentHTML('beforeend', '<p class="catalog-empty">Товаров в этой категории нет</p>');
+                }
+              }
+            }
+          });
+        },
+        printPosts = function(posts) {
+          for (let key in posts) {
+            let elem = posts[key],
+              link = elem.link,
+              title = elem.title,
+              descr = elem.descr,
+              src = elem.src,
+              a = '<a href="' + link + '" class="product" title="Перейти на страницу с ' + title + '">',
+              img = '<img src="' + src + '" alt="' + title + '" title="' + title + '" class="product__img" />',
+              str = '<strong class="product__title">' + title + '</strong>',
+              p = '<p class="product__descr">' + descr + '</p>',
+              html = a + img + str + p + '</a>';
+              // html = `<a href="' + link + '" class="product" title="Перейти на страницу с ${title}">
+              //   <img src="${src}" alt="${title}" title="${title}" class="product__img" />
+              //   <strong class="product__title">${title}</strong>
+              //   <p class="product__descr">${descr}</p>
+              // </a>`;
+            productsBlock.insertAdjacentHTML('beforeend', html);
+            pageProductsLength++;
+            products.push(posts[key]);
           }
   
-          parentFaqBlock.classList.add('active');
+          if (paginationNumbersBlock.children.length < 2) {
+            createPaginationNumbers();
+          }
+          if (window.matchMedia('(max-width:1023.98px)').matches) {
+            animateSection();
+          }
+        },
+        setPostsPerPage = function() {
+          if (window.matchMedia('(min-width:1439.98px)').matches) {
+            postsPerPage = 12;
+          } else if (window.matchMedia('(min-width:1023.98px)').matches) {
+            postsPerPage = 9;
+          } else if (window.matchMedia('(min-width:767.98px)').matches) {
+            postsPerPage = 8;
+          } else {
+            postsPerPage = 4;
+          }
+        },
+        setBtnVisibility = function(showCallback, hideCallback) {
+          // console.log(`pageProductsLength: ${pageProductsLength}`);
+          // console.log(`productsLength: ${productsLength}`);
+          if (pageProductsLength < productsLength) {
+            // console.log('show btn');
+            moreBtnLoader.classList.remove('active');
+            moreBtn.classList.remove('hide', 'disabled');
+            showCallback && showCallback();
+          } else {
+            // console.log('hide btn');
+            moreBtn.classList.add('hide');
+            hideCallback && hideCallback();
+          }
+        },
+        animateSection = function() {
+          productsBlock.style.maxHeight = productsBlock.scrollHeight + 'px';
+        },
+        createPaginationNumbers = function() {
+          if (window.matchMedia('(min-width:1023.98px)').matches) {
+            let pagesCount = Math.ceil(productsLength / postsPerPage);
+            if (pagesCount > 1) {
+              for (let i = 0; i < pagesCount; i++) {
+                let button = document.createElement('button');
+                button.setAttribute('type', 'button');
+                button.classList.add('pagination__number');
+                if (i === 0) {
+                  button.classList.add('active');
+                }
+                button.textContent = i + 1;
+                paginationNumbersBlock.insertAdjacentElement('beforeend', button);
+              }
   
-          answer.style.maxHeight = answerHeight + 'px';
+              paginationBlock.addEventListener('click', function() {
+                let target = event.target;
+  
+                if (target.classList.contains('pagination__number') && !target.classList.contains('active')) {
+                  currentPage = +target.textContent;
+                  setPage(currentPage);
+                } else if (target.classList.contains('pagination__prev') && !target.classList.contains('disabled')) {
+                  setPage(--currentPage);
+                } else if (target.classList.contains('pagination__next') && !target.classList.contains('disabled')) {
+                  setPage(++currentPage);
+                }
+                
+              });
+            }
+          }
+        },
+        setPage = function(pageNum) {
+          let numbers = paginationNumbersBlock.children,
+            postOffset = pageNum * postsPerPage - postsPerPage,
+            current = pageNum - 1;
+  
+          for (let i = 0; i < numbers.length; i++) {
+            numbers[i].classList.remove('active');
+          }
+  
+          loader.classList.add('active');
+          paginationBlock.classList.add('disabled');
+          numbers[current].classList.add('active');
+  
+          getPosts(postOffset, postsPerPage, function(response) {
+            productsBlock.innerHTML = '';
+            printPosts(response);
+            paginationBlock.classList.remove('disabled');
+            if (current > 0) {
+              paginationPrev.classList.remove('disabled');
+            } else {
+              paginationPrev.classList.add('disabled');
+            }
+            if (numbers.length - 1 === current) {
+              paginationNext.classList.add('disabled');
+            } else {
+              paginationNext.classList.remove('disabled');
+            }
+          });
+  
+        },
+        showPosts = function() {
+          let childs = productsBlock.children,
+            diff = childs.length > postsPerPage ? childs.length - postsPerPage : 0;
+  
+          for (let i = 0; i < diff; i++) {
+            productsBlock.removeChild(productsBlock.children[productsBlock.children.length - 1]);
+          }
+  
+          pageProductsLength = childs.length;
+          productsLength = +productsCounter.textContent;
+  
+          setBtnVisibility();
+  
+          if (paginationNumbersBlock.children.length < 2) {
+            createPaginationNumbers();
+          }
           
-        } else {
-          if (faqBlocks.length > 1) {
-            answer.style.maxHeight = '0px';
-            parentFaqBlock.classList.remove('active');
+          if (window.matchMedia('(max-width:1023.98px)').matches) {
+            animateSection();
           }
-        }
-      };
+        };
   
-    if (faqBlocks.length) {
-  
-      let faqBlocksParent = faqBlocks[0].parentElement,
-        questions = faqBlocksParent.querySelectorAll('.faq__question');
-  
-        dropdownText(questions, 0);
-  
-      for (let i = 0; i < questions.length; i++) {
-        questions[i].addEventListener('click', function() {
-          dropdownText(questions, i);
+        window.addEventListener('resize', function() {
+          setPostsPerPage();
         });
-      }
+  
+        loader.addEventListener('animationend', function() {
+          if (event.animationName === 'fadeOut') {
+            this.classList.remove('active');
+            this.style.animation = '';
+          }
+        });
+  
+        setPostsPerPage();
+        showPosts();
+        // getPosts(0, postsPerPage, function(response) {
+        //   productsCounter.textContent = productsLength;
+        //   printPosts(response);
+        //   setBtnVisibility();
+        // });
+  
+        moreBtn.addEventListener('click', function() {
+          moreBtn.classList.add('disabled');
+          moreBtnLoader.classList.add('active');
+          getPosts(pageProductsLength, postsPerPage, function(response) {
+            printPosts(response);
+            setBtnVisibility();
+          });
+        });
     }
+  
+  })();
+  ;(function() {
+    let faqBlock = document.querySelector('.faq__block');
+  
+    if (faqBlock) {
+      let faqBlocks = faqBlock.children,
+        dropdownText = function(element) {
+          element = element || faqBlocks[0]; // если элемент не передали, то открываем первый
+  
+          let parent = element.closest('.faq'),
+            answer = parent.querySelector('.faq__answer'),
+            answerHeight = answer.scrollHeight;
+  
+          if (parent.classList.contains('active')) {
+            if (faqBlocks.length > 1) {
+              answer.style.maxHeight = '0px';
+              parent.classList.remove('active');
+            }
+          } else {
+            for (let i = 0; i < faqBlocks.length; i++) {
+              faqBlocks[i].classList.remove('active');
+              faqBlocks[i].querySelector('.faq__answer').style.maxHeight = '0px';
+            }
+  
+            parent.classList.add('active');
+            answer.style.maxHeight = answerHeight + 'px';
+          }
+        };
+  
+      dropdownText();
+  
+      faqBlock.addEventListener('click', function() {
+        let target = event.target;
+        if (target.tagName === 'BUTTON') {
+          dropdownText(target);
+        }
+      });
+  
+    }
+  
   })();
   ;(function() {
     function setCursorPosition(pos, elem) {
@@ -175,58 +475,118 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   })();
 
+  // Корректировка высоты таблиц характеристик товаров, чтобы убрать горизонтальный скролл
+  let productTableWrappers = document.querySelectorAll('.product__table-wrap'),
+    setTableWrapHeight = function() {
+      for (let i = 0; i < productTableWrappers.length; i++) {
+        let table = productTableWrappers[i].children[0];
+        table.style.height = table.offsetHeight + 1 + 'px';
+        // productTableWrappers[i].style.height = table.offsetHeight + 1 + 'px';
+        // console.log(table.offsetHeight);
+        // setTimeout(function(){console.log(table.offsetHeight)}, 1000);
+      }
+    };
+  if (productTableWrappers.length && productTableWrappers.length > 0) {
+    setTableWrapHeight();
+    window.addEventListener('resize', setTableWrapHeight);
+  }
+
+  // Корректировка высоты изображения в секции "о производстве"
+  let productionSect = document.querySelector('.production-sect');
+
+  if (productionSect) {
+    let setElementSize = function() {
+      if (window.matchMedia('(min-width:1023.98px)').matches) {
+        let img = productionSect.children[0];
+          parentStyles = getComputedStyle(productionSect);
+        img.style.height = productionSect.clientHeight - parentStyles.paddingTop.slice(0, -2) - parentStyles.paddingBottom.slice(0, -2) + 'px';
+      } else {
+        let img = productionSect.children[0];
+        img.style.height = '';
+      }
+    };
+    setElementSize();
+    window.addEventListener('resize', setElementSize); 
+  }
+
+  // lazyload встака google maps
+  // let mapBlock = document.querySelector('.contacts-sect__map');
+
+  // if (mapBlock) {
+  //   let mapCoords = mapBlock.dataset.coords.split(/\,\s|\,/),
+  //     mapZoom = +mapBlock.dataset.zoom,
+  //     popupContent = '<p class="map__content">' + document.querySelector('.address__text').textContent + '</p>';
+
+  //     initMap();
+  //     function initMap() {
+  //       let coords = {
+  //           lat: +mapCoords[0],
+  //           lng: +mapCoords[1]
+  //         },
+  //         svg = '<svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.4953 13.3314L17.6618 11.1312C17.59 11.0508 17.4874 11.0048 17.3795 11.0048C17.2717 11.0048 17.1691 11.0508 17.0973 11.1312L15.2639 13.3314C15.1727 13.4407 15.153 13.5931 15.2135 13.722C15.2741 13.8508 15.4037 13.9331 15.546 13.9328H16.1292C15.5865 16.144 13.6209 17.8491 11.1458 18.2451V8.79912H14.446C14.6486 8.79912 14.8127 8.63493 14.8127 8.43243V6.96567C14.8127 6.76317 14.6486 6.59898 14.446 6.59898H11.1458V5.65289C12.4474 5.12649 13.1935 3.75141 12.9253 2.3731C12.6571 0.994968 11.4498 0 10.0457 0C8.64178 0 7.43446 0.994968 7.16625 2.3731C6.89803 3.75141 7.64413 5.12649 8.94562 5.65289V6.59898H5.64542C5.44291 6.59898 5.27873 6.76317 5.27873 6.96567V8.43243C5.27873 8.63493 5.44291 8.79912 5.64542 8.79912H8.94562V18.2451C6.47047 17.8491 4.50506 16.144 3.96237 13.9328H4.54535C4.68787 13.9331 4.8175 13.8508 4.87802 13.722C4.93854 13.5931 4.91884 13.4407 4.82771 13.3314L2.99426 11.1312C2.92246 11.0508 2.81987 11.0048 2.7119 11.0048C2.60411 11.0048 2.50152 11.0508 2.42972 11.1312L0.596273 13.3314C0.505138 13.4407 0.485443 13.5931 0.545961 13.722C0.606479 13.8508 0.736109 13.9331 0.878452 13.9328H1.69634C2.23169 17.3431 5.2055 20.0234 8.94562 20.4673V20.8999C8.94652 20.9971 8.98448 21.0904 9.05198 21.1602L9.78536 21.8936C9.93003 22.0354 10.1615 22.0354 10.3062 21.8936L11.0396 21.1602C11.1071 21.0904 11.145 20.9971 11.1458 20.8999V20.4673C14.8861 20.0234 17.8599 17.3431 18.3952 13.9328H19.2129C19.3555 13.9331 19.4851 13.8508 19.5456 13.722C19.6061 13.5931 19.5864 13.4407 19.4953 13.3314ZM10.0457 4.03215C9.43818 4.03215 8.94562 3.53959 8.94562 2.93208C8.94562 2.32458 9.43818 1.83202 10.0457 1.83202C10.6534 1.83202 11.1458 2.32458 11.1458 2.93208C11.1458 3.53959 10.6534 4.03215 10.0457 4.03215Z" fill="#16656A"/></svg>',
+  //         map = new google.maps.Map(mapBlock, {
+  //             center: coords,
+  //             zoom: mapZoom
+  //         }),
+  //         marker = new google.maps.Marker({
+  //             position: coords,
+  //             map: map,
+  //             icon: {
+  //               url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg)
+  //             }
+  //         }),
+  //         infowindow = new google.maps.InfoWindow({
+  //             content: popupContent
+  //         });
+
+  //         infowindow.open(map, marker);
+
+  //         marker.addListener('click', function() {
+  //           infowindow.open(map, marker);
+  //         });
+
+  //       map.setOptions({
+  //         styles:
+  //         [{
+  //             "featureType": "administrative",
+  //             "stylers": [{"visibility": "off"}]
+  //           }, {
+  //             "featureType": "road",
+  //             "elementType": "geometry",
+  //             "stylers": [{"lightness": 100},{"visibility": "simplified"}]
+  //           }, {
+  //             "featureType": "water",
+  //             "elementType": "geometry",
+  //             "stylers": [{"visibility": "on"},{"color": "#C6E2FF"}]
+  //           }, {
+  //             "featureType": "poi",
+  //             "stylers": [{"visibility": "off"}]
+  //           }, {
+  //             "featureType": "poi",
+  //             "elementType": "geometry.fill",
+  //             "stylers": [{"color": "#C5E3BF"}]
+  //           }, {
+  //             "featureType": "poi.park",
+  //             "stylers": [{"visibility": "on"}]
+  //           }, {
+  //             "featureType": "road",
+  //             "elementType": "geometry.fill",
+  //             "stylers": [{"color": "#D1D1B8"}]
+  //           }]
+  //       });
+
+  //     }
+
+
+  //   window.addEventListener('load', function() {
+  //     setTimeout(function() {
+  //       let scriptSrc = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAo1LNJevO-ouYd9LgKHtaGrrdtSDlBCO0&callback=initMap",
+  //         tag = document.createElement("script");
+
+  //       tag.setAttribute("async", "async");
+  //       tag.setAttribute("src", scriptSrc);
+  //       document.body.appendChild(tag);
+  //     }, 1000);
+  //   });
+  // }
 });
-
-// window.addEventListener('load', function() {
-//   setTimeout(function() {
-//     let scriptSrc = "//maps.googleapis.com/maps/api/js?key=AIzaSyBy9wC4w-xoCIJiXVNKr6RawJSDnJV7nIA&callback=initMap",
-//         tag = document.createElement("script");
-
-//     tag.setAttribute("async", "async");
-//     tag.setAttribute("src", scriptSrc);
-//     document.body.appendChild(tag)
-//   }, 1000)
-// });
-
-
-// function initMap() {
-//   let coords = {
-//     lat: 57.757997,
-//     lng: 40.986052
-//   },
-//   svg = '<svg width="32" height="44" viewBox="0 0 32 44" xmlns="http://www.w3.org/2000/svg" fill="none"><path d="M31.233 17.088c0 13.683-15.342 26.356-15.342 26.356s-15.342-12.673-15.342-26.356c0-9.438 6.869-17.088 15.342-17.088s15.342 7.651 15.342 17.088z" fill="<?php echo $page_color; ?>"/><path d="M13.382 14.198l.871 1.242-.029.037-1.066-.988-.352 4.107-.05.004-.337-3.963-.645.524-.047-.041.563-.918-4.597-.413-.001-.063 4.405-.401-.76-1.104.028-.043 1.052.816.337-3.735.05-.002.372 3.843 1.321-1.218.024.03-.972 1.442 9.896.225v.028l-10.063.591zM23.887 13.928c-2.094 2.361-4.151 4.683-6.208 7.004l.053.063 4.97-5.418.618 1.264-7.396 6.16-.036-.041 1.348-1.767c1.77-2.306 3.545-4.609 5.31-6.921.174-.228.359-.355.622-.345l.72.002zM15.338 22.964l-7.371-6.077.604-1.187 3.512 3.766-4.682-5.496c.307.017.605.023.901.055.075.008.157.084.212.154 2.271 2.885 4.54 5.774 6.807 8.661l.048.083-.03.041zM21.078 13.259l-2.575-.001c-.206 0-.159-.181-.158-.314l.033-3.17c.005-.664.001-1.329.001-1.993l.099-.07.131.244c.507.674 1.025 1.339 1.523 2.022.132.181.241.404.303.628.215.784.405 1.577.603 2.368l.039.285zM16.279 22.046l-.487.816-.026-.011.6-2.286c.556-2.083 1.118-4.164 1.664-6.251.062-.237.151-.326.359-.322.503.009 1.006.003 1.546.003l-.79 1.711c-.873 1.874-1.748 3.747-2.619 5.622l-.108.342-.139.377zM7.26 13.57l3.693-5.398.051.02-.414 2.657c-.114.733-.22 1.468-.346 2.197-.019.112-.12.285-.194.292-.9.089-1.803.154-2.79.231zM20.199 8.083l3.9 5.291-.789-.001-1.836-.031c-.141-.001-.23-.035-.267-.221-.325-1.598-.659-3.195-.989-4.792l-.018-.246zM14.055 13.053l1.281-2.062-.04-.054-.936.482-.022-.042 1.248-1.153 2.545 2.83-4.077-.001zM15.618 21.62l-1.912-6.164.051-.027 1.852 3.509 2.026-4.433.046.019-1.999 7.085-.063.011zM16.279 22.047l.139-.376c.3-.531.608-1.056.899-1.592 1.068-1.962 2.132-3.927 3.193-5.895.101-.187.207-.291.414-.278.348.021.697.006 1.062.006l-.095.172c-1.82 2.605-3.641 5.208-5.463 7.811l-.148.152zM17.444 11.855l-1.807-2.197-1.643 1.777-.063-.051 1.794-4.385 1.816 4.755-.097.101zM12.258 12.149l-1.194-.943-.336.444c-.091-.405.084-1.403.291-1.696l1.745-2.456.22-.282v1.603l-.037.011-.13-.927-.06-.004-.499 4.251zM15.355 22.437c-.628-1.649-1.213-3.322-1.9-4.939-.342-.807-.358-1.585-.242-2.415l.054-.15 2.137 7.492-.049.012zM8.887 14.127c.308 0 .561-.015.811.008.09.009.207.087.254.174.701 1.293 1.393 2.593 2.053 3.924l-3.118-4.106z" fill="#fff"/></svg>',
-//   map = new google.maps.Map(document.querySelector(".contacts-sect__map"), {
-//       center: coords,
-//       zoom: 14
-//   }),
-//   marker = new google.maps.Marker({
-//       position: coords,
-//       map: map,
-//       icon: {
-//         url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg)
-//       }
-//   });
-//   map.setOptions({
-//     styles:
-//     [{
-//         "featureType": "road",
-//         "elementType": "geometry",
-//         "stylers": [{"lightness": 100},{"visibility": "simplified"}]
-//       },
-//       {
-//         "featureType": "water",
-//         "elementType": "geometry",
-//         "stylers": [{"visibility": "on"},{"color": "#C6E2FF"}]
-//       },
-//       {
-//         "featureType": "poi",
-//         "elementType": "geometry.fill",
-//         "stylers": [{"color": "#C5E3BF"}]
-//       },
-//       {
-//         "featureType": "road",
-//         "elementType": "geometry.fill",
-//         "stylers": [{"color": "#D1D1B8"}]
-//       }]
-//   });
-// }

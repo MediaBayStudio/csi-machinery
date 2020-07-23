@@ -1,66 +1,229 @@
 .categories-block {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 1fr auto;
-  grid-template-rows: 1fr auto;
-  -ms-grid-columns: 1fr auto;
-  grid-template-columns: 1fr auto;
+  flex-flow: column wrap;
+  align-content: space-between;
+  height: 820px;
 }
 
 .category {
   padding: 40px 25px 40px 40px;
+  max-width: calc((100% - 20px) / 2);
+  height: calc((100% - 20px) / 2);
 }
 
 .category__title {
-  font-size: 24px;
   max-width: 320px;
+  margin-bottom: 10px;
+}
+
+.category__descr {
+  line-height: 158%;
+}
+
+.category__descr:not(:last-of-type) {
+  margin-bottom: 20px;
 }
 
 .category__btn {
   margin-top: auto;
 }
 
-.category.marine-engine {
-  width: auto;
-  max-width: 400px;
-  margin: 0 20px 0 0;
+.category:first-child {
+  height: 100%;
+  max-width: calc((100% - 20px) / 2);
+  margin-bottom: 0;
+  padding-right: 0;
 }
 
-.category.marine-engine > .category__title {
+.category:first-child > .category__title {
   max-width: 150px;
 }
 
-.category.marine-engine > .category__img {
+.category:first-child > .category__img {
   width: 275px;
   height: 225px;
 }
 
-.category.marine-generators {
-  margin-bottom: 20px;
+.catalog-hero-sect {
+  min-height: 400px;
 }
 
-.marine-generators {
-  -ms-grid-row: 1;
-  grid-row: 1;
-  -ms-grid-column: 2;
-  grid-column: 2;
-  height: 360px;
-  max-width: 432px;
+.catalog-hero-sect__wrap {
+  padding: 25px 80px 50px 45px;
 }
 
-.marine-engine {
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  grid-row: 1/span 2;
-  -ms-grid-column: 1;
-  grid-column: 1;
+.catalog-hero-sect__title {
+  margin: 55px 0 15px 0;
+  font-size: 30px;
 }
 
-.ground-generators {
-  -ms-grid-row: 2;
-  grid-row: 2;
-  -ms-grid-column: 2;
-  grid-column: 2;
-  height: 360px;
-  max-width: 432px;
+.catalog-hero-sect__descr {
+  font-size: 16px;
+  max-width: none;
+}
+
+.catalog-hero-sect__logo {
+  width: 73px;
+  height: 100px;
+}
+
+.catalog-categories {
+  font-size: 18px;
+}
+
+.catalog-categories__link::before {
+  width: 38px;
+  margin: 12px 12px 0 0;
+}
+
+.category-next::before {
+  margin: 14px 0 0 12px;
+}
+
+.catalog-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 60px;
+  padding-bottom: 55px;
+}
+
+.catalog-products__wrap {
+  width: 100%;
+  flex-shrink: 0;
+  min-height: 320px;
+  max-height: none;
+}
+
+.catalog-products__more-btn {
+  display: none;
+}
+
+.product {
+  max-width: 260px;
+}
+
+.product:nth-of-type(odd) {
+  margin-right: 0;
+}
+
+.product:nth-of-type(1n) {
+  margin-right: 20px;
+}
+
+.product:last-of-type, .product:nth-of-type(3n+3) {
+  margin-right: 0;
+}
+
+.product__img {
+  height: 175px;
+}
+
+.product__title {
+  margin: 30px 0 10px;
+}
+
+.product__descr {
+  max-width: 260px;
+}
+
+.product__descr > br {
+  display: block;
+}
+
+.catalog-products__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalog-products__pagination > .pagination__numbers {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  color: #C4C4C4;
+  font: 16px/100% Geometria;
+}
+
+.catalog-products__pagination .pagination__number {
+  transition: color .35s;
+  border-bottom: 1px solid transparent;
+}
+
+.catalog-products__pagination .pagination__number.active {
+  color: #16656A;
+  border-bottom-color: currentColor;
+  pointer-events: none;
+}
+
+.catalog-products__pagination .pagination__number:nth-last-child(n+2) {
+  margin-right: 20px;
+}
+
+.catalog-products__pagination .pagination__icon {
+  pointer-events: none;
+}
+
+.catalog-products__pagination .pagination__path {
+  transition: stroke .35s;
+  stroke: #C4C4C4;
+}
+
+.product-hero-sect {
+  padding-top: 35px;
+  padding-bottom: 20px;
+}
+
+.product-hero-sect__title {
+  max-width: 425px;
+  width: 100%;
+  -ms-grid-column-align: end;
+  justify-self: end;
+}
+
+.product-hero-sect__img {
+  width: 350px;
+  height: 320px;
+}
+
+.product__list {
+  max-width: 425px;
+}
+
+.product-params-sect__title {
+  font-size: 18px;
+}
+
+.product-params__table-title,
+.product-params__scheme-title {
+  font-size: 20px;
+}
+
+.product__table-wrap {
+  font-size: 13px;
+  margin: 15px 0 20px;
+}
+
+.order-sect {
+  background: url("../img/big-logo.svg") top right/258px 365px no-repeat content-box, linear-gradient(to left, #fff, #fff);
+}
+
+.order-sect__title {
+  margin-bottom: 50px;
+}
+
+.order-sect__form {
+  max-width: 540px;
+  margin-left: 0;
+}
+
+.order-sect__form .field__inp {
+  width: 260px;
+}
+
+.order-sect__contacts-info {
+  margin-top: 75px;
+}
+
+.order-sect__contacts-info > .email {
+  margin: 0;
 }

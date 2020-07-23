@@ -1,3 +1,33 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.order-sect {
+  background-color: $white;
+  &__title {
+    margin-bottom: 35px;
+  }
+  &__form {
+    // max-width: 280px;
+    // margin: auto;
+    position: relative;
+  }
+  &__contacts-info {
+    margin: 0 auto;
+  }
+}
+
+.product-name-inp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+// order-form in contatcs-form

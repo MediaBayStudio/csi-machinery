@@ -1,3 +1,75 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.catalog-products {
+  padding-top: 55px;
+  padding-bottom: 50px;
+  background-color: $white;
+  position: relative;
+  &__wrap {
+    max-height: 320px;
+    transition: max-height .75s, height .75s, min-height .75s;
+    overflow: hidden;
+    will-change: max-height, height;
+  }
+  &__more-btn {
+    display: flex;
+    margin: 75px auto 0;
+    position: relative;
+    overflow: hidden;
+    font: 16px/100% Geometria;
+    color: #616161;
+    &.disabled {
+      opacity: 1;
+    }
+    > .loader {
+      background-color: hsla(0, 0%, 100%, 0.75);
+      > .loader__circle {
+        font-size: inherit; // на всякий случай
+        width: 1em;
+        height: 1em;
+        border-width: 1.5px;
+      }
+    }
+  }
+}
+
+.product {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  max-width: 280px;
+  margin: 0 auto 35px;
+  &:focus {
+    outline: 0;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  &__img {
+    width: 100%;
+    height: 185px;
+    object-fit: contain;
+  }
+  &__title {
+    margin: 20px 0 10px;
+    font: bold 16px/100% Geometria;
+    color: $darkCyan;
+  }
+  &__descr {
+    max-width: 280px; // для ie
+    font: 14px/128% Geometria;
+    color: #616161;
+  }
+}
+
+.catalog-empty,
+.catalog-error {
+  font: normal 16px/100% Geometria;
+}
+
+.catalog-products__pagination,
+.catalog-products__counter-block {
+  display: none;
+}

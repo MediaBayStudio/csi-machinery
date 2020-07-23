@@ -1,3 +1,6 @@
+//=include main/_intersectionObserverPolyfill.js
+//=include main/_customEventsPolyfill.js
+//=include main/_closestPolyfill.js
 //=include main/_utils.js
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -17,58 +20,118 @@ document.addEventListener('DOMContentLoaded', function() {
   //=include main/_dropdownText.js
   //=include main/_telMask.js
 
+  // Корректировка высоты таблиц характеристик товаров, чтобы убрать горизонтальный скролл
+  let productTableWrappers = document.querySelectorAll('.product__table-wrap'),
+    setTableWrapHeight = function() {
+      for (let i = 0; i < productTableWrappers.length; i++) {
+        let table = productTableWrappers[i].children[0];
+        table.style.height = table.offsetHeight + 1 + 'px';
+        // productTableWrappers[i].style.height = table.offsetHeight + 1 + 'px';
+        // console.log(table.offsetHeight);
+        // setTimeout(function(){console.log(table.offsetHeight)}, 1000);
+      }
+    };
+  if (productTableWrappers.length && productTableWrappers.length > 0) {
+    setTableWrapHeight();
+    window.addEventListener('resize', setTableWrapHeight);
+  }
+
+  // Корректировка высоты изображения в секции "о производстве"
+  let productionSect = document.querySelector('.production-sect');
+
+  if (productionSect) {
+    let setElementSize = function() {
+      if (window.matchMedia('(min-width:1023.98px)').matches) {
+        let img = productionSect.children[0];
+          parentStyles = getComputedStyle(productionSect);
+        img.style.height = productionSect.clientHeight - parentStyles.paddingTop.slice(0, -2) - parentStyles.paddingBottom.slice(0, -2) + 'px';
+      } else {
+        let img = productionSect.children[0];
+        img.style.height = '';
+      }
+    };
+    setElementSize();
+    window.addEventListener('resize', setElementSize); 
+  }
+
+  // lazyload встака google maps
+  // let mapBlock = document.querySelector('.contacts-sect__map');
+
+  // if (mapBlock) {
+  //   let mapCoords = mapBlock.dataset.coords.split(/\,\s|\,/),
+  //     mapZoom = +mapBlock.dataset.zoom,
+  //     popupContent = '<p class="map__content">' + document.querySelector('.address__text').textContent + '</p>';
+
+  //     initMap();
+  //     function initMap() {
+  //       let coords = {
+  //           lat: +mapCoords[0],
+  //           lng: +mapCoords[1]
+  //         },
+  //         svg = '<svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.4953 13.3314L17.6618 11.1312C17.59 11.0508 17.4874 11.0048 17.3795 11.0048C17.2717 11.0048 17.1691 11.0508 17.0973 11.1312L15.2639 13.3314C15.1727 13.4407 15.153 13.5931 15.2135 13.722C15.2741 13.8508 15.4037 13.9331 15.546 13.9328H16.1292C15.5865 16.144 13.6209 17.8491 11.1458 18.2451V8.79912H14.446C14.6486 8.79912 14.8127 8.63493 14.8127 8.43243V6.96567C14.8127 6.76317 14.6486 6.59898 14.446 6.59898H11.1458V5.65289C12.4474 5.12649 13.1935 3.75141 12.9253 2.3731C12.6571 0.994968 11.4498 0 10.0457 0C8.64178 0 7.43446 0.994968 7.16625 2.3731C6.89803 3.75141 7.64413 5.12649 8.94562 5.65289V6.59898H5.64542C5.44291 6.59898 5.27873 6.76317 5.27873 6.96567V8.43243C5.27873 8.63493 5.44291 8.79912 5.64542 8.79912H8.94562V18.2451C6.47047 17.8491 4.50506 16.144 3.96237 13.9328H4.54535C4.68787 13.9331 4.8175 13.8508 4.87802 13.722C4.93854 13.5931 4.91884 13.4407 4.82771 13.3314L2.99426 11.1312C2.92246 11.0508 2.81987 11.0048 2.7119 11.0048C2.60411 11.0048 2.50152 11.0508 2.42972 11.1312L0.596273 13.3314C0.505138 13.4407 0.485443 13.5931 0.545961 13.722C0.606479 13.8508 0.736109 13.9331 0.878452 13.9328H1.69634C2.23169 17.3431 5.2055 20.0234 8.94562 20.4673V20.8999C8.94652 20.9971 8.98448 21.0904 9.05198 21.1602L9.78536 21.8936C9.93003 22.0354 10.1615 22.0354 10.3062 21.8936L11.0396 21.1602C11.1071 21.0904 11.145 20.9971 11.1458 20.8999V20.4673C14.8861 20.0234 17.8599 17.3431 18.3952 13.9328H19.2129C19.3555 13.9331 19.4851 13.8508 19.5456 13.722C19.6061 13.5931 19.5864 13.4407 19.4953 13.3314ZM10.0457 4.03215C9.43818 4.03215 8.94562 3.53959 8.94562 2.93208C8.94562 2.32458 9.43818 1.83202 10.0457 1.83202C10.6534 1.83202 11.1458 2.32458 11.1458 2.93208C11.1458 3.53959 10.6534 4.03215 10.0457 4.03215Z" fill="#16656A"/></svg>',
+  //         map = new google.maps.Map(mapBlock, {
+  //             center: coords,
+  //             zoom: mapZoom
+  //         }),
+  //         marker = new google.maps.Marker({
+  //             position: coords,
+  //             map: map,
+  //             icon: {
+  //               url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg)
+  //             }
+  //         }),
+  //         infowindow = new google.maps.InfoWindow({
+  //             content: popupContent
+  //         });
+
+  //         infowindow.open(map, marker);
+
+  //         marker.addListener('click', function() {
+  //           infowindow.open(map, marker);
+  //         });
+
+  //       map.setOptions({
+  //         styles:
+  //         [{
+  //             "featureType": "administrative",
+  //             "stylers": [{"visibility": "off"}]
+  //           }, {
+  //             "featureType": "road",
+  //             "elementType": "geometry",
+  //             "stylers": [{"lightness": 100},{"visibility": "simplified"}]
+  //           }, {
+  //             "featureType": "water",
+  //             "elementType": "geometry",
+  //             "stylers": [{"visibility": "on"},{"color": "#C6E2FF"}]
+  //           }, {
+  //             "featureType": "poi",
+  //             "stylers": [{"visibility": "off"}]
+  //           }, {
+  //             "featureType": "poi",
+  //             "elementType": "geometry.fill",
+  //             "stylers": [{"color": "#C5E3BF"}]
+  //           }, {
+  //             "featureType": "poi.park",
+  //             "stylers": [{"visibility": "on"}]
+  //           }, {
+  //             "featureType": "road",
+  //             "elementType": "geometry.fill",
+  //             "stylers": [{"color": "#D1D1B8"}]
+  //           }]
+  //       });
+
+  //     }
+
+
+  //   window.addEventListener('load', function() {
+  //     setTimeout(function() {
+  //       let scriptSrc = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAo1LNJevO-ouYd9LgKHtaGrrdtSDlBCO0&callback=initMap",
+  //         tag = document.createElement("script");
+
+  //       tag.setAttribute("async", "async");
+  //       tag.setAttribute("src", scriptSrc);
+  //       document.body.appendChild(tag);
+  //     }, 1000);
+  //   });
+  // }
 });
-
-// window.addEventListener('load', function() {
-//   setTimeout(function() {
-//     let scriptSrc = "//maps.googleapis.com/maps/api/js?key=AIzaSyBy9wC4w-xoCIJiXVNKr6RawJSDnJV7nIA&callback=initMap",
-//         tag = document.createElement("script");
-
-//     tag.setAttribute("async", "async");
-//     tag.setAttribute("src", scriptSrc);
-//     document.body.appendChild(tag)
-//   }, 1000)
-// });
-
-
-// function initMap() {
-//   let coords = {
-//     lat: 57.757997,
-//     lng: 40.986052
-//   },
-//   svg = '<svg width="32" height="44" viewBox="0 0 32 44" xmlns="http://www.w3.org/2000/svg" fill="none"><path d="M31.233 17.088c0 13.683-15.342 26.356-15.342 26.356s-15.342-12.673-15.342-26.356c0-9.438 6.869-17.088 15.342-17.088s15.342 7.651 15.342 17.088z" fill="<?php echo $page_color; ?>"/><path d="M13.382 14.198l.871 1.242-.029.037-1.066-.988-.352 4.107-.05.004-.337-3.963-.645.524-.047-.041.563-.918-4.597-.413-.001-.063 4.405-.401-.76-1.104.028-.043 1.052.816.337-3.735.05-.002.372 3.843 1.321-1.218.024.03-.972 1.442 9.896.225v.028l-10.063.591zM23.887 13.928c-2.094 2.361-4.151 4.683-6.208 7.004l.053.063 4.97-5.418.618 1.264-7.396 6.16-.036-.041 1.348-1.767c1.77-2.306 3.545-4.609 5.31-6.921.174-.228.359-.355.622-.345l.72.002zM15.338 22.964l-7.371-6.077.604-1.187 3.512 3.766-4.682-5.496c.307.017.605.023.901.055.075.008.157.084.212.154 2.271 2.885 4.54 5.774 6.807 8.661l.048.083-.03.041zM21.078 13.259l-2.575-.001c-.206 0-.159-.181-.158-.314l.033-3.17c.005-.664.001-1.329.001-1.993l.099-.07.131.244c.507.674 1.025 1.339 1.523 2.022.132.181.241.404.303.628.215.784.405 1.577.603 2.368l.039.285zM16.279 22.046l-.487.816-.026-.011.6-2.286c.556-2.083 1.118-4.164 1.664-6.251.062-.237.151-.326.359-.322.503.009 1.006.003 1.546.003l-.79 1.711c-.873 1.874-1.748 3.747-2.619 5.622l-.108.342-.139.377zM7.26 13.57l3.693-5.398.051.02-.414 2.657c-.114.733-.22 1.468-.346 2.197-.019.112-.12.285-.194.292-.9.089-1.803.154-2.79.231zM20.199 8.083l3.9 5.291-.789-.001-1.836-.031c-.141-.001-.23-.035-.267-.221-.325-1.598-.659-3.195-.989-4.792l-.018-.246zM14.055 13.053l1.281-2.062-.04-.054-.936.482-.022-.042 1.248-1.153 2.545 2.83-4.077-.001zM15.618 21.62l-1.912-6.164.051-.027 1.852 3.509 2.026-4.433.046.019-1.999 7.085-.063.011zM16.279 22.047l.139-.376c.3-.531.608-1.056.899-1.592 1.068-1.962 2.132-3.927 3.193-5.895.101-.187.207-.291.414-.278.348.021.697.006 1.062.006l-.095.172c-1.82 2.605-3.641 5.208-5.463 7.811l-.148.152zM17.444 11.855l-1.807-2.197-1.643 1.777-.063-.051 1.794-4.385 1.816 4.755-.097.101zM12.258 12.149l-1.194-.943-.336.444c-.091-.405.084-1.403.291-1.696l1.745-2.456.22-.282v1.603l-.037.011-.13-.927-.06-.004-.499 4.251zM15.355 22.437c-.628-1.649-1.213-3.322-1.9-4.939-.342-.807-.358-1.585-.242-2.415l.054-.15 2.137 7.492-.049.012zM8.887 14.127c.308 0 .561-.015.811.008.09.009.207.087.254.174.701 1.293 1.393 2.593 2.053 3.924l-3.118-4.106z" fill="#fff"/></svg>',
-//   map = new google.maps.Map(document.querySelector(".contacts-sect__map"), {
-//       center: coords,
-//       zoom: 14
-//   }),
-//   marker = new google.maps.Marker({
-//       position: coords,
-//       map: map,
-//       icon: {
-//         url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg)
-//       }
-//   });
-//   map.setOptions({
-//     styles:
-//     [{
-//         "featureType": "road",
-//         "elementType": "geometry",
-//         "stylers": [{"lightness": 100},{"visibility": "simplified"}]
-//       },
-//       {
-//         "featureType": "water",
-//         "elementType": "geometry",
-//         "stylers": [{"visibility": "on"},{"color": "#C6E2FF"}]
-//       },
-//       {
-//         "featureType": "poi",
-//         "elementType": "geometry.fill",
-//         "stylers": [{"color": "#C5E3BF"}]
-//       },
-//       {
-//         "featureType": "road",
-//         "elementType": "geometry.fill",
-//         "stylers": [{"color": "#D1D1B8"}]
-//       }]
-//   });
-// }

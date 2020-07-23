@@ -11,7 +11,7 @@
   
   function fixHdr() {
     if (pageYOffset > fixThreshold) {
-      if (menu.style && menu.classList.contains('active')) {
+      if (menu.style && (menu.classList.contains('active') || hdr.querySelector('.burger').classList.contains('closed'))) {
         return;
       }
       hdrParent.appendChild(hdrParent.replaceChild(hdrClone, hdr));

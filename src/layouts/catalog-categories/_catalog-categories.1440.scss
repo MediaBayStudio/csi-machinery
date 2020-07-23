@@ -2,8 +2,18 @@
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
 
+.categories-block {
+  height: 805px;
+  padding-top: 20px;
+}
 
 .category {
+  max-width: 692px;
+  width: 100%;
+  padding-top: 35px;
+  &__title {
+    margin-bottom: 10px;
+  }
   &__img {
     width: 285px;
     height: 210px
@@ -11,27 +21,15 @@
   &__descr {
     max-width: 415px;
     font-size: 16px;
-    &:nth-last-child(n+2) {
-      margin-bottom: 35px;
-    }
   }
   &__btn {
     height: 50px;
   }
-  &.marine-engine {
-    max-width: none;
-    width: 490px;
+  &:first-child {
+    max-width: 488px;
     > .category__img {
       width: 310px;
       height: 240px;
     }
   }
-
-}
-
-.marine-generators,
-.ground-generators {
-  max-width: none;
-  width: 692px;
-  height: 355px;
 }

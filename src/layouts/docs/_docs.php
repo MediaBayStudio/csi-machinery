@@ -17,7 +17,7 @@
       $file = $doc['file'];
 
       echo
-      "<a href='$file[url]' class='doc'>
+      "<a href='$file[url]' target='_blank' class='doc'>
         <img src='" . get_template_directory_uri() . "/img/icon-pdf.svg' alt='$doc[file_name]' class='doc__img'>
         <span class='doc__title'>{$doc[file_name]}.{$file[subtype]}</span>
        </a>";

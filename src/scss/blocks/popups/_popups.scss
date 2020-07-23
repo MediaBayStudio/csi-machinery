@@ -1,15 +1,74 @@
-.overlay {
+.overlay,
+.mobile-menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 200%;
   background-color: rgba(0,0,0,.5);
-  z-index: 0;
+  z-index: 3;
   display: none;
   animation: fadeOut .5s;
   &.active {
     display: block;
     animation: fadeIn .5s;
+  }
+}
+
+.mobile-menu-overlay {
+  z-index: 1;
+}
+
+.thanks-popup {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,.75);
+  z-index: 4;
+  animation: fadeOut .5s;
+  &.active {
+    display: flex;
+    animation: fadeIn .5s;
+  }
+  &__cnt {
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    background-color: #fff;
+  }
+  &__close {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    margin: 0 0 10px auto;
+    transform: translate(10px, -15px);
+    &-icon {
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+      overflow: visible;
+      pointer-events: none;
+    }
+    &-path {
+      stroke: #16656A;
+      stroke-width: 2;
+    }
+  }
+  &__title {
+    margin-bottom: 10px;
+    font: bold 18px/100% Geometria;
+    color: $cyan;
+  }
+  &__descr {
+    font: 14px/140% Geometria;
+    color: $darkGrey;
   }
 }

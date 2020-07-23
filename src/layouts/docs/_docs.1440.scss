@@ -4,6 +4,16 @@
 
 
 .docs {
+  &-sect {
+    padding-top: 80px;
+    padding-bottom: 85px;
+    &__title {
+      margin-bottom: 15px;
+    }
+    &__descr {
+      max-width: 295px;
+    }
+  }
   &-block {
     max-width: none;
     justify-content: space-between;
@@ -18,7 +28,7 @@
    flex-flow: column;
    align-items: flex-start;
    &:nth-last-child(n+2) {
-    margin-right: 55px;
+    margin-right: 65px;
    }
   &__img {
     width: 56px;

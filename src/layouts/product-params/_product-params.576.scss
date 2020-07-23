@@ -1,3 +1,13 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.product__table-wrap {
+  // white-space: nowrap;
+  max-width: 100%;
+  margin-left: 0;
+  font-size: 9px;
+  &::before, &::after {
+    display: none;
+  }
+}

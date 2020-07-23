@@ -1,9 +1,33 @@
-.production-sect__title {
+.about-sect {
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+.about-sect__title {
   margin-bottom: 55px;
+}
+
+.about-sect__img {
+  height: 320px;
+  margin-top: -85px;
+}
+
+.partners__dots {
+  margin-top: 30px;
+}
+
+.production-sect {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.production-sect__title {
+  margin-bottom: 50px;
 }
 
 .production-sect__descr {
   max-width: 750px;
+  margin-bottom: 25px;
 }
 
 .production-sect__img {

@@ -1,0 +1,37 @@
+.contacts-form,
+.order-form {
+  max-width: none;
+}
+
+.contacts-form .field,
+.order-form .field {
+  width: 45%;
+  min-width: 185px;
+}
+
+.contacts-form .field-tel,
+.contacts-form .field-msg,
+.order-form .field-tel,
+.order-form .field-msg {
+  margin-left: calc((100vw - 420px)/(575 - 420)*(20 - 5) + 5px);
+}
+
+.contacts-form .field-email,
+.order-form .field-email {
+  margin-bottom: 0;
+}
+
+.contacts-form .check,
+.order-form .check {
+  max-width: 280px;
+}
+
+.contacts-form__bottom,
+.order-form__bottom {
+  margin-top: 35px;
+}
+
+.contacts-info__tel {
+  padding-right: 0;
+  margin-right: 65px;
+}

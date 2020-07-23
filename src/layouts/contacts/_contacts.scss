@@ -1,21 +1,30 @@
 .contacts-sect {
-  padding: 45px calc(50vw - 140px) 0;
+  // padding: 35px calc(50vw - 140px) 0;
+  padding-top: 35px;
+  padding-bottom: 0;
+  overflow: hidden;
   &__title {
-    margin-bottom: 25px;
+    margin-bottom: 35px;
   }
   &__form {
-    margin-bottom: 65px;
+    // max-width: 300px;
+    // margin: 0 auto 65px;
   }
 
   &__map {
-    margin: 20px 0 0 calc((50vw - 140px) * -1);
-    width: 100vw;
+    // margin: 20px 0 0 calc((50vw - 140px) * -1);
+    // width: 100vw;
+    margin: 20px 0;
+    width: auto;
     height: 120px;
-    background-color: $lightCyan;
+    // background-color: $lightCyan;
   }
 }
 
-.contacts-form {
+.contacts-form,
+.order-form {
+  max-width: 300px;
+  margin: 0 auto 60px;
   &__btn {
     display: flex;
     align-items: center;
@@ -24,34 +33,45 @@
     width: 180px;
     height: 50px;
   }
+  .field {
+    width: 100%;
+  }
   .field-user,
   .field-tel,
   .field-email {
     margin-bottom: 35px;
   }
   .field__inp {
-    width: 280px;
+    // width: 280px;
+    width: 100%;
+    max-width: 300px;
   }
   &__bottom {
-    margin-top: 20px;
+    margin-top: 10px;
   }
 }
 
 .contacts-info {
   display: flex;
-  flex-direction: column;
+  flex-flow: row wrap;
   align-items: flex-start;
-  font: 16px/140% Geometria;
+  font: 16px/100% Geometria;
   color: $darkGrey;
   &__address {
-    max-width: 230px;
+    // max-width: 280px;
+    max-width: 250px;
     align-items: flex-start;
+    line-height: 140%;
     > .address__text {
       margin-top: -4px;
     }
   }
+  &__tel {
+    margin: 0 auto 25px 0;
+    padding-right: 10px;
+  }
   &__email {
-    margin: 20px 0 25px;
+    margin-bottom: 25px;
   }
 }
 

@@ -1,3 +1,36 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.product-hero-sect {
+  background-color: $white;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-bottom: 40px;
+  &__title {
+    max-width: 290px;
+    width: 100%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #E5E5E5;
+    color: $darkCyan;
+    font: bold 20px/120% Geometria;
+  }
+  &__img {
+    width: 280px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 40px;
+  }
+}
+
+.product {
+  &__list {
+    max-width: 290px;
+    font: normal 14px/155% Geometria;
+    color: $darkGrey;
+    &-value {
+      font-style: normal;
+    }
+  }
+}

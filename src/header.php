@@ -5,24 +5,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<?php 
 
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri() . "/apple-touch-icon.png" ?>">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri() . "/favicon-32x32.png "?>">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri() . "/favicon-16x16.png" ?>">
-  <link rel="manifest" href="<?php echo get_template_directory_uri() . "/site.webmanifest" ?>">
-  <link rel="mask-icon" href="<?php echo get_template_directory_uri() . "/safari-pinned-tab.svg" ?>" color="#16656A ">
+  $fonts = [
+    "Geometria.woff",
+    "Geometria-Medium.woff",
+    "Geometria-Bold.woff"
+    // "SegoeUI-Bold.woff"
+  ];
+
+  foreach ($fonts as $font) : ?>
+  <link rel="preload" href="<?php echo get_template_directory_uri() . "/fonts/{$font}" ?>" as="font" type="font/woff" crossorigin>
+<?php endforeach;
+  $bodyClass = is_404() ? ' class="page404"' : '';
+?>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#16656A">
   <meta name="msapplication-TileColor" content="#16656A">
   <meta name="theme-color" content="#000000">
-
+  <script id="page-utils">
+    const DIR = "<?php echo get_template_directory_uri(); ?>",
+      SITEURL = "<?php echo site_url(); ?>";
+  </script>
   <?php
     wp_head();
     require 'layouts/_info.php';
   ?>
 </head>
 
-<body>
+<body<?php echo $bodyClass ?>>
   <noscript>
     <!-- <noindex class="noscript"> -->Для полноценного использования сайта включите JavaScript в настройках вашего браузера.
     <!-- </noindex> -->
@@ -47,11 +61,24 @@
 
     <?php require 'layouts/_mobile-menu.php'; ?>
 
-    <button type="button" class="burger">
-      <svg width="32" height="17" viewBox="0 0 32 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="burger__svg">
-        <path class="burger__line top-line" d="M1 15.4944C4.43001 14.0762 6.69983 13.0062 10.5122 13C14.9482 12.9928 17.7867 15.6376 22.2195 15.4944C26.1033 15.3689 27.7052 14.757 31 13" stroke="#16656A" stroke-width="2" stroke-linejoin="round"/>
-        <path class="burger__line middle-line" d="M1 8.99439C4.43001 7.57617 6.69983 6.50617 10.5122 6.50001C14.9482 6.49285 17.7867 9.13762 22.2195 8.99439C26.1033 8.86889 27.7052 8.25696 31 6.50001" stroke="#16656A" stroke-width="2" stroke-linejoin="round"/>
-        <path class="burger__line top-line" d="M1 3.49439C4.43001 2.07617 6.69983 1.00617 10.5122 1.00001C14.9482 0.992848 17.7867 3.63762 22.2195 3.49439C26.1033 3.36889 27.7052 2.75696 31 1.00001" stroke="#16656A" stroke-width="2" stroke-linejoin="round"/>
+    <button type="button" class="burger hdr__burger">
+      <svg width="31" height="6" viewBox="0 0 31 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="burger__svg top">
+        <path d="M1 4.3C4.5498 2.9 6.57859 2.00555 10.5498 2C15.1413 2.24498 16.0498 3.90002 21.0501 4.30002C25.0498 4.40002 25.5498 3.90002 30.0501 2.15" class="burger__line"/>
       </svg>
+      <svg width="31" height="6" viewBox="0 0 31 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="burger__svg middle">
+        <path d="M1 4.3C4.5498 2.9 6.57859 2.00555 10.5498 2C15.1413 2.24498 16.0498 3.90002 21.0501 4.30002C25.0498 4.40002 25.5498 3.90002 30.0501 2.15" class="burger__line"/>
+      </svg>
+      <svg width="31" height="6" viewBox="0 0 31 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="burger__svg bottom">
+        <path d="M1 4.3C4.5498 2.9 6.57859 2.00555 10.5498 2C15.1413 2.24498 16.0498 3.90002 21.0501 4.30002C25.0498 4.40002 25.5498 3.90002 30.0501 2.15" class="burger__line"/>
+      </svg>
+     <!--  <svg width="30" height="4" viewBox="0 0 30 4" fill="none" xmlns="http://www.w3.org/2000/svg" class="burger__svg top">
+        <path d="M1.11133 2.99551C4.28726 1.86094 6.38895 1.00494 9.91892 1.00001C14.0263 0.994281 16.6546 3.1101 20.759 2.99551C24.3551 2.89511 25.8383 2.40557 28.8891 1.00001" class="burger__line"/>
+      </svg> -->
+      <!-- <svg width="30" height="4" viewBox="0 0 30 4" fill="none" xmlns="http://www.w3.org/2000/svg" class="burger__svg middle">
+        <path d="M1.11133 2.99551C4.28726 1.86094 6.38895 1.00494 9.91892 1.00001C14.0263 0.994281 16.6546 3.1101 20.759 2.99551C24.3551 2.89511 25.8383 2.40557 28.8891 1.00001" class="burger__line"/>
+      </svg> -->
+      <!-- <svg width="30" height="4" viewBox="0 0 30 4" fill="none" xmlns="http://www.w3.org/2000/svg" class="burger__svg bottom">
+        <path d="M1.11133 2.99551C4.28726 1.86094 6.38895 1.00494 9.91892 1.00001C14.0263 0.994281 16.6546 3.1101 20.759 2.99551C24.3551 2.89511 25.8383 2.40557 28.8891 1.00001" class="burger__line"/>
+      </svg> -->
     </button>
   </header>

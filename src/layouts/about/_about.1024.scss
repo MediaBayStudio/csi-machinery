@@ -1,11 +1,13 @@
 .about-sect {
+  padding-top: 40px;
+  padding-bottom: 70px;
   &__title {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
   &__img {
     width: 260px;
     height: 355px;
-    margin: -80px 0 0 50px;
+    margin: -65px 0 0 50px;
   }
   &__descr {
     font-size: 16px;

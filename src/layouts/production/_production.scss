@@ -7,18 +7,20 @@
   display: flex;
   flex-flow: column;
   align-items: flex-start;
+  padding-top: 70px;
   &__title {
     margin-bottom: 40px;
     line-height: 100%;
   }
   &__descr {
     font: 16px/140% Geometria;
-    &:nth-of-type(n+2) {
-      margin-bottom: 30px;
-    }
+    margin-bottom: 15px;
   }
   &__img {
-    margin-top: 55px;
+    width: 100%;
+    height: 380px;
+    margin-top: 45px;
     order: 10;
+    object-fit: cover;
   }
 }

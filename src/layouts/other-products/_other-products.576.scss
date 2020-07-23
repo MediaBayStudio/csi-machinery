@@ -1,3 +1,20 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.other-products {
+  &__title {
+    font-size: 18px;
+  }
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  &__link {
+    display: inline-flex;
+    color: #C4C4C4;
+    border-bottom: 1px solid;
+    font: 16px/100% Geometria;  
+  }
+}

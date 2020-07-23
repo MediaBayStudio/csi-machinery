@@ -41,6 +41,9 @@
         margin-bottom: 25px;
       }
     }
+    .nav__link {
+      display: inline-block;
+    }
   }
   &__bottom {
     max-width: 355px;
@@ -59,18 +62,20 @@
     > .dev__link {
       display: block;
       margin-top: 5px;
-      width: 91px;
-      height: 15px;
+      // width: 91px;
+      // height: 15px;
     }
   }
   &__tel {
     grid-row: 1;
     grid-column: 1;
+    transition: color .35s;
   }
   &__email {
     margin-top: 5px;
     grid-row: 2;
     grid-column: 1;
+    transition: color .35s;
   }
 }
 
@@ -85,4 +90,16 @@
   }
 }
 
+.ftr__tel:focus {
+  outline: 0;
+  > .tel__number {
+    outline: thin dotted;
+  }
+}
 
+.ftr__email:focus {
+  outline: 0;
+  > .email__address {
+    outline: thin dotted;
+  }
+}

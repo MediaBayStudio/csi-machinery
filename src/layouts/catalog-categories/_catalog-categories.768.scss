@@ -3,14 +3,28 @@
 @import '../../scss/assets/mixins';
 
 .categories-block {
+  padding-top: 25px;
   padding-bottom: 50px;
 }
 
 .category {
-  padding: 40px;
+  padding: 30px 40px 20px;
   max-width: 295px;
+  &:first-child {
+    padding-right: 80px;
+    margin-bottom: 15px;
+  }
+  &__title {
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  &__descr {
+    &:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
+  }
 }
 
-.marine-engine {
-  padding-right: 80px;
-}
+// .marine-engine {
+//   padding-right: 80px;
+// }

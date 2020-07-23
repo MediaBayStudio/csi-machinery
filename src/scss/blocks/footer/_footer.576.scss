@@ -79,14 +79,16 @@
     padding-top: 0;
   }
   &__email {
-    margin: 25px 0 18px;
+    margin: 25px 0;
   }
   &__dev {
     margin: 0;
     .dev__link {
       display: inline-block;
-      width: 70px;
-      height: 15px;
+      // width: 70px;
+      // height: 15px;
+      font-size: 12px;
+      margin-top: 0;
     }
   }
 }

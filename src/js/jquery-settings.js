@@ -3,20 +3,18 @@ let forms;
 document.addEventListener('DOMContentLoaded', function() {
   ;(function() {
     let thanksPopupTimer,
-      callbackPopupTimer,
       thanksPopup = $('.thanks-popup'),
-      callbackPopup = $('.callback-popup'),
       overlay = $('.overlay');
   
       closeThanksPopup = function() {
         thanksPopup.css('animation', 'fadeOut .5s');
   
-        if (overlay.hasClass('active') && !callbackPopup.hasClass('active')) {
+        if (overlay.hasClass('active')) {
           overlay.css('animation', 'fadeOut .5s');
         }
       };
   
-    $('form:not(#searchform)').each(function() {
+    $('form').each(function() {
       $(this).validate({
         rules: {
           'user-name': {
@@ -29,16 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
             userPhone: true
           },
           'user-email': {
-            // required: true,
             email: true
           },
           'privacy-policy': {
             required: true,
             minlength: 1
-          },
-          'company-name': {
-            // required: true,
-            minlength: 2
           }
         },
         messages: {
@@ -52,15 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
             userPhone: 'Укажите верный номер телефона'
           },
           'user-email': {
-            // required: 'Укажите E-mail',
             email: 'Укажите верный E-mail'
           },
           'privacy-policy': {
             required: 'Согласитель с политикой обработки персональных данных'
-          },
-          'company-name': {
-            // required: 'Укажите название компании',
-            minlength: jQuery.validator.format('Название компании не может быть таким коротким')
           }
         },
         onfocusout: false,
@@ -71,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
           let inputs = form.querySelectorAll('input, textarea');
   
           for (let i = 0; i < inputs.length; i++) {
-            inputs[i].value = "";
+            inputs[i].classList.remove('filled');
           }
           
           $(this)[0].resetForm();
@@ -83,10 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
           thanksPopupTimer = setTimeout(function() {
             closeThanksPopup();
           }, 3000);
-  
-          callbackPopupTimer = setTimeout(function() {
-            callbackPopup[0].close();
-          }, 5000);
         }
         });
       });
@@ -94,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
       thanksPopup.on('click', function() {
         closeThanksPopup();
         clearTimeout(thanksPopupTimer);
-        clearTimeout(callbackPopupTimer);
       });
   
       $('.thanks-popup, .overlay').on('animationend', function() {
@@ -104,15 +87,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
   
+      // form beforesubmit validate
+      $('form .btn').on('click', function() {
+        if (!$(event.target).parents('form').valid()) {
+          event.preventDefault();
+        }
+      });
+  
     })();
+  
   
     $('.field__inp').on('input', function() {
       if ($(this).val() !== '') {
-        $(this).nextAll('.field__text').addClass('focused');
+        $(this).addClass('filled');
       } else {
-        $(this).nextAll('.field__text').removeClass('focused');
+        $(this).removeClass('filled');
       }
     });
+  
+    $('.product-name-inp').val($('.product-hero-sect__title').text());
   
   
     $.validator.methods.userPhone = function(value, element) {
@@ -128,6 +121,21 @@ document.addEventListener('DOMContentLoaded', function() {
       dot = '<button type="button" class="index-hero__dot dot"></button>',
       features = document.querySelectorAll('.feat'),
       partners = document.querySelectorAll('.partners-block__img');
+  
+    // Точки-переключатели
+    $('.partners-block, .index-hero__slider, .feat-block').on('init', function(event, slick) {
+      if (!$(this).hasClass('dots-shadowed')) {
+  
+        $(this).find('.dots').append('<li class="shadow-dot" style="transform:translateX(0)"></li>');
+  
+        $(this).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+          if (currentSlide !== nextSlide) {
+            $(this).find('.shadow-dot').css('transform', 'translateX(' + (nextSlide * 200) + '%)');
+          }
+        });
+      }
+    });
+  
   
     if (indexHeroSlides && indexHeroSlides.length > 1) {
       $('.index-hero__slider').slick({
@@ -180,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
       }
-    }
+    };
   
     if (features.length && features.length > 0) {
       window.addEventListener('resize', buildFeaturesSlider);
@@ -231,14 +239,14 @@ document.addEventListener('DOMContentLoaded', function() {
           });
         }
       }
-    }
+    };
   
     if (partners.length && partners.length > 0) {
       window.addEventListener('resize', buildPartnersSlider);
       buildPartnersSlider();
     }
   
-    
+    // настройки grab курсора на всех слайдерах
     $('.slick-list').on('mousedown', function() {
       $(this).addClass('grabbing');
     });
@@ -250,6 +258,8 @@ document.addEventListener('DOMContentLoaded', function() {
     $(document).on('mouseup', function() {
       $('.slick-list').removeClass('grabbing');
     });
+  
+    
   
   })();
   

@@ -17,7 +17,7 @@
 
       echo
       "<div class='faq'>
-        <span class='faq__symbol'></span>
+        <button type='button' class='faq__symbol'></button>
         <div class='faq__text-block'>
           <button type='button' class='faq__question'>$block[question]</button>
           <p class='faq__answer'>$block[answer]</p>

@@ -10,11 +10,18 @@
     display: flex;
     align-items: center;
     height: 44px;
+    margin: 10px 0;
   }
   &__descr {
     max-width: 183px;
   }
+  &__img {
+    width: 41px;
+    height: 52px;
+  }
   &-block {
+    padding-top: 100px;
+    padding-bottom: 70px;
     display: flex;
     justify-content: space-between;
   }

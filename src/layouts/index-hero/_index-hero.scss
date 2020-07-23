@@ -56,33 +56,40 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  font: bold 18px/140% Geometria;
+  font: bold responsive('320->575', '18->22')/140% Geometria;
+  // font-size: responsive('320->575', '18->22');
   color: $darkCyan;
   &__link {
-    width: 280px;
-    height: 150px;
+    // width: 280px;
+    // height: 150px;
+    width: 100%;
+    height: responsive('320->575', '150->190');
     padding: 20px;
     position: relative;
     background-color: $aliceBlue;
     border: 1px solid transparent;
     transition: border-color .5s;
+    overflow: hidden;
     &:nth-last-child(n+2) {
       margin-bottom: 20px;
     }
     &-title {
       display: inline-block;
       max-width: 120px;
-      position: relative;
-      text-decoration: underline transparent;
-      transition: text-decoration-color .5s .05s;
       z-index: 1;
+      > .u {
+        border-bottom: 1px solid transparent;
+        transition: border-bottom-color .5s .05s;
+      }
     }
     &-img {
       position: absolute;
       bottom: 0;
       right: 0;
-      width: 135px;
-      height: 95px;
+      // width: 135px;
+      // height: 95px;
+      width: responsive('320->575', '135->200');
+      height: responsive('320->575', '95->140');
       object-fit: contain;
       object-position: right bottom;
       font-size: 12px;

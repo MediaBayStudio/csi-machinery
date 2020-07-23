@@ -1,15 +1,17 @@
-<section class="contacts-sect sect">
+<section class="contacts-sect container">
   <h2 class="contacts-sect__title sect-title">Контакты</h2>
   <div class="contacts-form-wrapper">
     <?php echo do_shortcode('[contact-form-7 id="5" title="Форма в секции Контакты" html_class="contacts-form contacts-sect__form"]'); ?>
   </div>
   <div class="contacts-sect__info contacts-info">
     <a href="tel:<?php echo $tel_dry; ?>" class="tel contacts-info__tel">
-      <div class="tel__icon"></div>
+      <!-- <div class="tel__icon"></div> -->
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" fill="none" class="tel__icon"><path class="tel-icon__path" d="M7.869 5.961c-.204-.226-.45-.347-.711-.347-.259 0-.507.119-.719.345l-.665.706-.162-.09-.208-.119c-.623-.421-1.188-.97-1.731-1.68-.263-.354-.44-.652-.568-.954.172-.168.332-.343.488-.511l.177-.19c.442-.47.442-1.08 0-1.55l-.574-.612-.196-.213-.395-.417c-.204-.215-.448-.329-.705-.329-.257 0-.505.114-.715.329l-.004.004-.715.768c-.269.287-.423.636-.456 1.042-.05.654.13 1.263.269 1.662.341.979.85 1.886 1.609 2.858.921 1.172 2.03 2.097 3.296 2.749.484.244 1.13.533 1.851.582l.133.004c.486 0 .894-.186 1.214-.556l.008-.011c.109-.141.236-.269.368-.405l.273-.289c.208-.231.318-.5.318-.775 0-.278-.111-.544-.324-.768l-1.155-1.234z" fill="#E5E5E5"/></svg>
       <span class="tel__number"><?php echo $tel; ?></span>
     </a>
     <a href="mailto:<?php echo $email; ?>" class="email contacts-info__email">
-      <div class="email__icon"></div>
+      <!-- <div class="email__icon"></div> -->
+      <svg width="10" height="7" viewBox="0 0 10 7" xmlns="http://www.w3.org/2000/svg" fill="none" class="email__icon"><path class="email-icon__path" d="M9.121 0h-8.242c-.135 0-.262.029-.377.077l4.478 3.919 1.004-.844 3.513-3.075c-.115-.048-.241-.077-.377-.077zM9.912.44l-3.306 2.894 3.306 2.894c.055-.1.088-.211.088-.33v-5.128c0-.118-.033-.229-.088-.329zM.088.44c-.055.1-.088.211-.088.33v5.128c0 .118.033.229.088.329l3.306-2.894-3.306-2.894zM6.191 3.696l-1.004.844c-.057.05-.132.075-.207.075-.075 0-.15-.025-.207-.075l-.965-.844-3.306 2.894c.115.048.241.077.377.077h8.242c.135 0 .262-.029.377-.077l-3.306-2.894z" fill="#E5E5E5"/></svg>
       <span class="email__address"><?php echo $email; ?></span>
     </a>
     <div class="address contacts-info__address">
@@ -17,5 +19,8 @@
       <span class="address__text"><?php echo $address; ?></span>
     </div>
   </div>
-  <div class="contacts-sect__map"></div>
+  <div class="contacts-sect__map" data-coords="<?php echo get_option( 'contacts_coords' ); ?>" data-zoom="<?php echo get_option( 'contacts_zoom' ); ?>"></div>
 </section>
+<script>
+  let mapBlock=document.querySelector(".contacts-sect__map");if(mapBlock){let a=mapBlock.dataset.coords.split(/\,\s|\,/),b=+mapBlock.dataset.zoom,c="<p class=\"map__content\">"+document.querySelector(".address__text").textContent+"</p>";function initMap(){let d={lat:+a[0],lng:+a[1]},e=new google.maps.Map(mapBlock,{center:d,zoom:b}),f=new google.maps.Marker({position:d,map:e,icon:{url:"data:image/svg+xml;charset=UTF-8,"+encodeURIComponent("<svg width=\"20\" height=\"22\" viewBox=\"0 0 20 22\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.4953 13.3314L17.6618 11.1312C17.59 11.0508 17.4874 11.0048 17.3795 11.0048C17.2717 11.0048 17.1691 11.0508 17.0973 11.1312L15.2639 13.3314C15.1727 13.4407 15.153 13.5931 15.2135 13.722C15.2741 13.8508 15.4037 13.9331 15.546 13.9328H16.1292C15.5865 16.144 13.6209 17.8491 11.1458 18.2451V8.79912H14.446C14.6486 8.79912 14.8127 8.63493 14.8127 8.43243V6.96567C14.8127 6.76317 14.6486 6.59898 14.446 6.59898H11.1458V5.65289C12.4474 5.12649 13.1935 3.75141 12.9253 2.3731C12.6571 0.994968 11.4498 0 10.0457 0C8.64178 0 7.43446 0.994968 7.16625 2.3731C6.89803 3.75141 7.64413 5.12649 8.94562 5.65289V6.59898H5.64542C5.44291 6.59898 5.27873 6.76317 5.27873 6.96567V8.43243C5.27873 8.63493 5.44291 8.79912 5.64542 8.79912H8.94562V18.2451C6.47047 17.8491 4.50506 16.144 3.96237 13.9328H4.54535C4.68787 13.9331 4.8175 13.8508 4.87802 13.722C4.93854 13.5931 4.91884 13.4407 4.82771 13.3314L2.99426 11.1312C2.92246 11.0508 2.81987 11.0048 2.7119 11.0048C2.60411 11.0048 2.50152 11.0508 2.42972 11.1312L0.596273 13.3314C0.505138 13.4407 0.485443 13.5931 0.545961 13.722C0.606479 13.8508 0.736109 13.9331 0.878452 13.9328H1.69634C2.23169 17.3431 5.2055 20.0234 8.94562 20.4673V20.8999C8.94652 20.9971 8.98448 21.0904 9.05198 21.1602L9.78536 21.8936C9.93003 22.0354 10.1615 22.0354 10.3062 21.8936L11.0396 21.1602C11.1071 21.0904 11.145 20.9971 11.1458 20.8999V20.4673C14.8861 20.0234 17.8599 17.3431 18.3952 13.9328H19.2129C19.3555 13.9331 19.4851 13.8508 19.5456 13.722C19.6061 13.5931 19.5864 13.4407 19.4953 13.3314ZM10.0457 4.03215C9.43818 4.03215 8.94562 3.53959 8.94562 2.93208C8.94562 2.32458 9.43818 1.83202 10.0457 1.83202C10.6534 1.83202 11.1458 2.32458 11.1458 2.93208C11.1458 3.53959 10.6534 4.03215 10.0457 4.03215Z\" fill=\"#16656A\"/></svg>")}}),g=new google.maps.InfoWindow({content:c});g.open(e,f),f.addListener("click",function(){g.open(e,f)}),e.setOptions({styles:[{featureType:"administrative",stylers:[{visibility:"off"}]},{featureType:"road",elementType:"geometry",stylers:[{lightness:100},{visibility:"simplified"}]},{featureType:"water",elementType:"geometry",stylers:[{visibility:"on"},{color:"#C6E2FF"}]},{featureType:"poi",stylers:[{visibility:"off"}]},{featureType:"poi",elementType:"geometry.fill",stylers:[{color:"#C5E3BF"}]},{featureType:"poi.park",stylers:[{visibility:"on"}]},{featureType:"road",elementType:"geometry.fill",stylers:[{color:"#D1D1B8"}]}]})}window.addEventListener("load",function(){setTimeout(function(){let a=document.createElement("script");a.setAttribute("async","async"),a.setAttribute("src","https://maps.googleapis.com/maps/api/js?key=AIzaSyArEKRdcpho1XtXYXzOAtCYpNAMFQAkt74&callback=initMap"),document.body.appendChild(a)},1e3)})}
+</script>

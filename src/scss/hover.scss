@@ -2,6 +2,23 @@
 @import 'assets/variables';
 @import 'assets/mixins';
 
+.pagination {
+  &__prev, &__next {
+    &:hover {
+      .pagination__path {
+        // stroke: $darkCyan;
+        stroke: $gold;
+      }
+    }
+  }
+  &__number {
+    &:hover {
+      // color: $darkCyan;
+      color: $gold;
+    }
+  }
+}
+
 .hdr__nav {
   .nav__list-item {
     &:hover {
@@ -10,20 +27,25 @@
   }
 }
 
-.hdr__tel-block {
+.tel,
+.email {
   &:hover {
-    .tel-icon__path {
+    .tel-icon__path,
+    .email-icon__path {
       fill: $darkCyan;
     }
+  }
+}
+
+.about-sect__link {
+  &:hover {
+    border-bottom-color: transparent;
   }
 }
 
 .preview-catalog__link {
   &:hover {
     border-color: currentColor;
-    > .preview-catalog__link-title {
-      text-decoration-color: currentColor
-    }
     > .preview-catalog__link-img {
       right: -45px;
       transition-delay: .05s;
@@ -32,10 +54,32 @@
 }
 
 
+// Подчеркивание ссылок с .u
+.preview-catalog__link:hover > .preview-catalog__link-title,
+.category:hover > .category__title,
+.catalog-categories__link:hover {
+  > .u {
+    border-bottom-color: $darkCyan;
+  }
+}
+
+.catalog-categories__link:hover {
+  color: $darkCyan;
+}
+
+.breadcrumbs__link {
+  transition: color .4s, border-bottom-color .4s;
+  border-bottom: 1px solid transparent;
+  &:hover {
+    color: $cyan;
+    border-bottom-color: $cyan;
+  }
+}
+
 .doc {
   &:hover {
     > .doc__img {
-      opacity: 1;
+      opacity: .4;
     }
     > .doc__title {
       text-decoration-color: currentColor
@@ -44,12 +88,44 @@
 }
 
 
-.ftr__nav a:hover,
+.ftr__nav .nav__link:hover .u,
 .copyright__private-policy-link:hover {
   color: $gold;
-  text-decoration-color: $gold;
+  border-bottom-color: $gold;
 }
 
 .check__link:hover {
   color: $gold;
+}
+
+.category {
+  &:hover {
+    border-color: $darkCyan;
+    > .category__btn {
+      color: $white;
+      background-color: $cyan;
+    }
+  }
+}
+
+.dev__link,
+.ftr__tel,
+.ftr__email {
+  &:hover {
+    color: $gold;
+  }
+}
+
+.btn {
+  &:hover {
+    color: $white;
+    background-color: $cyan;
+  }
+}
+
+.btn_ol {
+  &:hover {
+    background-color: transparent;
+    color: $cyan;
+  }
 }

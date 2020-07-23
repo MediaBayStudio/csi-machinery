@@ -1,3 +1,63 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+body {
+  background-color: $cyan;
+}
+
+.catalog-hero-sect {
+  padding-top: 50px;
+  padding-bottom: 45px;
+  background:
+    url('#') center/cover no-repeat content-box,
+    url('../img/img-placeholder.svg') center/cover no-repeat content-box,
+    url('#') center/cover repeat;
+  color: $white;
+  position: relative;
+  &__wrap {
+    padding: 15px 20px 20px;
+  }
+  &__logo {
+    width: 35px;
+    height: 47px;
+  }
+  &__title {
+    max-width: 170px;
+    margin: 40px 0 10px;
+    font: bold 18px/140% Geometria;
+  }
+  &__descr {
+    font: 14px/146% Geometria;
+  }
+
+}
+
+.catalog-categories {
+  padding-bottom: 15px;
+  font: 500 18px/140% Geometria;
+  color: #616161;
+  background-color: $white;
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    transition: color .35s, transform .1s;
+    &:active {
+      transform: scale(.99);
+    }
+    > .u {
+      border-bottom: 1px solid transparent;
+      transition: border-bottom-color .35s;
+    }
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 38px;
+      height: 1px;
+      margin: 12px 12px 0 0;
+      background-color: currentColor;
+      flex-shrink: 0;
+    }
+  }
+}

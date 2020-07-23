@@ -2,54 +2,92 @@
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
 
+// 20px отступ между блоками
+$categoryBlockWidth: calc((100% - 20px) / 2);
+$categoryBlockHeight: calc((100% - 20px) / 2);
+
 .categories-block {
-  display: grid;
-  grid-template-rows: 1fr auto;
-  grid-template-columns: 1fr auto;
+  flex-flow: column wrap;
+  align-content: space-between;
+  height: 820px;
 }
 
 .category {
   padding: 40px 25px 40px 40px;
+  max-width: $categoryBlockWidth;
+  height: $categoryBlockHeight;
   &__title {
-    font-size: 24px;
     max-width: 320px;
+    margin-bottom: 10px;
+  }
+  &__descr {
+    line-height: 158%;
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
   }
   &__btn {
-    margin-top: auto
+    margin-top: auto;
   }
-  &.marine-engine {
-    width: auto;
-    max-width: 400px;
-    margin: 0 20px 0 0;
-    > .category__title {
-      max-width: 150px;
+  &:first-child {
+    height: 100%;
+    max-width: $categoryBlockWidth;
+    margin-bottom: 0;
+    padding-right: 0;
+    > .category {
+      &__title {
+        max-width: 150px;
+      }
+      &__img {
+        width: 275px;
+        height: 225px;
+      }
     }
-    > .category__img {
-      width: 275px;
-      height: 225px;
-    }
   }
-  &.marine-generators {
-    margin-bottom: 20px;
-  }
-
 }
 
-.marine-generators {
-  grid-row: 1;
-  grid-column: 2;
-  height: 360px;
-  max-width: 432px;
-}
+// .category {
+//   padding: 40px 25px 40px 40px;
+//   &__title {
+//     font-size: 24px;
+//     max-width: 320px;
+//   }
+//   &__btn {
+//     margin-top: auto
+//   }
+//   &.marine-engine {
+//     width: auto;
+//     max-width: 400px;
+//     margin: 0 20px 0 0;
+//     > .category__title {
+//       max-width: 150px;
+//     }
+//     > .category__img {
+//       width: 275px;
+//       height: 225px;
+//     }
+//   }
+//   &.marine-generators {
+//     margin-bottom: 20px;
+//   }
 
-.marine-engine {
-  grid-row: 1/span 2;
-  grid-column: 1;
-}
+// }
 
-.ground-generators {
-  grid-row: 2;
-  grid-column: 2;
-  height: 360px;
-  max-width: 432px;
-}
+// .marine-generators {
+//   grid-row: 1;
+//   grid-column: 2;
+//   height: 360px;
+//   max-width: 432px;
+// }
+
+// .marine-engine {
+//   grid-row: 1/span 2;
+//   grid-column: 1;
+// }
+
+// .ground-generators {
+//   grid-row: 2;
+//   grid-column: 2;
+//   height: 360px;
+//   max-width: 432px;
+// }

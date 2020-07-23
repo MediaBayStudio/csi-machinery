@@ -1,18 +1,28 @@
+.pagination__prev:hover .pagination__path, .pagination__next:hover .pagination__path {
+  stroke: #CAA45D;
+}
+
+.pagination__number:hover {
+  color: #CAA45D;
+}
+
 .hdr__nav .nav__list-item:hover {
   border-bottom-color: currentColor;
 }
 
-.hdr__tel-block:hover .tel-icon__path {
+.tel:hover .tel-icon__path,
+.tel:hover .email-icon__path,
+.email:hover .tel-icon__path,
+.email:hover .email-icon__path {
   fill: #103F45;
+}
+
+.about-sect__link:hover {
+  border-bottom-color: transparent;
 }
 
 .preview-catalog__link:hover {
   border-color: currentColor;
-}
-
-.preview-catalog__link:hover > .preview-catalog__link-title {
-  -webkit-text-decoration-color: currentColor;
-  text-decoration-color: currentColor;
 }
 
 .preview-catalog__link:hover > .preview-catalog__link-img {
@@ -20,8 +30,28 @@
   transition-delay: .05s;
 }
 
+.preview-catalog__link:hover > .preview-catalog__link-title > .u,
+.category:hover > .category__title > .u,
+.catalog-categories__link:hover > .u {
+  border-bottom-color: #103F45;
+}
+
+.catalog-categories__link:hover {
+  color: #103F45;
+}
+
+.breadcrumbs__link {
+  transition: color .4s, border-bottom-color .4s;
+  border-bottom: 1px solid transparent;
+}
+
+.breadcrumbs__link:hover {
+  color: #16656A;
+  border-bottom-color: #16656A;
+}
+
 .doc:hover > .doc__img {
-  opacity: 1;
+  opacity: .4;
 }
 
 .doc:hover > .doc__title {
@@ -29,13 +59,37 @@
   text-decoration-color: currentColor;
 }
 
-.ftr__nav a:hover,
+.ftr__nav .nav__link:hover .u,
 .copyright__private-policy-link:hover {
   color: #CAA45D;
-  -webkit-text-decoration-color: #CAA45D;
-  text-decoration-color: #CAA45D;
+  border-bottom-color: #CAA45D;
 }
 
 .check__link:hover {
   color: #CAA45D;
+}
+
+.category:hover {
+  border-color: #103F45;
+}
+
+.category:hover > .category__btn {
+  color: #fff;
+  background-color: #16656A;
+}
+
+.dev__link:hover,
+.ftr__tel:hover,
+.ftr__email:hover {
+  color: #CAA45D;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #16656A;
+}
+
+.btn_ol:hover {
+  background-color: transparent;
+  color: #16656A;
 }

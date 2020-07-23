@@ -1,3 +1,41 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.product-params-sect {
+  &__title {
+    padding-top: 20px;
+    margin-bottom: 50px;
+  }
+}
+
+.product-params {
+  &__table {
+    margin-bottom: 20px;
+  }
+  &__tables {
+    margin-bottom: 35px;
+  }
+}
+
+.product-params__table,
+.product-params__scheme {
+  &-title {
+    font-size: 18px;
+  }
+}
+
+.product-params__schemes {
+  padding-top: 35px;
+}
+
+.product-params__scheme {
+  &-img {
+    width: 100%;
+  }
+}
+
+.product__table-wrap {
+  font-size: 10px;
+}

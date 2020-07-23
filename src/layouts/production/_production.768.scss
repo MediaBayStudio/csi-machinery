@@ -5,9 +5,19 @@
 
 .production-sect {
   display: block;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  &__titile {
+    margin-bottom: 35px;
+  }
   &__descr {
     max-width: 400px;
     font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 148%;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   &__img {
     width: 191px;

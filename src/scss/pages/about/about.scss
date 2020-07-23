@@ -2,6 +2,14 @@
 @import '../../assets/variables';
 @import '../../assets/mixins';
 
+.about-sect {
+  padding-top: 40px;
+  padding-bottom: 0;
+  &__text-wrap {
+    margin-bottom: 45px;
+  }
+}
+
 //blocks import
 @import '../../../layouts/world-map/world-map';
 @import '../../../layouts/production/production';

@@ -1,3 +1,18 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.product-hero-sect {
+  &__title {
+    justify-self: start;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  &__img {
+    width: 295px;
+    height: 270px;
+  }
+  &__list {
+    max-width: 290px;
+  }
+}

@@ -2,38 +2,62 @@
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
 
-
 .categories-block {
   justify-content: space-between;
 }
 
 .category {
   max-width: 262px;
-  &__title {
-    font-size: 21px;
-  }
-  &__descr {
-    &:nth-child(n+2) {
-      margin-bottom: 20px;
-    }
-  }
   &:nth-last-child(n+2) {
-    margin-bottom: 0;
+    margin-bottom: 0px;
+  }
+  &:first-child {
+    max-width: none;
+    margin-bottom: 15px;
+    > .category__title {
+      max-width: none;
+    }
+    > .category__img {
+      right: 0;
+    }
+    > .category__btn {
+      margin-top: 55px;
+    }
   }
 }
 
-.category.marine-engine {
-  width: 100%;
-  max-width: none;
-  flex-shrink: 0;
-  margin-bottom: 20px;
-  > .category__title {
-    max-width: none;
-  }
-  > .category__img {
-    right: 0;
-  }
-  > .category__btn {
-    margin-top: 55px;
-  }
-}
+
+// .categories-block {
+//   justify-content: space-between;
+// }
+
+// .category {
+//   max-width: 262px;
+//   &__title {
+//     font-size: 21px;
+//   }
+//   &__descr {
+//     &:nth-child(n+2) {
+//       margin-bottom: 20px;
+//     }
+//   }
+//   &:nth-last-child(n+2) {
+//     margin-bottom: 0;
+//   }
+// }
+
+// .category.marine-engine {
+//   width: 100%;
+//   max-width: none;
+//   flex-shrink: 0;
+//   margin-bottom: 20px;
+  // > .category__title {
+  //   max-width: none;
+  // }
+  // > .category__img {
+  //   right: 0;
+  // }
+  // > .category__btn {
+  //   margin-top: 55px;
+  // }
+// }

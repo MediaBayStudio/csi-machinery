@@ -1,40 +1,40 @@
 ;(function() {
-  let faqBlocks = document.querySelectorAll('.faq'),
-    dropdownText = function(elem, i) {
-      let answer = elem[i].nextElementSibling,
-        parentFaqBlock = faqBlocks[i],
-        answerHeight = answer.scrollHeight;
+  let faqBlock = document.querySelector('.faq__block');
 
-      if (!parentFaqBlock.classList.contains('active')) {
+  if (faqBlock) {
+    let faqBlocks = faqBlock.children,
+      dropdownText = function(element) {
+        element = element || faqBlocks[0]; // если элемент не передали, то открываем первый
 
-        for (let j = 0; j < faqBlocks.length; j++) {
-          faqBlocks[j].classList.remove('active');
-          faqBlocks[j].querySelector('.faq__answer').style.maxHeight = '0px';
+        let parent = element.closest('.faq'),
+          answer = parent.querySelector('.faq__answer'),
+          answerHeight = answer.scrollHeight;
+
+        if (parent.classList.contains('active')) {
+          if (faqBlocks.length > 1) {
+            answer.style.maxHeight = '0px';
+            parent.classList.remove('active');
+          }
+        } else {
+          for (let i = 0; i < faqBlocks.length; i++) {
+            faqBlocks[i].classList.remove('active');
+            faqBlocks[i].querySelector('.faq__answer').style.maxHeight = '0px';
+          }
+
+          parent.classList.add('active');
+          answer.style.maxHeight = answerHeight + 'px';
         }
+      };
 
-        parentFaqBlock.classList.add('active');
+    dropdownText();
 
-        answer.style.maxHeight = answerHeight + 'px';
-        
-      } else {
-        if (faqBlocks.length > 1) {
-          answer.style.maxHeight = '0px';
-          parentFaqBlock.classList.remove('active');
-        }
+    faqBlock.addEventListener('click', function() {
+      let target = event.target;
+      if (target.tagName === 'BUTTON') {
+        dropdownText(target);
       }
-    };
+    });
 
-  if (faqBlocks.length) {
-
-    let faqBlocksParent = faqBlocks[0].parentElement,
-      questions = faqBlocksParent.querySelectorAll('.faq__question');
-
-      dropdownText(questions, 0);
-
-    for (let i = 0; i < questions.length; i++) {
-      questions[i].addEventListener('click', function() {
-        dropdownText(questions, i);
-      });
-    }
   }
+
 })();

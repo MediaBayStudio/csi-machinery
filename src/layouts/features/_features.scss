@@ -18,7 +18,7 @@
     object-position: bottom;
   }
   &__title {
-    margin: 15px 0;
+    margin: 20px 0 15px;
     font: 500 16px/140% Geometria;
     color: $darkCyan;
   }
@@ -31,6 +31,6 @@
     overflow: hidden;
   }
   &__dots {
-      margin-top: 30px;
+      margin: 20px auto 0;
     }
 }

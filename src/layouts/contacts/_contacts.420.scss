@@ -1,0 +1,31 @@
+@import 'assets/mixins';
+.contacts-form,
+.order-form {
+  max-width: none;
+  .field {
+    width: 45%;
+    min-width: 185px;
+  }
+  .field-tel,
+  .field-msg {
+    margin-left: responsive('420->575', '5->20');
+  }
+  .field-email {
+    margin-bottom: 0;
+  }
+
+  .check {
+    max-width: 280px;
+  }
+
+  &__bottom {
+    margin-top: 35px;
+  }
+}
+
+.contacts-info {
+  &__tel {
+    padding-right: 0;
+    margin-right: 65px;
+  }
+}

@@ -1,3 +1,21 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.product-hero-sect {
+  padding-top: 35px;
+  padding-bottom: 20px;
+  &__title {
+    max-width: 425px;
+    width: 100%;
+    justify-self: end;
+  }
+  &__img {
+    width: 350px;
+    height: 320px;
+  }
+}
+
+.product__list {
+  max-width: 425px;
+}

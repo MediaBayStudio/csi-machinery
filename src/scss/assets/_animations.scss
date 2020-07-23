@@ -1,3 +1,4 @@
+// page loader anim
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -25,6 +26,7 @@
   }
 }
 
+// fixed hdr anim
 @keyframes translateToBottom {
   from {
     transform: translateY(-100%);
@@ -33,3 +35,76 @@
     transform: translateY(0%);
   }
 }
+
+
+/* Burger menu anim START */
+  @keyframes pathBottom {
+    from {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-40%);
+    }
+    to {
+      transform: rotate(-45deg) translate(-32%, 7%);
+    }
+  }
+
+   @keyframes pathMiddle {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+
+  @keyframes pathTop {
+    from {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(40%);
+    }
+    to {
+      transform: rotate(45deg) translate(5%, -40%);
+    }
+  }
+/* Burger menu anim END */
+
+/* Burger menu reverse anim START */
+  @keyframes pathBottomReverse {
+    from {
+      transform: rotate(-45deg) translate(-32%, 7%)
+    }
+    50% {
+      transform: translateY(-40%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+
+  @keyframes pathTopReverse {
+    from {
+      transform: rotate(45deg) translate(5%, -40%);
+    }
+    50% {
+      transform: translateY(40%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+   @keyframes pathMiddleReverse {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+/* Burger menu reverse anim END */

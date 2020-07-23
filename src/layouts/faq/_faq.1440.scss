@@ -3,8 +3,9 @@
 @import '../../scss/assets/mixins';
 
 .faq-sect {
+  padding-top: 70px;
   &__descr {
-    margin-right: 125px;
+    margin-right: 110px;
     max-width: 280px;
   }
 }

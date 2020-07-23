@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Geometria';
   src: local('Geometria'),
-    url('Geometria.woff') format('woff');
+    url('../fonts/Geometria.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -10,7 +10,7 @@
 @font-face {
   font-family: 'Geometria';
   src: local('Geometria Bold'), local('Geometria-Bold'),
-    url('Geometria-Bold.woff') format('woff');
+    url('../fonts/Geometria-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -19,8 +19,26 @@
 @font-face {
   font-family: 'Geometria';
   src: local('Geometria Medium'), local('Geometria-Medium'),
-    url('Geometria-Medium.woff') format('woff');
+    url('../fonts/Geometria-Medium.woff') format('woff');
   font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// @font-face {
+//   font-family: 'Segoe UI';
+//   src: local('Segoe UI Bold'), local('SegoeUI-Bold'),
+//     url('SegoeUI-Bold.woff') format('woff');
+//   font-weight: bold;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: local('Segoe UI Semibold'), local('SegoeUI-SemiBold'),
+    url('../fonts/SegoeUI-SemiBold.woff') format('woff');
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }

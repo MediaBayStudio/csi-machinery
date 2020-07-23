@@ -1,0 +1,40 @@
+.page404 {
+  background-color: #16656a;
+}
+
+.p404 {
+  padding-top: 140px;
+  padding-bottom: 40px;
+  position: relative;
+  background: $darkCyan url('../img/404-bg.jpg') center/cover no-repeat;
+  color: $white;
+  text-align: center;
+  overflow: hidden;
+  &__img {
+    width: 195px;
+    height: 180px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: -20px;
+  }
+  &__suptitle {
+    font: bold 140px/100% Geometria;
+  }
+  &__title {
+    margin: 40px 0 30px;
+    font: bold 24px/100% Geometria;
+  }
+  &__descr {
+    max-width: 280px;
+    margin: auto;
+    font: 16px/160% Geometria;
+  }
+  &__link {
+    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
+    width: 183px;
+    height: 50px;
+  }
+}

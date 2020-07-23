@@ -5,19 +5,23 @@
     margin-bottom: 30px;
   }
   &__descr {
-    font: 16px/140% Geometria;
+    font: 16px/130% Geometria;
     color: $darkGrey;
-    &:nth-last-child(n+2) {
+    &:nth-last-of-type(n+2) {
       margin-bottom: 30px;
     }
   }
   &__link {
     font: 16px/100% Geometria;
     border-bottom: 1px solid;
+    transition: border-bottom-color .5s;
+    &:active {
+      transform: scale(.975);
+    }
     &-wrap {
       display: flex;
       align-items: center;
-      margin: 60px 0 20px;
+      margin: 80px 0 20px;
       color: $darkCyan;
       &::before {
         content: '';

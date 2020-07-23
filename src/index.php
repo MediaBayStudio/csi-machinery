@@ -15,9 +15,5 @@
   require 'layouts/docs/_docs.php';
   require 'layouts/partners/_partners.php';
   require 'layouts/contacts/_contacts.php';
-  require 'layouts/_overlay.php';
-  require 'layouts/_thanks-popup.php';
 
   get_footer();
-  
- ?>

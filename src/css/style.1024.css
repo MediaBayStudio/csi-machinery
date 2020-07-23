@@ -1,6 +1,6 @@
 .hdr {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .hdr__tel {
@@ -33,33 +33,46 @@
   margin-right: 45px;
 }
 
+.hdr__nav .nav__link {
+  display: inline-block;
+}
+
 .hdr .burger {
   display: none;
 }
 
+.about-sect {
+  padding-top: 40px;
+  padding-bottom: 70px;
+}
+
 .about-sect__title {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .about-sect__img {
   width: 260px;
   height: 355px;
-  margin: -80px 0 0 50px;
+  margin: -65px 0 0 50px;
 }
 
 .about-sect__descr {
   font-size: 16px;
 }
 
+.partners__dots {
+  margin-top: 30px;
+}
+
 .contacts-sect {
   display: flex;
   flex-wrap: wrap;
-  padding: 65px calc(50vw - 412px) 0;
+  padding-top: 0;
 }
 
 .contacts-sect__title {
   width: 100%;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .contacts-sect__form {
@@ -93,6 +106,20 @@
 
 .contacts-form .field__inp {
   width: 260px;
+}
+
+.p404 {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.p404__img {
+  top: -60px;
+  right: -100px;
+}
+
+.p404__title {
+  margin: 80px 0 30px;
 }
 
 .ftr {

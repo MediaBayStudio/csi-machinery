@@ -53,6 +53,7 @@
 }
 
 .faq-sect {
+  padding-top: 95px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: auto 1fr;
@@ -66,7 +67,7 @@
   grid-row: 1;
   -ms-grid-column: 1;
   grid-column: 1;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .faq-sect__descr {
@@ -75,7 +76,7 @@
   -ms-grid-column: 1;
   grid-column: 1;
   max-width: 260px;
-  margin: 0 45px 0 0;
+  margin: 0 20px 0 0;
 }
 
 .faq__block {

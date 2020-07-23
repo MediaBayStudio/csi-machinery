@@ -2,8 +2,23 @@
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
 
-
 .faq {
+  &.active {
+    .faq__question {
+      margin-bottom: 5px;
+    }
+  }
+  &:nth-child(n+2) {
+    margin-top: 10px;
+  }
+  &__text-block {
+    padding-bottom: 10px;
+  }
+  &-sect {
+    &__descr {
+      margin: 10px 0 35px;
+    }
+  }
   &__descr {
     margin: 20px 0 45px;
   }

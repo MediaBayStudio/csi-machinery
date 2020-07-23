@@ -1,3 +1,33 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.product-params-sect {
+  &__title {
+    font-size: 20px;
+    margin-bottom: 75px;  
+  }
+}
+
+
+.product-params__tables {
+  // max-width: 1020px;
+  max-width: 100%;
+  margin: 0 auto 65px;
+}
+
+.product__table-wrap {
+  font-size: 16px;
+}
+
+.product-params__scheme-title {
+  max-width: 1020px;
+  margin: 65px auto 0;
+}
+
+.product-params__scheme-img {
+  max-width: 1020px;
+  display: block;
+  margin: auto;
+}

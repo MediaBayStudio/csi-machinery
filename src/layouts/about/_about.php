@@ -1,7 +1,7 @@
 <?php
-  $about = get_field('about_company_add');
-  
-  if ($about) {
+  $about = get_field( 'about_company_add' );
+
+  if ( $about ) {
 
 ?>
 <section class="about-sect container sect">
@@ -9,17 +9,16 @@
   <div class="about-sect__content-wrap">
     <div class="about-sect__text-wrap">
       <?php
-        $about_paragraphs = get_field('about_company_p_repeater', 'about_company_4');
+        $about_paragraphs = get_field( 'about_company_p_repeater', 'about_company_4' );
 
-        foreach ($about_paragraphs as $p) {
+        foreach ( $about_paragraphs as $p ) {
           echo "<p class='about-sect__descr'>$p[p]</p>";
         }
 
-        if (!is_page_template('about.php')) {
-          $about_page_url = get_the_permalink(13);
+        if ( ! is_page_template('about.php') ) {
           echo 
             "<div class='about-sect__link-wrap'>
-              <a href='$about_page_url' class='about-sect__link'>Подробнее</a>
+              <a href='about/' title='Перейти на страницу о компании' class='about-sect__link'>Подробнее</a>
             </div>";
         }
       ?>

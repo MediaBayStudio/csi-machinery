@@ -1,4 +1,7 @@
-.dot {
+.dots > li {
   width: 10px;
   height: 10px;
+  &:nth-last-child(n+2) {
+    margin-right: 10px;
+  }
 }

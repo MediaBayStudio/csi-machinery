@@ -1,3 +1,7 @@
+.breadcrumbs {
+  padding-right: 20px;
+}
+
 .check {
   font-size: 14px;
 }
@@ -7,12 +11,19 @@
   height: 15px;
 }
 
+.check > label.invalid {
+  margin-left: 25px;
+}
+
+.check__text {
+  width: calc(100% - 25px);
+}
+
 .field {
   font-size: 16px;
 }
 
-.field__inp:focus ~ .field__text,
-.field__text.focused {
+.field__inp:focus ~ .field__text, .field__inp.filled ~ .field__text {
   top: -16px;
   font-size: 12px;
 }
@@ -35,9 +46,13 @@
   margin-bottom: 40px;
 }
 
-.dot {
+.dots > li {
   width: 10px;
   height: 10px;
+}
+
+.dots > li:nth-last-child(n+2) {
+  margin-right: 10px;
 }
 
 .hdr__tel {
@@ -48,10 +63,6 @@
   font: 14px/100% Geometria;
 }
 
-.contacts-sect {
-  padding: 45px calc(50vw - 268px) 0;
-}
-
 .contacts-sect__form {
   display: flex;
   flex-wrap: wrap;
@@ -60,28 +71,42 @@
 }
 
 .contacts-sect__map {
+  width: 100vw;
   margin: 45px 0 0 calc((50vw - 268px) * -1);
   height: 200px;
 }
 
-.contacts-form .field__inp {
+.contacts-form .field,
+.order-form .field {
+  width: auto;
+}
+
+.contacts-form .field__inp,
+.order-form .field__inp {
   width: 260px;
 }
 
 .contacts-form .field-user,
-.contacts-form .field-tel {
+.contacts-form .field-tel,
+.order-form .field-user,
+.order-form .field-tel {
   margin-bottom: 50px;
 }
 
-.contacts-form .field-email {
-  margin-bottom: 0;
+.contacts-form .field-tel,
+.contacts-form .field-msg,
+.order-form .field-tel,
+.order-form .field-msg {
+  margin-left: 0;
 }
 
-.contacts-form .check {
+.contacts-form .check,
+.order-form .check {
   max-width: 285px;
 }
 
-.contacts-form__bottom {
+.contacts-form__bottom,
+.order-form__bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -89,7 +114,8 @@
   margin-top: 35px;
 }
 
-.contacts-form__btn {
+.contacts-form__btn,
+.order-form__btn {
   margin: 0;
 }
 
@@ -114,7 +140,7 @@
   grid-row: 2;
   -ms-grid-column: 1;
   grid-column: 1;
-  margin: 12px 0 0;
+  margin: 0;
 }
 
 .contacts-info__address {
@@ -138,6 +164,36 @@
   width: 15px;
   height: 15px;
   margin-right: 12px;
+}
+
+.p404 {
+  padding-top: 85px;
+  padding-bottom: 160px;
+}
+
+.p404__img {
+  width: 440px;
+  height: 500px;
+  right: -200px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.p404__suptitle {
+  font-size: 250px;
+}
+
+.p404__title {
+  margin: 200px 0 30px;
+  font-size: 30px;
+}
+
+.p404__descr {
+  max-width: 320px;
+}
+
+.p404__link {
+  margin-top: 60px;
 }
 
 .ftr {
@@ -247,7 +303,7 @@
 }
 
 .ftr__email {
-  margin: 25px 0 18px;
+  margin: 25px 0;
 }
 
 .ftr__dev {
@@ -256,6 +312,6 @@
 
 .ftr__dev .dev__link {
   display: inline-block;
-  width: 70px;
-  height: 15px;
+  font-size: 12px;
+  margin-top: 0;
 }

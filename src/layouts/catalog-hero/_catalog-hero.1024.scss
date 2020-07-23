@@ -1,3 +1,41 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.catalog-hero-sect {
+  // padding-bottom: 15px;
+  min-height: 400px;
+  &__wrap {
+    padding: 25px 80px 50px 45px;
+  }
+  &__title {
+    margin: 55px 0 15px 0;
+    font-size: 30px;
+  }
+  &__descr {
+    font-size: 16px;
+    max-width: none;
+  }
+  &__logo {
+    width: 73px;
+    height: 100px;
+  }
+}
+
+.catalog-categories {
+  font-size: 18px;
+  &__link {
+    &::before {
+      width: 38px;
+      margin: 12px 12px 0 0;
+    }
+  }
+}
+
+.category {
+  &-next {
+    &::before {
+      margin: 14px 0 0 12px;
+    }
+  }
+}

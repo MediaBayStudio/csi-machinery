@@ -1,3 +1,18 @@
+.categories-block {
+  height: 805px;
+  padding-top: 20px;
+}
+
+.category {
+  max-width: 692px;
+  width: 100%;
+  padding-top: 35px;
+}
+
+.category__title {
+  margin-bottom: 10px;
+}
+
 .category__img {
   width: 285px;
   height: 210px;
@@ -8,27 +23,115 @@
   font-size: 16px;
 }
 
-.category__descr:nth-last-child(n+2) {
-  margin-bottom: 35px;
-}
-
 .category__btn {
   height: 50px;
 }
 
-.category.marine-engine {
-  max-width: none;
-  width: 490px;
+.category:first-child {
+  max-width: 488px;
 }
 
-.category.marine-engine > .category__img {
+.category:first-child > .category__img {
   width: 310px;
   height: 240px;
 }
 
-.marine-generators,
-.ground-generators {
-  max-width: none;
-  width: 692px;
-  height: 355px;
+.catalog-hero-sect {
+  padding-bottom: 15px;
+}
+
+.catalog-hero-sect__wrap {
+  padding: 20px 445px 40px 45px;
+}
+
+.catalog-products__wrap {
+  margin-bottom: 50px;
+}
+
+.product {
+  max-width: 285px;
+  margin-bottom: 50px;
+}
+
+.product:nth-of-type(3n+3) {
+  margin-right: 20px;
+}
+
+.product:nth-of-type(4n+4), .product:last-of-type {
+  margin-right: 0;
+  margin-bottom: 50px;
+}
+
+.product__img {
+  height: 190px;
+}
+
+.product__descr {
+  max-width: 285px;
+}
+
+.product-hero-sect {
+  padding-top: 60px;
+  padding-bottom: 85px;
+}
+
+.product-hero-sect__title {
+  margin-bottom: 10px;
+  max-width: 510px;
+  font-size: 24px;
+}
+
+.product-hero-sect__img {
+  width: 590px;
+  height: 385px;
+}
+
+.product__list {
+  max-width: 510px;
+  font-size: 16px;
+}
+
+.product-params-sect__title {
+  font-size: 20px;
+  margin-bottom: 75px;
+}
+
+.product-params__tables {
+  max-width: 100%;
+  margin: 0 auto 65px;
+}
+
+.product__table-wrap {
+  font-size: 16px;
+}
+
+.product-params__scheme-title {
+  max-width: 1020px;
+  margin: 65px auto 0;
+}
+
+.product-params__scheme-img {
+  max-width: 1020px;
+  display: block;
+  margin: auto;
+}
+
+.order-sect {
+  background-size: 510px 385px, 100%;
+}
+
+.order-sect__title {
+  margin-bottom: 65px;
+}
+
+.order-sect__contacts-info {
+  margin-top: 80px;
+}
+
+.order-form {
+  max-width: 590px;
+}
+
+.order-form .field__inp {
+  width: 285px;
 }

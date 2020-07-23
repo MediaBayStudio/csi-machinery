@@ -1,3 +1,26 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.order-sect {
+  background: 
+    // url('../img/order-sect-img.jpg') top right/258px 365px no-repeat content-box,
+    url('../img/big-logo.svg') top right/258px 365px no-repeat content-box,
+    linear-gradient(to left, #fff, #fff);
+  &__title {
+    margin-bottom: 50px;
+  }
+  &__form {
+    max-width: 540px;
+    margin-left: 0;
+    .field__inp {
+      width: 260px;
+    }
+  }
+  &__contacts-info {
+    margin-top: 75px;
+    > .email {
+      margin: 0;
+    }
+  }
+}

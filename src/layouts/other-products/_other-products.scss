@@ -1,3 +1,22 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.other-products {
+  background-color: #fff;
+  &__title {
+    margin-bottom: 15px;
+    font: bold 16px/110% Geometria;
+    color: $darkCyan;
+  }
+  &__top {
+    width: 100%;
+    flex-shrink: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #E5E5E5;
+  }
+  &__link {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+.thanks-popup {
+  &__cnt {
+    max-width: 430px;
+    padding: 40px 65px 75px;
+  }
+  &__close {
+    width: 25px;
+    height: 25px;
+    padding: 3px;
+    margin: 0 0 30px auto;
+    transform: translate(50px, -30px);
+  }
+  &__title {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  &__descr {
+    font-size: 16px;
+  }
+}

@@ -11,7 +11,7 @@
         // $lazy_class = ($i === 0) ? ' lazy_fast' : ' lazy';
         $lazy_class = ' lazy';
 
-        $logo = ($slide['logo']) ? "<img src='" . get_template_directory_uri() . "/img/logo-white.svg' alt='Логотип C.S.I. Machinery' class='index-hero__slide-logo'>" : '';
+        $logo = ($slide['logo']) ? "<img src='#' data-src='" . get_template_directory_uri() . "/img/logo-white.svg' alt='Логотип C.S.I. Machinery' class='index-hero__slide-logo lazy'>" : '';
 
         $img_320 = $slide['img_320']['url'];
         $img_1440 = $slide['img_1440']['url'];
@@ -27,19 +27,21 @@
   <div class="index-hero__preview-catalog preview-catalog">
   <?php
     $index_hero_links = $index_hero_fields['links'];
+    // var_dump($index_hero_links);
 
-    foreach ($index_hero_links as $link) {
-      $term_id = $link->term_id;
-      $term_title = $link->name;;
-      $img = get_field('category_img', 'post_category_' . $term_id);
-      $img_url = $img['url'];
-      $img_alt = $term_title;
+    foreach ( $index_hero_links as $term ) {
+      $term_title = $term->name;
+      $term_preview_img = get_field( 'category_img', $term );
+      $src = $term_preview_img['url'];
+      $alt = $term_preview_img['alt'];
+      $link = get_category_link( $term->term_id );
 
+      $title_words = wrap_words('<span class="u">', '</span>', $term_title);
       echo
       "
-        <a href='#' class='preview-catalog__link disabled' data-id='$term_id'>
-          <strong class='preview-catalog__link-title'>$term_title</strong>
-          <img src='#' data-src='$img_url' alt='$img_alt' class='preview-catalog__link-img lazy'>
+        <a href='$link' class='preview-catalog__link' data-id='$term_id' title='Перейти на страницу $alt'>
+          <strong class='preview-catalog__link-title'>$title_words</strong>
+          <img src='$src' alt='$alt' class='preview-catalog__link-img'>
         </a>
       ";
     }

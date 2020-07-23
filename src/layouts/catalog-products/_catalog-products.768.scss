@@ -1,3 +1,62 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+
+.catalog-products {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  &__more-btn {
+    margin: 0 0 0 auto;
+  }
+  &__counter {
+    &-block {
+      display: flex;
+      align-items: center;
+      font: 16px/100% Geometria;
+      color: #C4C4C4;
+      // color: #000;
+    }
+  }
+}
+
+$product_margin_bottom: 30px;
+$product_margin_right: 27px;
+
+.product {
+  margin: 0;
+  max-width: 290px;
+  margin: 0 0 $product_margin_bottom;
+  &:nth-of-type(odd) {
+    margin-right: $product_margin_right;
+  }
+  &:last-of-type {
+    margin-right: 0;
+    margin-bottom: $product_margin_bottom;
+  }
+  &__img {
+    height: 195px;
+  }
+  &__title {
+    margin: 35px 0 15px;
+  }
+  &__descr {
+    max-width: 290px; // для ie
+    > br {
+      display: none;
+    }
+  }
+}
+
+.catalog-empty,
+.catalog-error {
+  font-size: 18px;
+}

@@ -1,12 +1,27 @@
 .contacts-sect {
-  padding: 65px calc(50vw - 304px) 0;
+  // padding: 40px calc(50vw - 304px) 0;
+  padding-top: 20px;
+  &__form {
+    margin-bottom: 75px;
+  }
   &__map {
     margin-left: calc((50vw - 304px) * -1);
+    height: 180px;
   }
 }
 
-.contacts-form {
+.contacts-sect__title,
+.order-sect__title {
+  margin-bottom: 60px;
+}
+
+.contacts-form,
+.order-form {
   .field__inp {
     width: 285px;
+  }
+  .field-user,
+  .field-tel {
+    margin-bottom: 55px;
   }
 }

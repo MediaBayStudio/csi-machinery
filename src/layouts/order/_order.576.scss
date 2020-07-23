@@ -1,3 +1,20 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.order-sect {
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: none;
+  }
+  &__contacts-info {
+    // max-width: 415px;
+    max-width: 490px;
+    display: flex;
+    margin: 40px 0 0;
+  }
+}
+
+// order-form in contats

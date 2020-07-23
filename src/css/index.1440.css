@@ -36,9 +36,26 @@
   justify-content: flex-start;
 }
 
+.faq-sect {
+  padding-top: 70px;
+}
+
 .faq-sect__descr {
-  margin-right: 125px;
+  margin-right: 110px;
   max-width: 280px;
+}
+
+.docs-sect {
+  padding-top: 80px;
+  padding-bottom: 85px;
+}
+
+.docs-sect__title {
+  margin-bottom: 15px;
+}
+
+.docs-sect__descr {
+  max-width: 295px;
 }
 
 .docs-block {
@@ -57,7 +74,7 @@
 }
 
 .doc:nth-last-child(n+2) {
-  margin-right: 55px;
+  margin-right: 65px;
 }
 
 .doc__img {

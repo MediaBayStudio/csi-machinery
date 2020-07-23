@@ -1,3 +1,28 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/variables';
 @import '../../scss/assets/mixins';
+
+.catalog-products {
+  &__wrap {
+    margin-bottom: 50px;
+  }
+}
+
+.product {
+  max-width: 285px;
+  margin-bottom: 50px;
+  &:nth-of-type(3n+3) {
+    margin-right: 20px;
+  }
+  &:nth-of-type(4n+4),
+  &:last-of-type {
+    margin-right: 0;
+    margin-bottom: 50px;
+  }
+  &__img {
+    height: 190px;
+  }
+  &__descr {
+    max-width: 285px; // для ie
+  }
+}
