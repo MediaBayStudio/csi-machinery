@@ -8,19 +8,17 @@
       <a href="#" rel="noopener noreferrer nofollow" target="_blank" class="copyright__private-policy-link">Политика конфиденциальности</a>
     </div>
   </div>
-  <div class="ftr__middle">
-    <?php 
-      wp_nav_menu([
-        'theme_location'  => 'footer_menu',
-        'container'       => 'nav',
-        'container_class' => 'nav ftr__nav',
-        'menu_class'      => 'nav__list',
-        'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
-      ]);
-    ?>
+  <div class="ftr__middle"> <?php 
+    wp_nav_menu([
+      'theme_location'  => 'footer_menu',
+      'container'       => 'nav',
+      'container_class' => 'nav ftr__nav',
+      'menu_class'      => 'nav__list',
+      'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
+    ]) ?>
   </div>
-  <div class="ftr__bottom">
-    <?php require 'layouts/_info.php'; ?>
+  <div class="ftr__bottom"> <?php
+    require 'layouts/_info.php' ?>
     <a href="tel:<?php echo $tel_dry; ?>" class="tel ftr__tel">
       <span class="tel__number"><?php echo $tel; ?></span>
     </a>
@@ -32,13 +30,10 @@
       <a href="https://media-bay.ru/" rel="noopener noreferrer nofollow" target="_blank" class="dev__link" title="Перейти на сайт разработчика">media bay</a>
     </div>
   </div>
-</footer>
-
-<?php
+</footer> <?php
   require 'layouts/_overlay.php';
   require 'layouts/_thanks-popup.php';
-  wp_footer();
-?>
+  wp_footer() ?>
 </body>
 
 </html>

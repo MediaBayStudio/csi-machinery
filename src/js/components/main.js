@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
   //=include main/_dropdownText.js
   //=include main/_telMask.js
 
+  //=include jquery-settings/_forms.js
+  //=include jquery-settings/_sliders.js
+
   // Корректировка высоты таблиц характеристик товаров, чтобы убрать горизонтальный скролл
   let productTableWrappers = document.querySelectorAll('.product__table-wrap'),
     setTableWrapHeight = function() {

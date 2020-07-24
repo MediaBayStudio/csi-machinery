@@ -196,27 +196,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     let buildPartnersSlider = function() {
+      // если ширина экрана больше 578px и слайдов меньше 4, то слайдера не будет
       if (matchMedia('(min-width: 575.98px)').matches && partners.length < 4) {
         if ($('.partners-block').hasClass('slick-slider')) {
           $('.partners-block').slick('unslick');
         }
+      // если ширина экрана больше 1440px и слайдов меньше 7, то слайдера не будет
       } else if (matchMedia('(min-width: 1439.98px)').matches && partners.length < 7) {
         if ($('.partners-block').hasClass('slick-slider')) {
           $('.partners-block').slick('unslick');
         }
+      // в других случаях делаем слайдер
       } else {
         if ($('.partners-block').hasClass('slick-slider')) {
+          // слайдер уже создан
           return;
         }
         if (partners.length && partners.length > 2) {
           $('.partners-block').slick({
+            // appendDots: $('element'),
+            // appendArrows: $('element'),
+            // autoplay: true,
+            // autoplaySpeed: 3000,
+            // adaptiveHeight: false,
+            // asNavFor: $('element'),
+            // centerMode: false,
+            // centerPadding: '50px',
+            // cssEase: 'ease',
+            // draggable: true,
+            // slide: 'selector',
             accessibility: false,
             slidesToShow: 2,
             slidesToScroll: 1,
             infinite: true,
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 3000,
+            arrows: false, // true by default
             dots: true,
             dotsClass: 'partners__dots dots',
             customPaging: function() {
@@ -247,16 +260,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     // настройки grab курсора на всех слайдерах
-    $('.slick-list').on('mousedown', function() {
+    $('.slick-list.draggable').on('mousedown', function() {
       $(this).addClass('grabbing');
     });
   
-    $('.slick-list').on('beforeChange', function() {
+    $('.slick-list.draggable').on('beforeChange', function() {
       $(this).removeClass('grabbing');
     });
   
     $(document).on('mouseup', function() {
-      $('.slick-list').removeClass('grabbing');
+      $('.slick-list.draggable').removeClass('grabbing');
     });
   
     

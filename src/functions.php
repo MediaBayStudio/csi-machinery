@@ -26,9 +26,9 @@ function load_catalog( $term_id, $post_offset=0, $posts_per_page=12 ) {
     $post_offset = $_POST['postOffset'];
     $posts_per_page = $_POST['postsPerPage'];
   }
-  
 
-  $request = ['length' => get_category( $term_id )->category_count];  // общее кол-во постов категории
+
+    $request = ['length' => get_category( $term_id )->category_count];  // общее кол-во постов категории
 
   if ( $term_id ) {
     $products = get_posts( [
@@ -72,11 +72,11 @@ function load_catalog( $term_id, $post_offset=0, $posts_per_page=12 ) {
 }
 
 function the_breadcrumb( $settings ) {
- 
-  // получаем номер текущей страницы
+
+   // получаем номер текущей страницы
   $pageNum = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
- 
-  $separator = ' / ';
+
+   $separator = ' / ';
 
   // создаем все переменые-аргументы
   $container_start = $settings['container_start'];
@@ -141,13 +141,13 @@ function the_breadcrumb( $settings ) {
       if ( $after_links ) {
         echo $after_links;
       }
-      
-      // выводим закрывающий тег обертки
+
+            // выводим закрывающий тег обертки
       if ( $container_end ) {
         echo $container_end;
       }
- 
-    } elseif ( is_page() ) { // если страница
+
+     } elseif ( is_page() ) { // если страница
       $current_page_id = get_post(0)->ID;
       $current_page_parents = get_ancestors( $current_page_id, 'page' );
 
@@ -163,8 +163,8 @@ function the_breadcrumb( $settings ) {
 
             echo "{$link_before}<a href='{$page_link}' $class>$page_title</a>{$link_after}";
           }
-          
-        }
+
+                  }
       }
 
       if ( $current_link_class ) {
@@ -187,8 +187,8 @@ function the_breadcrumb( $settings ) {
       if ( $container_end ) {
         echo $container_end;
       }
- 
-    } elseif ( is_category() ) {  // если страница категории
+
+     } elseif ( is_category() ) {  // если страница категории
       $current_category = get_category( get_query_var('cat') );
       $parent_category = get_term( $current_category->parent );
 
@@ -303,7 +303,7 @@ add_action( 'wp_enqueue_scripts', function() {
     'lazy.min',
     'simpleMenu.min',
     // 'simplePopup.min',
-    'jquery-settings',
+    // 'jquery-settings',
     'main'
   ];
 
@@ -337,7 +337,7 @@ add_action( 'wp_enqueue_scripts', function() {
       'lazy.min',
       'simpleMenu.min',
       // 'simplePopup.min',
-      'jquery-settings',
+      // 'jquery-settings',
       'main'
     ];
 
@@ -578,8 +578,8 @@ function rename_posts_labels( $labels ){
 // Создание полей по умолчанию в повторителе acf (характеристики товара)
 add_filter( 'acf/load_value/key=field_5e7cd0fadd700',  function( $value, $post_id, $field ) {
   if ( get_post_status( $post_id ) === 'auto-draft' ) {
-          
-    $props = [
+
+              $props = [
       'Номинальная мощность',
       'Тип двигателя',
       'Цилиндры',
