@@ -45,11 +45,7 @@ window.addEventListener('resize', setVh);
 setVh();
 
 document.addEventListener('DOMContentLoaded', function() {
-  
-  lazy = new lazyload({
-    clearSrc: true,
-    clearMedia: true
-  });
+
 
   hdr = document.querySelector('.hdr');
   overlay = document.querySelector('.overlay');
@@ -767,6 +763,22 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', setTableWrapHeight);
   }
 
+  let mapBlock = document.querySelector('#contacts-map');
+
+  if (mapBlock) {
+    let ymapsInit = function() {
+      let tag = document.createElement('script');
+
+      tag.setAttribute('src', 'https://api-maps.yandex.ru/2.1/?apikey=82596a7c-b060-47f9-9fb6-829f012a9f04&lang=ru_RU&onload=ymapsOnload');
+      document.body.appendChild(tag);
+
+      mapBlock.removeEventListener('lazyloaded', ymapsInit);
+
+    };
+
+    mapBlock.addEventListener('lazyloaded', ymapsInit);
+  }
+
   // Корректировка высоты изображения в секции "о производстве"
   let productionSect = document.querySelector('.production-sect');
 
@@ -774,7 +786,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let setElementSize = function() {
       if (window.matchMedia('(min-width:1023.98px)').matches) {
         let img = productionSect.children[0];
-          parentStyles = getComputedStyle(productionSect);
+        parentStyles = getComputedStyle(productionSect);
         img.style.height = productionSect.clientHeight - parentStyles.paddingTop.slice(0, -2) - parentStyles.paddingBottom.slice(0, -2) + 'px';
       } else {
         let img = productionSect.children[0];
@@ -782,8 +794,13 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
     setElementSize();
-    window.addEventListener('resize', setElementSize); 
+    window.addEventListener('resize', setElementSize);
   }
+
+  lazy = new lazyload({
+    clearSrc: true,
+    clearMedia: true
+  });
 
   // lazyload встака google maps
   // let mapBlock = document.querySelector('.contacts-sect__map');
